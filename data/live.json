@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T09:31:53Z",
+  "updated_at": "2026-09-18T09:38:10Z",
   "source": "Yahoo Finance + CoinGecko",
   "thai": {
     "BAFS.BK": {
@@ -19,9 +19,9 @@
       "cur": "THB"
     },
     "TKC.BK": {
-      "price": 8.75,
-      "chgDay": -0.568,
-      "chg52w": -9.32642487046632,
+      "price": 8.55,
+      "chgDay": -2.841,
+      "chg52w": -11.398963730569944,
       "hi52": 11.4,
       "lo52": 7.2,
       "cur": "THB"
@@ -35,9 +35,9 @@
       "cur": "THB"
     },
     "MRDIYT.BK": {
-      "price": 8.85,
-      "chgDay": 1.143,
-      "chg52w": 1.7241379310344973,
+      "price": 8.8,
+      "chgDay": 0.571,
+      "chg52w": 1.1494252873563315,
       "hi52": 12.2,
       "lo52": 7.0,
       "cur": "THB"
@@ -51,9 +51,9 @@
       "cur": "THB"
     },
     "VIBHA.BK": {
-      "price": 1.35,
-      "chgDay": 0.0,
-      "chg52w": -6.249999999999989,
+      "price": 1.34,
+      "chgDay": -0.735,
+      "chg52w": -6.94444444444443,
       "hi52": 1.66,
       "lo52": 1.32,
       "cur": "THB"
@@ -67,9 +67,9 @@
       "cur": "THB"
     },
     "LOXLEY.BK": {
-      "price": 1.79,
-      "chgDay": 4.678,
-      "chg52w": 18.5430463576159,
+      "price": 1.8,
+      "chgDay": 5.263,
+      "chg52w": 19.20529801324504,
       "hi52": 1.87,
       "lo52": 1.2,
       "cur": "THB"
@@ -407,183 +407,183 @@
   },
   "crypto": {
     "SOL": {
-      "price": 106.0,
-      "chg24h": 5.3803,
+      "price": 105.88,
+      "chg24h": 5.13535,
       "chg7d": 6.4,
       "chg30d": 37.9,
-      "volmcap": 6.986994254394799,
-      "fromath": -63.86036,
+      "volmcap": 6.960887262665668,
+      "fromath": -63.90139,
       "mcapRank": 7
     },
     "DOGE": {
-      "price": 0.085134,
-      "chg24h": 4.77602,
+      "price": 0.08516,
+      "chg24h": 4.74679,
       "chg7d": 1.2,
       "chg30d": 21.3,
-      "volmcap": 5.685832913233593,
-      "fromath": -88.36296,
+      "volmcap": 5.796661056929389,
+      "fromath": -88.35947,
       "mcapRank": 12
     },
     "ADA": {
-      "price": 0.214649,
-      "chg24h": 7.50605,
+      "price": 0.214582,
+      "chg24h": 7.25547,
       "chg7d": 3.4,
       "chg30d": 22.6,
-      "volmcap": 6.863444480217512,
-      "fromath": -93.04648,
+      "volmcap": 6.670324294835675,
+      "fromath": -93.04864,
       "mcapRank": 19
     },
     "LTC": {
-      "price": 55.53,
-      "chg24h": 5.31457,
+      "price": 55.59,
+      "chg24h": 5.2578,
       "chg7d": 5.1,
       "chg30d": 25.4,
-      "volmcap": 6.058225622106363,
-      "fromath": -86.46406,
+      "volmcap": 6.021498011752945,
+      "fromath": -86.45025,
       "mcapRank": 28
     },
     "AVAX": {
-      "price": 7.94,
-      "chg24h": 4.91783,
+      "price": 7.93,
+      "chg24h": 4.85239,
       "chg7d": 6.0,
       "chg30d": 24.9,
-      "volmcap": 8.64621238174308,
-      "fromath": -94.52536,
+      "volmcap": 8.884222566768644,
+      "fromath": -94.52781,
       "mcapRank": 30
     },
     "SUI": {
-      "price": 0.787434,
-      "chg24h": 9.03552,
+      "price": 0.789438,
+      "chg24h": 9.22808,
       "chg7d": 6.5,
       "chg30d": 19.6,
-      "volmcap": 17.436637740812543,
-      "fromath": -85.27217,
+      "volmcap": 17.546433792215307,
+      "fromath": -85.23468,
       "mcapRank": 33
     },
     "TAO": {
-      "price": 248.46,
-      "chg24h": 9.10223,
+      "price": 248.89,
+      "chg24h": 8.86342,
       "chg7d": 5.1,
       "chg30d": 29.1,
-      "volmcap": 7.573723131934493,
-      "fromath": -67.20393,
+      "volmcap": 7.615690061579837,
+      "fromath": -67.14715,
       "mcapRank": 37
     },
     "ASTER": {
-      "price": 0.752841,
-      "chg24h": 2.73048,
+      "price": 0.752014,
+      "chg24h": 2.7697,
       "chg7d": 6.4,
       "chg30d": 25.7,
-      "volmcap": 5.283338723676642,
-      "fromath": -68.74539,
+      "volmcap": 5.173909096910929,
+      "fromath": -68.77974,
       "mcapRank": 46
     },
     "DOT": {
-      "price": 1.15,
-      "chg24h": 13.77307,
+      "price": 1.16,
+      "chg24h": 14.72949,
       "chg7d": 3.2,
       "chg30d": 52.4,
-      "volmcap": 14.863607101861447,
-      "fromath": -97.90859,
-      "mcapRank": 49
+      "volmcap": 14.89753428832323,
+      "fromath": -97.89268,
+      "mcapRank": 48
     },
     "WLD": {
-      "price": 0.433296,
-      "chg24h": 15.54665,
+      "price": 0.431733,
+      "chg24h": 14.74849,
       "chg7d": 8.5,
       "chg30d": 36.5,
-      "volmcap": 21.361814605394386,
-      "fromath": -96.30942,
-      "mcapRank": 56
+      "volmcap": 18.945406724992406,
+      "fromath": -96.32274,
+      "mcapRank": 57
     },
     "POL": {
-      "price": 0.099963,
-      "chg24h": 3.67811,
+      "price": 0.099948,
+      "chg24h": 3.58005,
       "chg7d": 7.5,
       "chg30d": 22.4,
-      "volmcap": 11.7255491038217,
-      "fromath": -92.23628,
+      "volmcap": 11.52264247685494,
+      "fromath": -92.23741,
       "mcapRank": 72
     },
     "ATOM": {
       "price": 1.65,
-      "chg24h": 6.9759,
+      "chg24h": 7.26239,
       "chg7d": -6.0,
       "chg30d": 17.3,
-      "volmcap": 6.203566437381201,
-      "fromath": -96.23491,
-      "mcapRank": 81
+      "volmcap": 6.224042028337583,
+      "fromath": -96.22719,
+      "mcapRank": 80
     },
     "JUP": {
-      "price": 0.255763,
-      "chg24h": 12.91776,
+      "price": 0.254495,
+      "chg24h": 12.2712,
       "chg7d": 9.1,
       "chg30d": 52.4,
-      "volmcap": 12.629873913675313,
-      "fromath": -87.21193,
+      "volmcap": 12.652413110330205,
+      "fromath": -87.27532,
       "mcapRank": 83
     },
     "RENDER": {
       "price": 1.51,
-      "chg24h": 8.52992,
+      "chg24h": 8.27238,
       "chg7d": 8.4,
       "chg30d": 20.1,
-      "volmcap": 7.9495766498911715,
-      "fromath": -88.83545,
+      "volmcap": 7.941117028287822,
+      "fromath": -88.842,
       "mcapRank": 86
     },
     "ETHFI": {
-      "price": 0.681921,
-      "chg24h": 13.2197,
+      "price": 0.679611,
+      "chg24h": 13.11857,
       "chg7d": -0.3,
       "chg30d": 40.8,
-      "volmcap": 8.781907560520247,
-      "fromath": -92.00459,
+      "volmcap": 8.843114319044492,
+      "fromath": -92.03168,
       "mcapRank": 92
     },
     "INJ": {
       "price": 6.35,
-      "chg24h": 13.14051,
+      "chg24h": 12.82629,
       "chg7d": 6.0,
       "chg30d": 49.7,
-      "volmcap": 18.041312427012727,
-      "fromath": -87.92736,
+      "volmcap": 18.18305705618653,
+      "fromath": -87.92769,
       "mcapRank": 95
     },
     "APT": {
-      "price": 0.670931,
-      "chg24h": 16.30212,
+      "price": 0.67249,
+      "chg24h": 16.4259,
       "chg7d": 5.6,
       "chg30d": 25.2,
-      "volmcap": 28.293509628252316,
-      "fromath": -96.63198,
+      "volmcap": 26.49461693338741,
+      "fromath": -96.62416,
       "mcapRank": 98
     },
     "TRUMP": {
       "price": 2.04,
-      "chg24h": 4.64594,
+      "chg24h": 4.9165,
       "chg7d": 4.0,
       "chg30d": 45.8,
-      "volmcap": 32.70799881230773,
-      "fromath": -97.22563,
+      "volmcap": 32.86324700418765,
+      "fromath": -97.22003,
       "mcapRank": 99
     },
     "CRV": {
-      "price": 0.336745,
-      "chg24h": 5.41184,
+      "price": 0.336634,
+      "chg24h": 5.28336,
       "chg7d": -2.6,
       "chg30d": 42.6,
-      "volmcap": 14.365699768085433,
-      "fromath": -97.80938,
+      "volmcap": 14.42047159418635,
+      "fromath": -97.8101,
       "mcapRank": 104
     },
     "STX": {
-      "price": 0.274886,
-      "chg24h": 14.70623,
+      "price": 0.27482,
+      "chg24h": 14.723,
       "chg7d": 8.0,
       "chg30d": 132.5,
-      "volmcap": 6.359279600426469,
-      "fromath": -92.88658,
+      "volmcap": 4.893775438635075,
+      "fromath": -92.88827,
       "mcapRank": 106
     }
   }
