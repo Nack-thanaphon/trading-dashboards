@@ -176,7 +176,7 @@ function numVal(s) { // "+341.5%" -> 341.5 ; "14.11x" -> 14.11 ; "—" -> NaN
 
 /* ================= data layer ================= */
 const LIVE = {thai: {}, us: {}, crypto: {}};
-const FETCH_STATE = {phase: 'idle', errors: []};
+const FETCH_STATE = {phase: 'idle', errors: [], hasCache: false, lastOk: ''};
 
 async function fetchJSON(url, timeoutMs) {
   const ctrl = new AbortController();
@@ -186,6 +186,23 @@ async function fetchJSON(url, timeoutMs) {
     if (!r.ok) throw new Error('HTTP ' + r.status);
     return await r.json();
   } finally { clearTimeout(t); }
+}
+
+async function loadCachedLive() {
+  try {
+    const cached = await fetchJSON('data/live.json?v=' + Date.now(), 8000);
+    for (const market of ['thai', 'us', 'crypto']) {
+      Object.assign(LIVE[market], cached[market] || {});
+    }
+    FETCH_STATE.hasCache = true;
+    const date = new Date(cached.updated_at);
+    FETCH_STATE.lastOk = Number.isNaN(date.getTime())
+      ? cached.updated_at
+      : date.toLocaleString('th-TH', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'});
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 /* Yahoo chart endpoint: one call per symbol gives price, day change, 52w band, sparkline */
@@ -431,15 +448,21 @@ async function refreshAll() {
   const t0 = performance.now();
   const thaiSyms = SNAPSHOT.thai.map(r => r.ticker);
   const usSyms = SNAPSHOT.us.map(r => r.ticker);
-  const [cryptoRes] = await Promise.allSettled([
-    loadCrypto().then(d => { Object.assign(LIVE.crypto, d); return 'ok'; }),
-    loadYahoo(thaiSyms, LIVE.thai, null).then(errs => { if (errs.length) FETCH_STATE.errors.push('Thai: ' + errs.join(', ')); }),
-    loadYahoo(usSyms, LIVE.us, null).then(errs => { if (errs.length) FETCH_STATE.errors.push('US: ' + errs.join(', ')); })
-  ]);
+  const onPages = location.hostname.endsWith('github.io');
+  const jobs = [loadCrypto().then(d => { Object.assign(LIVE.crypto, d); return 'ok'; })];
+  if (onPages) {
+    jobs.push(loadCachedLive());
+  } else {
+    jobs.push(loadYahoo(thaiSyms, LIVE.thai, null).then(errs => { if (errs.length) FETCH_STATE.errors.push('Thai: ' + errs.join(', ')); }));
+    jobs.push(loadYahoo(usSyms, LIVE.us, null).then(errs => { if (errs.length) FETCH_STATE.errors.push('US: ' + errs.join(', ')); }));
+  }
+  const [cryptoRes] = await Promise.allSettled(jobs);
   if (cryptoRes.status === 'rejected') FETCH_STATE.errors.push('CoinGecko: ' + (cryptoRes.reason?.message || cryptoRes.reason));
   const secs = ((performance.now() - t0) / 1000).toFixed(1);
-  FETCH_STATE.phase = FETCH_STATE.errors.length ? 'partial' : 'done';
-  FETCH_STATE.lastOk = new Date().toLocaleTimeString('th-TH', {hour: '2-digit', minute: '2-digit'});
+  FETCH_STATE.phase = FETCH_STATE.errors.length ? (FETCH_STATE.hasCache ? 'cached' : 'partial') : 'done';
+  if (!onPages && !FETCH_STATE.errors.length) {
+    FETCH_STATE.lastOk = new Date().toLocaleTimeString('th-TH', {hour: '2-digit', minute: '2-digit'});
+  }
   btn.disabled = false; icon.classList.remove('spin');
   renderStatus();
   switchTab(activeTab); // re-render active table with live data
@@ -448,15 +471,17 @@ async function refreshAll() {
 function renderStatus() {
   const el = $('statusBar');
   if (FETCH_STATE.phase === 'loading') {
-    el.innerHTML = `<div class="state-msg">กำลังดึงราคาสดจาก Yahoo Finance และ CoinGecko…</div>`;
+    el.innerHTML = '';
+  } else if (FETCH_STATE.phase === 'cached') {
+    el.innerHTML = `<div class="status-note">Yahoo ไม่อนุญาตให้รีเฟรชตรงจากหน้าเว็บ — กำลังแสดงข้อมูลล่าสุดที่อัปเดตโดย GitHub Actions</div>`;
   } else if (FETCH_STATE.phase === 'partial') {
-    el.innerHTML = `<div class="state-msg error">ดึงข้อมูลสดบางส่วนไม่สำเร็จ (${esc(FETCH_STATE.errors.join(' · ')).slice(0, 200)}) — แสดง snapshot แทน</div>`;
+    el.innerHTML = `<div class="status-note error">รีเฟรชข้อมูลบางส่วนไม่สำเร็จ — แสดงข้อมูลล่าสุดที่มี</div>`;
   } else if (FETCH_STATE.phase === 'done') {
     el.innerHTML = '';
   } else el.innerHTML = '';
 }
 
-function init() {
+async function init() {
   // headers for main tables
   const stockHeads = ['Ticker','Company','Price','Day','52w','Earnings Growth','Revenue Growth','P/E','Analysts','Upside','Red Flags'];
   const stockHeadHtml = stockHeads.map((h, i) => `<th class="${i >= 2 ? 'num' : ''}">${h}<span class="arrow">↕</span></th>`).join('');
@@ -500,6 +525,7 @@ function init() {
 
   // deep-link: #us / #crypto or ?tab=us
   const wanted = new URLSearchParams(location.search).get('tab') || (location.hash || '').replace('#', '');
+  await loadCachedLive();
   switchTab(['thai', 'us', 'crypto'].includes(wanted) ? wanted : 'thai');
   window.addEventListener('hashchange', () => {
     const k = (location.hash || '').replace('#', '');
