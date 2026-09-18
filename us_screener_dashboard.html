@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <title>US Stock Screener Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇺🇸</text></svg>">
 <style>
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #e6e6e6; margin: 0; padding: 24px; }
-  h1 { font-size: 20px; margin-bottom: 4px; }
-  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
-  .meta { color: #9aa0a6; font-size: 13px; margin-bottom: 20px; }
-  .summary { display: flex; gap: 16px; margin-bottom: 20px; }
-  .card { background: #1a1d29; border-radius: 8px; padding: 14px 20px; }
-  .card .num { font-size: 26px; font-weight: 700; }
-  .card .label { font-size: 12px; color: #9aa0a6; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #1a1d29; border-radius: 8px; overflow: hidden; }
-  th { text-align: left; background: #23273a; padding: 10px 8px; font-size: 12px; color: #9aa0a6; cursor: pointer; user-select: none; }
-  th:hover { color: #ffffff; }
-  td { padding: 8px; border-top: 1px solid #2a2e40; vertical-align: middle; }
-  .new-row { background: #1f3a2a; }
-  .badge { background: #1a9850; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
-  .barwrap { display:inline-block; width: 80px; height: 8px; background:#2a2e40; border-radius:4px; vertical-align:middle; margin-left:6px; overflow:hidden; }
-  .bar { height: 8px; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0b0d13; color: #e6e6e6;
+         margin: 0; padding: 0 0 40px; }
+  .topnav { display: flex; gap: 4px; padding: 10px 20px; background: #14161f;
+            border-bottom: 1px solid #23273a; position: sticky; top: 0; z-index: 20; }
+  .navlink { color: #9aa0a6; text-decoration: none; padding: 8px 16px; border-radius: 8px;
+             font-size: 14px; transition: background 0.15s, color 0.15s; }
+  .navlink:hover { background: #1f2333; color: #fff; }
+  .navlink.active { background: #2a3550; color: #fff; font-weight: 600; }
+  .page { padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  h2 { font-size: 16px; margin-top: 36px; margin-bottom: 10px; color: #d0d3da; }
+  .meta { color: #7d8290; font-size: 12.5px; margin-bottom: 18px; line-height: 1.6; }
+  .note { background: #171a26; border: 1px solid #262b3d; border-radius: 10px; padding: 12px 16px;
+          font-size: 12.5px; color: #a8adb8; margin-bottom: 20px; line-height: 1.6; }
+  .summary { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
+  .card { background: #171a26; border: 1px solid #232838; border-radius: 10px; padding: 14px 18px;
+          min-width: 120px; }
+  .card .num { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .card .label { font-size: 11.5px; color: #7d8290; margin-top: 2px; }
+  .searchbox { width: 100%; max-width: 320px; padding: 9px 14px; margin-bottom: 14px;
+               background: #171a26; border: 1px solid #2a2f42; border-radius: 8px;
+               color: #e6e6e6; font-size: 13px; }
+  .searchbox::placeholder { color: #666c7a; }
+  .searchbox:focus { outline: none; border-color: #4a5a8a; }
+  .tablewrap { overflow-x: auto; border-radius: 10px; border: 1px solid #232838; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #12141c; }
+  thead th { position: sticky; top: 48px; text-align: left; background: #1a1d2b; padding: 11px 10px;
+             font-size: 11.5px; color: #9aa0a6; cursor: pointer; user-select: none; white-space: nowrap;
+             border-bottom: 1px solid #2a2f42; }
+  thead th:hover { color: #ffffff; }
+  thead th .arrow { opacity: 0.4; font-size: 10px; margin-left: 3px; }
+  thead th.sorted .arrow { opacity: 1; color: #7aa2ff; }
+  td { padding: 9px 10px; border-top: 1px solid #1d212f; vertical-align: middle; }
+  tbody tr:hover { background: #161925; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .new-row { background: #142a1c !important; }
+  .badge { background: #1a9850; color: white; font-size: 9.5px; padding: 2px 7px; border-radius: 10px;
+           margin-left: 6px; vertical-align: middle; }
+  .barwrap { display:inline-block; width: 70px; height: 7px; background:#232838; border-radius:4px;
+             vertical-align:middle; margin-left:6px; overflow:hidden; }
+  .bar { height: 7px; }
   .flag-none { color: #6fbf73; }
   .flag-warn { color: #e0a030; font-size: 12px; }
   .event-added { color: #6fbf73; font-weight: 600; }
   .event-removed { color: #e05a5a; font-weight: 600; }
+  .empty-state { text-align: center; padding: 30px; color: #666c7a; font-size: 13px; }
 </style></head>
 <body>
+  <div class="topnav"><a href="combined_dashboard.html" class="navlink">🌐 All Markets</a><a href="thai_screener_dashboard.html" class="navlink">🇹🇭 Thai</a><a href="us_screener_dashboard.html" class="navlink active">🇺🇸 US</a><a href="crypto_screener_dashboard.html" class="navlink">₿ Crypto</a></div>
+  <div class="page">
   <h1>US Stock Screener Dashboard</h1>
-  <div class="meta">Last run: 2026-09-18 11:42 SE Asia Standard Time &nbsp;|&nbsp; Market cap floor: 10B USD &nbsp;|&nbsp; Separate from the Thai screener (own schedule, own history)</div>
+  <div class="meta">Last run: 2026-09-18 15:33 SE Asia Standard Time · Market cap floor: 10B USD · Separate from the Thai screener (own schedule, own history)</div>
   <div class="summary">
     <div class="card"><div class="num">73</div><div class="label">Candidates (showing top 40)</div></div>
     <div class="card"><div class="num">0</div><div class="label">New since last run</div></div>
@@ -35,500 +65,510 @@
     <div class="card"><div class="num">—</div><div class="label">Avg realized return</div></div>
     <div class="card"><div class="num">+0.0%</div><div class="label">Avg unrealized return</div></div>
   </div>
+  <input class="searchbox" placeholder="🔍 Search ticker or company..." oninput="filterTable(this)">
+  <div class="tablewrap">
   <table id="candidatesTable">
-    <tr><th onclick="sortTable(0)">Ticker &#8597;</th><th onclick="sortTable(1)">Company &#8597;</th>
-        <th onclick="sortTable(2)">Price &#8597;</th><th onclick="sortTable(3)">52w Change &#8597;</th>
-        <th onclick="sortTable(4)">Earnings Growth &#8597;</th><th onclick="sortTable(5)">Revenue Growth &#8597;</th>
-        <th onclick="sortTable(6)">P/E &#8597;</th><th onclick="sortTable(7)">Analysts &#8597;</th>
-        <th onclick="sortTable(8)">Upside &#8597;</th><th onclick="sortTable(9)">Red Flags &#8597;</th></tr>
-    
+    <thead><tr>
+        <th onclick="sortTable(0)">Ticker<span class="arrow">↕</span></th>
+        <th onclick="sortTable(1)">Company<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(2)">Price<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(3)">52w Change<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(4)">Earnings Growth<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(5)">Revenue Growth<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(6)">P/E<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(7)">Analysts<span class="arrow">↕</span></th>
+        <th class="num" onclick="sortTable(8)">Upside<span class="arrow">↕</span></th>
+        <th onclick="sortTable(9)">Red Flags<span class="arrow">↕</span></th></tr></thead>
+    <tbody>
         <tr class="">
-          <td>NLY </td>
+          <td>NLY</td>
           <td>Annaly Capital Management, Inc.</td>
-          <td>21.31</td>
-          <td>-2.2%</td>
-          <td>+3426.0% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+479.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>5.12x</td>
-          <td>11</td>
-          <td>+13.7%</td>
+          <td class="num">21.31</td>
+          <td class="num">-2.2%</td>
+          <td class="num">+3426.0% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+479.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">5.12x</td>
+          <td class="num">11</td>
+          <td class="num">+13.7%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>HON </td>
+          <td>HON</td>
           <td>Honeywell International Inc.</td>
-          <td>206.49</td>
-          <td>+0.3%</td>
-          <td>+263.9% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+4.3% <div class="barwrap"><div class="bar" style="width:2.9%;background:#1a9850;float:left"></div></div></td>
-          <td>7.98x</td>
-          <td>22</td>
-          <td>+27.5%</td>
+          <td class="num">206.49</td>
+          <td class="num">+0.3%</td>
+          <td class="num">+263.9% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+4.3% <div class="barwrap"><div class="bar" style="width:2.9%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">7.98x</td>
+          <td class="num">22</td>
+          <td class="num">+27.5%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>ZM </td>
+          <td>ZM</td>
           <td>Zoom Communications, Inc.</td>
-          <td>92.16</td>
-          <td>+5.9%</td>
-          <td>+342.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+4.9% <div class="barwrap"><div class="bar" style="width:3.3%;background:#1a9850;float:left"></div></div></td>
-          <td>8.54x</td>
-          <td>25</td>
-          <td>+28.3%</td>
+          <td class="num">92.16</td>
+          <td class="num">+5.9%</td>
+          <td class="num">+342.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+4.9% <div class="barwrap"><div class="bar" style="width:3.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">8.54x</td>
+          <td class="num">25</td>
+          <td class="num">+28.3%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>SKHY </td>
+          <td>SKHY</td>
           <td>SK hynix Inc.</td>
-          <td>182.99</td>
-          <td>+4.1%</td>
-          <td>+1272.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+256.8% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>10.85x</td>
-          <td>14</td>
-          <td>+35.8%</td>
+          <td class="num">182.99</td>
+          <td class="num">+4.1%</td>
+          <td class="num">+1272.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+256.8% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">10.37x</td>
+          <td class="num">14</td>
+          <td class="num">+35.8%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>CINF </td>
+          <td>CINF</td>
           <td>Cincinnati Financial Corporation</td>
-          <td>169.90</td>
-          <td>+9.4%</td>
-          <td>+85.5% <div class="barwrap"><div class="bar" style="width:57.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+31.6% <div class="barwrap"><div class="bar" style="width:21.1%;background:#1a9850;float:left"></div></div></td>
-          <td>8.06x</td>
-          <td>6</td>
-          <td>+12.8%</td>
+          <td class="num">169.90</td>
+          <td class="num">+9.4%</td>
+          <td class="num">+85.5% <div class="barwrap"><div class="bar" style="width:57.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+31.6% <div class="barwrap"><div class="bar" style="width:21.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">8.06x</td>
+          <td class="num">6</td>
+          <td class="num">+12.8%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>DRD </td>
+          <td>DRD</td>
           <td>DRDGOLD Limited</td>
-          <td>26.11</td>
-          <td>-0.6%</td>
-          <td>+82.2% <div class="barwrap"><div class="bar" style="width:54.8%;background:#1a9850;float:left"></div></div></td>
-          <td>+49.8% <div class="barwrap"><div class="bar" style="width:33.2%;background:#1a9850;float:left"></div></div></td>
-          <td>8.45x</td>
-          <td>1</td>
-          <td>+34.0%</td>
+          <td class="num">26.11</td>
+          <td class="num">-0.6%</td>
+          <td class="num">+82.2% <div class="barwrap"><div class="bar" style="width:54.8%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+49.8% <div class="barwrap"><div class="bar" style="width:33.2%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">8.45x</td>
+          <td class="num">1</td>
+          <td class="num">+34.0%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>EIX </td>
+          <td>EIX</td>
           <td>Edison International</td>
-          <td>55.50</td>
-          <td>-1.5%</td>
-          <td>+55.1% <div class="barwrap"><div class="bar" style="width:36.7%;background:#1a9850;float:left"></div></div></td>
-          <td>-4.1% <div class="barwrap"><div class="bar" style="width:2.7%;background:#d73027;float:right"></div></div></td>
-          <td>5.66x</td>
-          <td>14</td>
-          <td>+21.0%</td>
+          <td class="num">55.50</td>
+          <td class="num">-1.5%</td>
+          <td class="num">+55.1% <div class="barwrap"><div class="bar" style="width:36.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">-4.1% <div class="barwrap"><div class="bar" style="width:2.7%;background:#d73027;float:right"></div></div></td>
+          <td class="num">5.66x</td>
+          <td class="num">14</td>
+          <td class="num">+21.0%</td>
           <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
         </tr>
         <tr class="">
-          <td>GFI </td>
+          <td>GFI</td>
           <td>Gold Fields Limited</td>
-          <td>43.34</td>
-          <td>+1.6%</td>
-          <td>+81.4% <div class="barwrap"><div class="bar" style="width:54.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+78.9% <div class="barwrap"><div class="bar" style="width:52.6%;background:#1a9850;float:left"></div></div></td>
-          <td>8.55x</td>
-          <td>8</td>
-          <td>+14.1%</td>
+          <td class="num">43.34</td>
+          <td class="num">+1.6%</td>
+          <td class="num">+81.4% <div class="barwrap"><div class="bar" style="width:54.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+78.9% <div class="barwrap"><div class="bar" style="width:52.6%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">8.55x</td>
+          <td class="num">8</td>
+          <td class="num">+14.1%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>BPOPO </td>
+          <td>BPOPO</td>
           <td>Popular, Inc.</td>
-          <td>25.10</td>
-          <td>+1.6%</td>
-          <td>+40.9% <div class="barwrap"><div class="bar" style="width:27.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+7.6% <div class="barwrap"><div class="bar" style="width:5.1%;background:#1a9850;float:left"></div></div></td>
-          <td>2.28x</td>
-          <td>0</td>
-          <td>—</td>
+          <td class="num">25.10</td>
+          <td class="num">+1.6%</td>
+          <td class="num">+40.9% <div class="barwrap"><div class="bar" style="width:27.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+7.6% <div class="barwrap"><div class="bar" style="width:5.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">2.28x</td>
+          <td class="num">0</td>
+          <td class="num">—</td>
           <td class="flag-warn">no_analyst_coverage_unusual_for_us_largecap</td>
         </tr>
         <tr class="">
-          <td>AMZN </td>
+          <td>AMZN</td>
           <td>Amazon.com, Inc.</td>
-          <td>251.19</td>
-          <td>+6.3%</td>
-          <td>+242.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+19.6% <div class="barwrap"><div class="bar" style="width:13.1%;background:#1a9850;float:left"></div></div></td>
-          <td>19.79x</td>
-          <td>59</td>
-          <td>+30.7%</td>
+          <td class="num">251.19</td>
+          <td class="num">+6.3%</td>
+          <td class="num">+242.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+19.6% <div class="barwrap"><div class="bar" style="width:13.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">19.79x</td>
+          <td class="num">59</td>
+          <td class="num">+30.7%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>YUM </td>
+          <td>YUM</td>
           <td>Yum! Brands, Inc.</td>
-          <td>135.75</td>
-          <td>-5.3%</td>
-          <td>+131.6% <div class="barwrap"><div class="bar" style="width:87.7%;background:#1a9850;float:left"></div></div></td>
-          <td>+12.2% <div class="barwrap"><div class="bar" style="width:8.1%;background:#1a9850;float:left"></div></div></td>
-          <td>17.08x</td>
-          <td>23</td>
-          <td>+27.4%</td>
+          <td class="num">135.75</td>
+          <td class="num">-5.3%</td>
+          <td class="num">+131.6% <div class="barwrap"><div class="bar" style="width:87.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+12.2% <div class="barwrap"><div class="bar" style="width:8.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">17.36x</td>
+          <td class="num">23</td>
+          <td class="num">+27.4%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>PEP </td>
+          <td>PEP</td>
           <td>PepsiCo, Inc.</td>
-          <td>133.66</td>
-          <td>-5.2%</td>
-          <td>+137.0% <div class="barwrap"><div class="bar" style="width:91.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+6.4% <div class="barwrap"><div class="bar" style="width:4.3%;background:#1a9850;float:left"></div></div></td>
-          <td>17.61x</td>
-          <td>22</td>
-          <td>+16.0%</td>
+          <td class="num">133.66</td>
+          <td class="num">-5.2%</td>
+          <td class="num">+137.0% <div class="barwrap"><div class="bar" style="width:91.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+6.4% <div class="barwrap"><div class="bar" style="width:4.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">17.61x</td>
+          <td class="num">22</td>
+          <td class="num">+16.0%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>JLL </td>
+          <td>JLL</td>
           <td>Jones Lang LaSalle Incorporated</td>
-          <td>336.84</td>
-          <td>+6.8%</td>
-          <td>+97.8% <div class="barwrap"><div class="bar" style="width:65.2%;background:#1a9850;float:left"></div></div></td>
-          <td>+10.8% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
-          <td>16.31x</td>
-          <td>10</td>
-          <td>+26.3%</td>
+          <td class="num">336.84</td>
+          <td class="num">+6.8%</td>
+          <td class="num">+97.8% <div class="barwrap"><div class="bar" style="width:65.2%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+10.8% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">16.31x</td>
+          <td class="num">10</td>
+          <td class="num">+26.3%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>HIG </td>
+          <td>HIG</td>
           <td>The Hartford Insurance Group, Inc.</td>
-          <td>133.14</td>
-          <td>+3.0%</td>
-          <td>+36.1% <div class="barwrap"><div class="bar" style="width:24.1%;background:#1a9850;float:left"></div></div></td>
-          <td>+8.1% <div class="barwrap"><div class="bar" style="width:5.4%;background:#1a9850;float:left"></div></div></td>
-          <td>9.32x</td>
-          <td>20</td>
-          <td>+12.2%</td>
+          <td class="num">133.14</td>
+          <td class="num">+3.0%</td>
+          <td class="num">+36.1% <div class="barwrap"><div class="bar" style="width:24.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+8.1% <div class="barwrap"><div class="bar" style="width:5.4%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">9.32x</td>
+          <td class="num">20</td>
+          <td class="num">+12.2%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>PAYP </td>
+          <td>PAYP</td>
           <td>PayPay Corporation</td>
-          <td>17.91</td>
-          <td>-2.8%</td>
-          <td>+62.2% <div class="barwrap"><div class="bar" style="width:41.5%;background:#1a9850;float:left"></div></div></td>
-          <td>+27.0% <div class="barwrap"><div class="bar" style="width:18.0%;background:#1a9850;float:left"></div></div></td>
-          <td>15.05x</td>
-          <td>13</td>
-          <td>+35.8%</td>
+          <td class="num">17.91</td>
+          <td class="num">-2.8%</td>
+          <td class="num">+62.2% <div class="barwrap"><div class="bar" style="width:41.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+27.0% <div class="barwrap"><div class="bar" style="width:18.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">15.05x</td>
+          <td class="num">13</td>
+          <td class="num">+35.2%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>WPC </td>
+          <td>WPC</td>
           <td>W. P. Carey Inc.</td>
-          <td>66.52</td>
-          <td>-1.3%</td>
-          <td>+256.5% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+18.4% <div class="barwrap"><div class="bar" style="width:12.3%;background:#1a9850;float:left"></div></div></td>
-          <td>22.78x</td>
-          <td>13</td>
-          <td>+20.7%</td>
+          <td class="num">66.52</td>
+          <td class="num">-1.3%</td>
+          <td class="num">+256.5% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+18.4% <div class="barwrap"><div class="bar" style="width:12.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">22.78x</td>
+          <td class="num">13</td>
+          <td class="num">+20.7%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>SF </td>
+          <td>SF</td>
           <td>Stifel Financial Corp.</td>
-          <td>75.51</td>
-          <td>-1.4%</td>
-          <td>+50.6% <div class="barwrap"><div class="bar" style="width:33.7%;background:#1a9850;float:left"></div></div></td>
-          <td>+12.7% <div class="barwrap"><div class="bar" style="width:8.5%;background:#1a9850;float:left"></div></div></td>
-          <td>13.51x</td>
-          <td>8</td>
-          <td>+17.9%</td>
+          <td class="num">75.51</td>
+          <td class="num">-1.4%</td>
+          <td class="num">+50.6% <div class="barwrap"><div class="bar" style="width:33.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+12.7% <div class="barwrap"><div class="bar" style="width:8.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">13.51x</td>
+          <td class="num">8</td>
+          <td class="num">+17.9%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>AFL </td>
+          <td>AFL</td>
           <td>Aflac Incorporated</td>
-          <td>116.60</td>
-          <td>+8.1%</td>
-          <td>+46.8% <div class="barwrap"><div class="bar" style="width:31.2%;background:#1a9850;float:left"></div></div></td>
-          <td>-1.0% <div class="barwrap"><div class="bar" style="width:0.7%;background:#d73027;float:right"></div></div></td>
-          <td>12.59x</td>
-          <td>15</td>
-          <td>+1.7%</td>
+          <td class="num">116.60</td>
+          <td class="num">+8.1%</td>
+          <td class="num">+46.8% <div class="barwrap"><div class="bar" style="width:31.2%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">-1.0% <div class="barwrap"><div class="bar" style="width:0.7%;background:#d73027;float:right"></div></div></td>
+          <td class="num">12.59x</td>
+          <td class="num">15</td>
+          <td class="num">+1.7%</td>
           <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
         </tr>
         <tr class="">
-          <td>AFG </td>
+          <td>AFG</td>
           <td>American Financial Group, Inc.</td>
-          <td>142.87</td>
-          <td>+1.2%</td>
-          <td>+44.3% <div class="barwrap"><div class="bar" style="width:29.5%;background:#1a9850;float:left"></div></div></td>
-          <td>+5.8% <div class="barwrap"><div class="bar" style="width:3.9%;background:#1a9850;float:left"></div></div></td>
-          <td>12.50x</td>
-          <td>6</td>
-          <td>+9.1%</td>
+          <td class="num">142.87</td>
+          <td class="num">+1.2%</td>
+          <td class="num">+44.3% <div class="barwrap"><div class="bar" style="width:29.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+5.8% <div class="barwrap"><div class="bar" style="width:3.9%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">12.50x</td>
+          <td class="num">6</td>
+          <td class="num">+9.1%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>NXPI </td>
+          <td>NXPI</td>
           <td>NXP Semiconductors N.V.</td>
-          <td>227.95</td>
-          <td>-2.3%</td>
-          <td>+72.6% <div class="barwrap"><div class="bar" style="width:48.4%;background:#1a9850;float:left"></div></div></td>
-          <td>+19.5% <div class="barwrap"><div class="bar" style="width:13.0%;background:#1a9850;float:left"></div></div></td>
-          <td>18.68x</td>
-          <td>29</td>
-          <td>+36.5%</td>
+          <td class="num">227.95</td>
+          <td class="num">-2.3%</td>
+          <td class="num">+72.6% <div class="barwrap"><div class="bar" style="width:48.4%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+19.5% <div class="barwrap"><div class="bar" style="width:13.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">18.68x</td>
+          <td class="num">29</td>
+          <td class="num">+36.5%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>GEN </td>
+          <td>GEN</td>
           <td>Gen Digital Inc.</td>
-          <td>30.21</td>
-          <td>+5.7%</td>
-          <td>+64.0% <div class="barwrap"><div class="bar" style="width:42.7%;background:#1a9850;float:left"></div></div></td>
-          <td>+6.3% <div class="barwrap"><div class="bar" style="width:4.2%;background:#1a9850;float:left"></div></div></td>
-          <td>17.88x</td>
-          <td>9</td>
-          <td>+9.2%</td>
+          <td class="num">30.21</td>
+          <td class="num">+5.7%</td>
+          <td class="num">+64.0% <div class="barwrap"><div class="bar" style="width:42.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+6.3% <div class="barwrap"><div class="bar" style="width:4.2%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">17.88x</td>
+          <td class="num">9</td>
+          <td class="num">+9.2%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>UMBF </td>
+          <td>UMBF</td>
           <td>UMB Financial Corporation</td>
-          <td>134.76</td>
-          <td>+9.5%</td>
-          <td>+26.2% <div class="barwrap"><div class="bar" style="width:17.5%;background:#1a9850;float:left"></div></div></td>
-          <td>+12.2% <div class="barwrap"><div class="bar" style="width:8.1%;background:#1a9850;float:left"></div></div></td>
-          <td>11.16x</td>
-          <td>16</td>
-          <td>+25.5%</td>
+          <td class="num">134.76</td>
+          <td class="num">+9.5%</td>
+          <td class="num">+26.2% <div class="barwrap"><div class="bar" style="width:17.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+12.2% <div class="barwrap"><div class="bar" style="width:8.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">11.16x</td>
+          <td class="num">16</td>
+          <td class="num">+25.5%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>UHS </td>
+          <td>UHS</td>
           <td>Universal Health Services, Inc.</td>
-          <td>180.75</td>
-          <td>-3.9%</td>
-          <td>+10.1% <div class="barwrap"><div class="bar" style="width:6.7%;background:#1a9850;float:left"></div></div></td>
-          <td>+8.3% <div class="barwrap"><div class="bar" style="width:5.5%;background:#1a9850;float:left"></div></div></td>
-          <td>7.40x</td>
-          <td>17</td>
-          <td>+7.3%</td>
+          <td class="num">180.75</td>
+          <td class="num">-3.9%</td>
+          <td class="num">+10.1% <div class="barwrap"><div class="bar" style="width:6.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+8.3% <div class="barwrap"><div class="bar" style="width:5.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">7.40x</td>
+          <td class="num">17</td>
+          <td class="num">+7.3%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>UDR </td>
+          <td>UDR</td>
           <td>UDR, Inc.</td>
-          <td>34.21</td>
-          <td>-7.8%</td>
-          <td>+90.9% <div class="barwrap"><div class="bar" style="width:60.6%;background:#1a9850;float:left"></div></div></td>
-          <td>-0.1% <div class="barwrap"><div class="bar" style="width:0.1%;background:#d73027;float:right"></div></div></td>
-          <td>21.79x</td>
-          <td>21</td>
-          <td>+21.9%</td>
+          <td class="num">34.21</td>
+          <td class="num">-7.8%</td>
+          <td class="num">+90.9% <div class="barwrap"><div class="bar" style="width:60.6%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">-0.1% <div class="barwrap"><div class="bar" style="width:0.1%;background:#d73027;float:right"></div></div></td>
+          <td class="num">21.79x</td>
+          <td class="num">21</td>
+          <td class="num">+21.9%</td>
           <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
         </tr>
         <tr class="">
-          <td>AMT </td>
+          <td>AMT</td>
           <td>American Tower Corporation</td>
-          <td>175.58</td>
-          <td>-8.6%</td>
-          <td>+138.5% <div class="barwrap"><div class="bar" style="width:92.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+4.7% <div class="barwrap"><div class="bar" style="width:3.1%;background:#1a9850;float:left"></div></div></td>
-          <td>24.28x</td>
-          <td>23</td>
-          <td>+22.9%</td>
+          <td class="num">175.58</td>
+          <td class="num">-8.6%</td>
+          <td class="num">+138.5% <div class="barwrap"><div class="bar" style="width:92.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+4.7% <div class="barwrap"><div class="bar" style="width:3.1%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">24.28x</td>
+          <td class="num">23</td>
+          <td class="num">+22.9%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>CRM </td>
+          <td>CRM</td>
           <td>Salesforce, Inc.</td>
-          <td>242.85</td>
-          <td>+1.4%</td>
-          <td>+118.9% <div class="barwrap"><div class="bar" style="width:79.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+10.8% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
-          <td>22.93x</td>
-          <td>54</td>
-          <td>+14.9%</td>
+          <td class="num">242.85</td>
+          <td class="num">+1.4%</td>
+          <td class="num">+118.9% <div class="barwrap"><div class="bar" style="width:79.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+10.8% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">22.93x</td>
+          <td class="num">54</td>
+          <td class="num">+14.9%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>BCE </td>
+          <td>BCE</td>
           <td>BCE Inc.</td>
-          <td>22.28</td>
-          <td>-3.1%</td>
-          <td>-3.8% <div class="barwrap"><div class="bar" style="width:2.5%;background:#d73027;float:right"></div></div></td>
-          <td>+1.5% <div class="barwrap"><div class="bar" style="width:1.0%;background:#1a9850;float:left"></div></div></td>
-          <td>4.64x</td>
-          <td>3</td>
-          <td>+20.9%</td>
+          <td class="num">22.28</td>
+          <td class="num">-3.1%</td>
+          <td class="num">-3.8% <div class="barwrap"><div class="bar" style="width:2.5%;background:#d73027;float:right"></div></div></td>
+          <td class="num">+1.5% <div class="barwrap"><div class="bar" style="width:1.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">4.64x</td>
+          <td class="num">3</td>
+          <td class="num">+20.7%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>FHN </td>
+          <td>FHN</td>
           <td>First Horizon Corporation</td>
-          <td>24.01</td>
-          <td>+3.0%</td>
-          <td>+20.0% <div class="barwrap"><div class="bar" style="width:13.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+9.0% <div class="barwrap"><div class="bar" style="width:6.0%;background:#1a9850;float:left"></div></div></td>
-          <td>11.49x</td>
-          <td>21</td>
-          <td>+16.8%</td>
+          <td class="num">24.01</td>
+          <td class="num">+3.0%</td>
+          <td class="num">+20.0% <div class="barwrap"><div class="bar" style="width:13.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+9.0% <div class="barwrap"><div class="bar" style="width:6.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">11.49x</td>
+          <td class="num">21</td>
+          <td class="num">+16.8%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>KEY </td>
+          <td>KEY</td>
           <td>KeyCorp</td>
-          <td>20.95</td>
-          <td>+8.6%</td>
-          <td>+25.3% <div class="barwrap"><div class="bar" style="width:16.9%;background:#1a9850;float:left"></div></div></td>
-          <td>+10.1% <div class="barwrap"><div class="bar" style="width:6.7%;background:#1a9850;float:left"></div></div></td>
-          <td>12.11x</td>
-          <td>19</td>
-          <td>+24.2%</td>
+          <td class="num">20.95</td>
+          <td class="num">+8.6%</td>
+          <td class="num">+25.3% <div class="barwrap"><div class="bar" style="width:16.9%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+10.1% <div class="barwrap"><div class="bar" style="width:6.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">12.11x</td>
+          <td class="num">19</td>
+          <td class="num">+24.2%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>ULS </td>
+          <td>ULS</td>
           <td>UL Solutions Inc.</td>
-          <td>64.42</td>
-          <td>-5.8%</td>
-          <td>+168.9% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+5.2% <div class="barwrap"><div class="bar" style="width:3.5%;background:#1a9850;float:left"></div></div></td>
-          <td>25.87x</td>
-          <td>12</td>
-          <td>+51.1%</td>
+          <td class="num">64.42</td>
+          <td class="num">-5.8%</td>
+          <td class="num">+168.9% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+5.2% <div class="barwrap"><div class="bar" style="width:3.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">25.87x</td>
+          <td class="num">12</td>
+          <td class="num">+51.1%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>ALLY </td>
+          <td>ALLY</td>
           <td>Ally Financial Inc.</td>
-          <td>40.60</td>
-          <td>-8.8%</td>
-          <td>+13.5% <div class="barwrap"><div class="bar" style="width:9.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+11.0% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
-          <td>9.49x</td>
-          <td>18</td>
-          <td>+32.4%</td>
+          <td class="num">40.60</td>
+          <td class="num">-8.8%</td>
+          <td class="num">+13.5% <div class="barwrap"><div class="bar" style="width:9.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+11.0% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">9.49x</td>
+          <td class="num">18</td>
+          <td class="num">+32.4%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>HII </td>
+          <td>HII</td>
           <td>Huntington Ingalls Industries, Inc.</td>
-          <td>277.14</td>
-          <td>+1.1%</td>
-          <td>+36.5% <div class="barwrap"><div class="bar" style="width:24.3%;background:#1a9850;float:left"></div></div></td>
-          <td>+10.9% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
-          <td>16.56x</td>
-          <td>12</td>
-          <td>+32.9%</td>
+          <td class="num">277.14</td>
+          <td class="num">+1.1%</td>
+          <td class="num">+36.5% <div class="barwrap"><div class="bar" style="width:24.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+10.9% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">16.56x</td>
+          <td class="num">12</td>
+          <td class="num">+32.9%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>ACGL </td>
+          <td>ACGL</td>
           <td>Arch Capital Group Ltd.</td>
-          <td>96.70</td>
-          <td>+9.7%</td>
-          <td>-7.1% <div class="barwrap"><div class="bar" style="width:4.7%;background:#d73027;float:right"></div></div></td>
-          <td>-10.5% <div class="barwrap"><div class="bar" style="width:7.0%;background:#d73027;float:right"></div></div></td>
-          <td>7.59x</td>
-          <td>19</td>
-          <td>+15.5%</td>
+          <td class="num">96.70</td>
+          <td class="num">+9.7%</td>
+          <td class="num">-7.1% <div class="barwrap"><div class="bar" style="width:4.7%;background:#d73027;float:right"></div></div></td>
+          <td class="num">-10.5% <div class="barwrap"><div class="bar" style="width:7.0%;background:#d73027;float:right"></div></div></td>
+          <td class="num">7.59x</td>
+          <td class="num">19</td>
+          <td class="num">+15.5%</td>
           <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
         </tr>
         <tr class="">
-          <td>SSB </td>
+          <td>SSB</td>
           <td>SouthState Bank Corporation</td>
-          <td>103.67</td>
-          <td>+2.4%</td>
-          <td>+11.4% <div class="barwrap"><div class="bar" style="width:7.6%;background:#1a9850;float:left"></div></div></td>
-          <td>-0.1% <div class="barwrap"><div class="bar" style="width:0.1%;background:#d73027;float:right"></div></div></td>
-          <td>10.90x</td>
-          <td>14</td>
-          <td>+15.6%</td>
+          <td class="num">103.67</td>
+          <td class="num">+2.4%</td>
+          <td class="num">+11.4% <div class="barwrap"><div class="bar" style="width:7.6%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">-0.1% <div class="barwrap"><div class="bar" style="width:0.1%;background:#d73027;float:right"></div></div></td>
+          <td class="num">10.90x</td>
+          <td class="num">14</td>
+          <td class="num">+15.6%</td>
           <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
         </tr>
         <tr class="">
-          <td>AVGO </td>
+          <td>AVGO</td>
           <td>Broadcom Inc.</td>
-          <td>347.30</td>
-          <td>-1.6%</td>
-          <td>+215.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+85.5% <div class="barwrap"><div class="bar" style="width:57.0%;background:#1a9850;float:left"></div></div></td>
-          <td>43.30x</td>
-          <td>47</td>
-          <td>+53.1%</td>
+          <td class="num">347.30</td>
+          <td class="num">-1.6%</td>
+          <td class="num">+215.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+85.5% <div class="barwrap"><div class="bar" style="width:57.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">43.30x</td>
+          <td class="num">47</td>
+          <td class="num">+53.1%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>EXE </td>
+          <td>EXE</td>
           <td>Expand Energy Corporation</td>
-          <td>88.33</td>
-          <td>-9.9%</td>
-          <td>-45.5% <div class="barwrap"><div class="bar" style="width:30.3%;background:#d73027;float:right"></div></div></td>
-          <td>-10.6% <div class="barwrap"><div class="bar" style="width:7.1%;background:#d73027;float:right"></div></div></td>
-          <td>7.65x</td>
-          <td>27</td>
-          <td>+42.1%</td>
+          <td class="num">88.33</td>
+          <td class="num">-9.9%</td>
+          <td class="num">-45.5% <div class="barwrap"><div class="bar" style="width:30.3%;background:#d73027;float:right"></div></div></td>
+          <td class="num">-10.6% <div class="barwrap"><div class="bar" style="width:7.1%;background:#d73027;float:right"></div></div></td>
+          <td class="num">7.65x</td>
+          <td class="num">27</td>
+          <td class="num">+42.1%</td>
           <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
         </tr>
         <tr class="">
-          <td>CI </td>
+          <td>CI</td>
           <td>The Cigna Group</td>
-          <td>276.00</td>
-          <td>-3.4%</td>
-          <td>+10.2% <div class="barwrap"><div class="bar" style="width:6.8%;background:#1a9850;float:left"></div></div></td>
-          <td>+6.7% <div class="barwrap"><div class="bar" style="width:4.5%;background:#1a9850;float:left"></div></div></td>
-          <td>11.60x</td>
-          <td>25</td>
-          <td>+23.0%</td>
+          <td class="num">276.00</td>
+          <td class="num">-3.4%</td>
+          <td class="num">+10.2% <div class="barwrap"><div class="bar" style="width:6.8%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+6.7% <div class="barwrap"><div class="bar" style="width:4.5%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">11.60x</td>
+          <td class="num">25</td>
+          <td class="num">+23.0%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>CNA </td>
+          <td>CNA</td>
           <td>CNA Financial Corporation</td>
-          <td>48.20</td>
-          <td>+5.7%</td>
-          <td>+7.3% <div class="barwrap"><div class="bar" style="width:4.9%;background:#1a9850;float:left"></div></div></td>
-          <td>+3.0% <div class="barwrap"><div class="bar" style="width:2.0%;background:#1a9850;float:left"></div></div></td>
-          <td>10.59x</td>
-          <td>1</td>
-          <td>+1.7%</td>
+          <td class="num">48.20</td>
+          <td class="num">+5.7%</td>
+          <td class="num">+7.3% <div class="barwrap"><div class="bar" style="width:4.9%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+3.0% <div class="barwrap"><div class="bar" style="width:2.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">10.59x</td>
+          <td class="num">1</td>
+          <td class="num">+1.7%</td>
           <td class="flag-none">none</td>
         </tr>
         <tr class="">
-          <td>PLTR </td>
+          <td>PLTR</td>
           <td>Palantir Technologies Inc.</td>
-          <td>176.24</td>
-          <td>-4.4%</td>
-          <td>+215.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+92.8% <div class="barwrap"><div class="bar" style="width:61.9%;background:#1a9850;float:left"></div></div></td>
-          <td>149.36x</td>
-          <td>27</td>
-          <td>+11.7%</td>
+          <td class="num">176.24</td>
+          <td class="num">-4.4%</td>
+          <td class="num">+215.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+92.8% <div class="barwrap"><div class="bar" style="width:61.9%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">149.36x</td>
+          <td class="num">27</td>
+          <td class="num">+11.7%</td>
           <td class="flag-warn">possible_low_base_effect</td>
         </tr>
         <tr class="">
-          <td>ALAB </td>
+          <td>ALAB</td>
           <td>Astera Labs, Inc.</td>
-          <td>293.56</td>
-          <td>+9.8%</td>
-          <td>+186.2% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
-          <td>+104.5% <div class="barwrap"><div class="bar" style="width:69.7%;background:#1a9850;float:left"></div></div></td>
-          <td>133.44x</td>
-          <td>23</td>
-          <td>+32.8%</td>
+          <td class="num">293.56</td>
+          <td class="num">+9.8%</td>
+          <td class="num">+186.2% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">+104.5% <div class="barwrap"><div class="bar" style="width:69.7%;background:#1a9850;float:left"></div></div></td>
+          <td class="num">133.44x</td>
+          <td class="num">23</td>
+          <td class="num">+32.8%</td>
           <td class="flag-none">none</td>
-        </tr>
+        </tr></tbody>
   </table>
+  </div>
+  <div class="empty-state" id="emptyState" style="display:none">No rows match your search.</div>
   
   <h2>Track record — does this blueprint actually have an edge?</h2>
-  <table>
-    <tr><th>Ticker</th><th>Name</th><th>Entry Date</th><th>Entry Price</th><th>Exit Date</th>
-        <th>Status</th><th>Return</th></tr>
-    
+  <div class="tablewrap"><table>
+    <thead><tr><th>Ticker</th><th>Name</th><th>Entry Date</th><th class="num">Entry Price</th><th>Exit Date</th>
+        <th>Status</th><th class="num">Return</th></tr></thead>
+    <tbody>
         <tr>
           <td>HEI</td><td>HEICO Corporation</td>
           <td>2026-09-18</td><td>296.48</td><td>—</td>
@@ -966,13 +1006,13 @@
           <td>2026-09-18</td><td>100.93</td><td>—</td>
           <td class="event-added">ACTIVE</td>
           <td>+0.0%</td>
-        </tr>
-  </table>
+        </tr></tbody>
+  </table></div>
   
   <h2>History — additions &amp; removals</h2>
-  <table>
-    <tr><th>Date</th><th>Ticker</th><th>Company</th><th>Event</th><th>Reason</th></tr>
-    
+  <div class="tablewrap"><table>
+    <thead><tr><th>Date</th><th>Ticker</th><th>Company</th><th>Event</th><th>Reason</th></tr></thead>
+    <tbody>
         <tr>
           <td>2026-09-18</td>
           <td>PTBKF</td>
@@ -2295,24 +2335,42 @@
           <td>Cyrela Brazil Realty S.A. Empreendimentos e Participações</td>
           <td class="event-removed">REMOVED</td>
           <td>earnings growth fell to +16.4% (was +16.4%, needs &gt;25%); market cap fell below 10B USD floor</td>
-        </tr>
-  </table>
+        </tr></tbody>
+  </table></div>
+  </div>
   <script>
-    var sortDir = {};
-    function sortTable(col) {
+    var sortState = { col: null, asc: true };
+    function sortTable(col, colType) {
       var table = document.getElementById("candidatesTable");
-      var rows = Array.prototype.slice.call(table.rows).slice(1);
-      var dir = sortDir[col] = !sortDir[col];
+      var tbody = table.tBodies[0];
+      var rows = Array.prototype.slice.call(tbody.rows);
+      var asc = (sortState.col === col) ? !sortState.asc : true;
+      sortState = { col: col, asc: asc };
       rows.sort(function(a, b) {
-        var x = a.cells[col].innerText.replace(/[%x,]/g, "").split(" ")[0];
-        var y = b.cells[col].innerText.replace(/[%x,]/g, "").split(" ")[0];
+        var x = (a.cells[col].getAttribute('data-sort') || a.cells[col].innerText).replace(/[$,]/g, '');
+        var y = (b.cells[col].getAttribute('data-sort') || b.cells[col].innerText).replace(/[$,]/g, '');
         var nx = parseFloat(x), ny = parseFloat(y);
-        var cmp;
-        if (!isNaN(nx) && !isNaN(ny)) { cmp = nx - ny; }
-        else { cmp = x.localeCompare(y); }
-        return dir ? cmp : -cmp;
+        var cmp = (!isNaN(nx) && !isNaN(ny)) ? nx - ny : x.localeCompare(y);
+        return asc ? cmp : -cmp;
       });
-      rows.forEach(function(row) { table.appendChild(row); });
+      rows.forEach(function(row) { tbody.appendChild(row); });
+      document.querySelectorAll('#candidatesTable thead th').forEach(function(th, i) {
+        th.classList.toggle('sorted', i === col);
+        var arrow = th.querySelector('.arrow');
+        if (arrow) arrow.textContent = (i === col) ? (asc ? '▲' : '▼') : '↕';
+      });
     }
-  </script>
+    function filterTable(inputEl) {
+      var q = inputEl.value.toLowerCase();
+      var rows = document.querySelectorAll('#candidatesTable tbody tr');
+      var visibleCount = 0;
+      rows.forEach(function(row) {
+        var match = row.innerText.toLowerCase().indexOf(q) !== -1;
+        row.style.display = match ? '' : 'none';
+        if (match) visibleCount++;
+      });
+      var empty = document.getElementById('emptyState');
+      if (empty) empty.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+</script>
 </body></html>
