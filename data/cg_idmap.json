@@ -1,0 +1,22 @@
+{
+ "SOL": "solana",
+ "DOGE": "dogecoin",
+ "ADA": "cardano",
+ "LTC": "litecoin",
+ "AVAX": "avalanche-2",
+ "SUI": "sui",
+ "TAO": "bittensor",
+ "ASTER": "aster-2",
+ "DOT": "polkadot",
+ "WLD": "worldcoin-wld",
+ "POL": "polygon-ecosystem-token",
+ "ATOM": "cosmos",
+ "RENDER": "render-token",
+ "ETHFI": "ether-fi",
+ "INJ": "injective-protocol",
+ "APT": "aptos",
+ "TRUMP": "official-trump",
+ "CRV": "curve-dao-token",
+ "STX": "blockstack",
+ "JUP": "jupiter-exchange-solana"
+}

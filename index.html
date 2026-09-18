@@ -1,24 +1,513 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<title>Trading Dashboards — All Markets</title>
-<style>
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #e6e6e6; margin: 0; }
-  .tabbar { display: flex; gap: 4px; padding: 12px 16px 0; background: #14161f; }
-  .tabbtn { background: #1a1d29; color: #9aa0a6; border: none; padding: 10px 20px;
-             border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; }
-  .tabbtn.active { background: #0f1117; color: #ffffff; font-weight: 600; }
-  .tabframe { width: 100%; height: calc(100vh - 50px); border: none; }
-</style></head>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Dashboards — Thai · US · Crypto</title>
+<script>
+/* set theme before first paint to avoid flash */
+(function () {
+  try {
+    var t = localStorage.getItem('td-theme');
+    if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'light'; }
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23111827%22/><text x=%2250%22 y=%2268%22 font-size=%2252%22 font-weight=%22800%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Arial%22>T</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
 <body>
-  <div class="tabbar"><button class="tabbtn" id="btn-thai" onclick="showTab('thai')">🇹🇭 Thai</button><button class="tabbtn" id="btn-us" onclick="showTab('us')">🇺🇸 US</button><button class="tabbtn" id="btn-crypto" onclick="showTab('crypto')">₿ Crypto</button></div>
-  <iframe id="frame-thai" class="tabframe" src="thai_screener_dashboard.html" style="display:none"></iframe><iframe id="frame-us" class="tabframe" src="us_screener_dashboard.html" style="display:none"></iframe><iframe id="frame-crypto" class="tabframe" src="crypto_screener_dashboard.html" style="display:none"></iframe>
-  <script>
-    function showTab(key) {
-      document.querySelectorAll('.tabframe').forEach(f => f.style.display = 'none');
-      document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
-      document.getElementById('frame-' + key).style.display = 'block';
-      document.getElementById('btn-' + key).classList.add('active');
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="logo" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+      </span>
+      <span class="title">Trading Dashboards</span>
+    </a>
+    <nav class="tabs" aria-label="ตลาด">
+      <button class="tab active" id="tab-thai" data-tab="thai">ไทย</button>
+      <button class="tab" id="tab-us" data-tab="us">US</button>
+      <button class="tab" id="tab-crypto" data-tab="crypto">Crypto</button>
+    </nav>
+    <button class="iconbtn" id="themeBtn" title="สลับโหมดสว่าง/มืด" aria-label="สลับโหมดสว่าง/มืด">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+    <button class="refresh" id="refreshBtn" title="ดึงข้อมูลใหม่จาก Yahoo Finance / CoinGecko">
+      <svg id="refreshIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36L21 8"/><path d="M21 3v5h-5"/></svg>
+      <span class="txt">รีเฟรช</span>
+    </button>
+  </div>
+</header>
+
+<main class="page">
+  <div class="masthead">
+    <h1 id="pageTitle">Thai Stock Screener</h1>
+    <span class="market-chip" id="pageChip">SET</span>
+  </div>
+  <div class="meta" id="pageMeta"></div>
+  <div id="statusBar"></div>
+
+  <!-- ================= THAI ================= -->
+  <section id="view-thai" class="view">
+    <div class="stats" id="thai-stats"></div>
+    <div class="note-card" id="thai-note"></div>
+    <div class="controls">
+      <input class="searchbox" type="search" placeholder="ค้นหา ticker หรือชื่อบริษัท…" aria-label="ค้นหาหุ้นไทย" id="thai-search">
+      <span class="count-pill" id="thai-count"></span>
+    </div>
+    <div class="tablewrap"><table id="thai-table"><thead></thead><tbody></tbody></table></div>
+    <div class="empty-state" id="thai-empty" style="display:none">ไม่พบรายการที่ค้นหา</div>
+    <section>
+      <h2>Track record <span class="note">— สมุดพอร์ตจำลอง (snapshot)</span></h2>
+      <div class="tablewrap"><table id="thai-track"><thead></thead><tbody></tbody></table></div>
+    </section>
+    <section>
+      <h2>History <span class="note">— เพิ่ม/ถอดออกจากสัญญาณเดิม</span></h2>
+      <div class="tablewrap"><table id="thai-history"><thead></thead><tbody></tbody></table></div>
+    </section>
+  </section>
+
+  <!-- ================= US ================= -->
+  <section id="view-us" class="view" hidden>
+    <div class="stats" id="us-stats"></div>
+    <div class="note-card" id="us-note"></div>
+    <div class="controls">
+      <input class="searchbox" type="search" placeholder="Search ticker or company…" aria-label="Search US stocks" id="us-search">
+      <span class="count-pill" id="us-count"></span>
+    </div>
+    <div class="tablewrap"><table id="us-table"><thead></thead><tbody></tbody></table></div>
+    <div class="empty-state" id="us-empty" style="display:none">No matches.</div>
+    <section>
+      <h2>Track record <span class="note">— paper portfolio (snapshot)</span></h2>
+      <div class="tablewrap"><table id="us-track"><thead></thead><tbody></tbody></table></div>
+    </section>
+    <section>
+      <h2>History <span class="note">— additions & removals</span></h2>
+      <div class="tablewrap"><table id="us-history"><thead></thead><tbody></tbody></table></div>
+    </section>
+  </section>
+
+  <!-- ================= CRYPTO ================= -->
+  <section id="view-crypto" class="view" hidden>
+    <div class="stats" id="crypto-stats"></div>
+    <div class="note-card">Crypto ไม่มีกำไร/P.E./เป้าหมายนักวิเคราะห์ จึงใช้ proxy ต่างจากหุ้น: <b>30d market cap change</b> แทน earnings growth, <b>vol/mcap ratio</b> แทน revenue growth และ <b>ระยะจาก ATH</b> เป็นบริบทเท่านั้น — ไม่ใช่คำทำนายว่าเหรียญจะกลับไป ATH</div>
+    <div class="controls">
+      <input class="searchbox" type="search" placeholder="ค้นหาสัญลักษณ์หรือชื่อเหรียญ…" aria-label="ค้นหาคริปโต" id="crypto-search">
+      <span class="count-pill" id="crypto-count"></span>
+    </div>
+    <div class="tablewrap"><table id="crypto-table"><thead></thead><tbody></tbody></table></div>
+    <div class="empty-state" id="crypto-empty" style="display:none">ไม่พบรายการที่ค้นหา</div>
+    <section>
+      <h2>Track record <span class="note">— สมุดพอร์ตจำลอง (snapshot)</span></h2>
+      <div class="tablewrap"><table id="crypto-track"><thead></thead><tbody></tbody></table></div>
+    </section>
+    <section>
+      <h2>History <span class="note">— additions & removals</span></h2>
+      <div class="tablewrap"><table id="crypto-history"><thead></thead><tbody></tbody></table></div>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>ราคา/การเปลี่ยนแปลง: <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> + <a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a> (สดตอนเปิดหน้า)</span>
+    <span>Fundamentals snapshot: 2026-09-18 จาก pipeline เดิมของ repo</span>
+    <span>ไม่ใช่คำแนะนำการลงทุน</span>
+  </div>
+</footer>
+
+<script src="assets/snapshot.js"></script>
+<script>
+'use strict';
+window.__errs = [];
+window.addEventListener('error', e => window.__errs.push(String(e.message || e)));
+/* ================= shared helpers ================= */
+const $ = id => document.getElementById(id);
+const fmtPct = v => (v == null || isNaN(v)) ? '—' : (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+const pctClass = v => v == null ? 'muted' : (v >= 0 ? 'up' : 'down');
+const fmtPrice = (v, cur) => {
+  if (v == null || isNaN(v)) return '—';
+  const s = v >= 1000 ? v.toLocaleString('en-US', {maximumFractionDigits: 0})
+    : v >= 1 ? v.toFixed(2) : v.toFixed(4);
+  return cur ? cur + s : s;
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* sort state per table */
+const sortStates = {};
+
+function makeSortable(table, getData, renderRow, afterSort) {
+  const ths = table.tHead.rows[0].cells;
+  for (let i = 0; i < ths.length; i++) {
+    ths[i].addEventListener('click', () => {
+      const key = table.id;
+      const st = sortStates[key] || {col: null, asc: true};
+      const asc = st.col === i ? !st.asc : (ths[i].classList.contains('num') ? false : true);
+      sortStates[key] = {col: i, asc};
+      applySort(table, i, asc);
+      if (afterSort) afterSort();
+    });
+  }
+}
+function applySort(table, col, asc) {
+  const tbody = table.tBodies[0];
+  const rows = Array.from(tbody.rows);
+  rows.sort((a, b) => {
+    const x = parseFloat(a.cells[col].getAttribute('data-v')), y = parseFloat(b.cells[col].getAttribute('data-v'));
+    const bothNum = !isNaN(x) && !isNaN(y);
+    const cmp = bothNum ? x - y : (a.cells[col].textContent || '').localeCompare(b.cells[col].textContent || '');
+    return asc ? cmp : -cmp;
+  });
+  rows.forEach(r => tbody.appendChild(r));
+  Array.from(table.tHead.rows[0].cells).forEach((th, i) => {
+    th.classList.toggle('sorted', i === col);
+    const ar = th.querySelector('.arrow');
+    if (ar) ar.textContent = i === col ? (asc ? '↑' : '↓') : '↕';
+  });
+}
+function numVal(s) { // "+341.5%" -> 341.5 ; "14.11x" -> 14.11 ; "—" -> NaN
+  if (s == null) return NaN;
+  const m = String(s).replace(/,/g, '').match(/-?\d+(\.\d+)?/);
+  return m ? parseFloat(m[0]) : NaN;
+}
+
+/* ================= data layer ================= */
+const LIVE = {thai: {}, us: {}, crypto: {}};
+const FETCH_STATE = {phase: 'idle', errors: []};
+
+async function fetchJSON(url, timeoutMs) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs || 12000);
+  try {
+    const r = await fetch(url, {signal: ctrl.signal});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } finally { clearTimeout(t); }
+}
+
+/* Yahoo chart endpoint: one call per symbol gives price, day change, 52w band, sparkline */
+async function loadYahoo(symbols, store, progressCb) {
+  const results = [];
+  const CONC = 6, RETRY = 1;
+  let done = 0;
+  async function one(sym) {
+    for (let attempt = 0; attempt <= RETRY; attempt++) {
+      try {
+        const j = await fetchJSON('https://query1.finance.yahoo.com/v8/finance/chart/' + encodeURIComponent(sym) + '?range=1y&interval=1mo');
+        const meta = j?.chart?.result?.[0]?.meta;
+        if (!meta || meta.regularMarketPrice == null) throw new Error('no meta');
+        const closes = (j.chart.result[0].indicators?.quote?.[0]?.close || []).filter(v => v != null);
+        const spark = closes.length >= 2 ? closes : null;
+        const d = {
+          price: meta.regularMarketPrice,
+          chgDay: meta.regularMarketChangePercent,
+          hi52: meta.fiftyTwoWeekHigh, lo52: meta.fiftyTwoWeekLow,
+          cur: meta.currency, spark
+        };
+        // 52w change from sparkline endpoints (first close vs live price)
+        if (spark) d.chg52w = (d.price / spark[0] - 1) * 100;
+        store[sym] = d;
+        return null;
+      } catch (e) {
+        if (attempt === RETRY) return sym + ': ' + e.message;
+        await new Promise(r => setTimeout(r, 400 * (attempt + 1)));
+      } finally { done++; if (progressCb) progressCb(done); }
     }
-    showTab('thai');
-  </script>
-</body></html>
+  }
+  const queue = symbols.slice();
+  async function worker() { while (queue.length) { const e = await one(queue.shift()); if (e) results.push(e); } }
+  await Promise.all(Array.from({length: CONC}, worker));
+  return results;
+}
+
+/* CoinGecko markets endpoint: one call covers all tracked coins */
+async function loadCrypto() {
+  const ids = Object.values(CG_IDS).join(',');
+  const j = await fetchJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=' + ids + '&price_change_percentage=24h,7d,30d');
+  const bySym = {};
+  for (const c of j) {
+    bySym[c.symbol.toUpperCase()] = {
+      price: c.current_price,
+      chg24h: c.price_change_percentage_24h_in_currency,
+      chg7d: c.price_change_percentage_7d_in_currency,
+      chg30d: c.price_change_percentage_30d_in_currency,
+      volmcap: c.total_volume && c.market_cap ? c.total_volume / c.market_cap * 100 : null,
+      fromath: c.ath_change_percentage,
+      mcapRank: c.market_cap_rank,
+      spark: c.sparkline_in_7d ? null : null
+    };
+  }
+  return bySym;
+}
+
+/* ================= render: stats ================= */
+function renderStats(market, cfg) {
+  const rows = SNAPSHOT[market];
+  const el = $(market + '-stats');
+  let html = '';
+  const cards = [];
+  cards.push({label: 'Candidates', num: String(rows.length)});
+  const nNew = rows.filter(r => r.isNew).length;
+  cards.push({label: 'ใหม่จากรอบล่าสุด', num: String(nNew)});
+  // paper-portfolio realized stats from track record extras
+  const track = (SNAPSHOT[market + '_extras'] || [])[0];
+  if (track) {
+    const closed = track.rows.filter(r => r.Status !== 'ACTIVE');
+    const wins = closed.filter(r => numVal(r.Return) > 0);
+    const avgRealized = closed.length ? closed.reduce((s, r) => s + (numVal(r.Return) || 0), 0) / closed.length : null;
+    const active = track.rows.filter(r => r.Status === 'ACTIVE');
+    const avgUnreal = active.length ? active.reduce((s, r) => s + (numVal(r.Return) || 0), 0) / active.length : null;
+    cards.push({label: 'Closed positions', num: String(closed.length)});
+    cards.push({label: 'Win rate (closed)', num: closed.length ? Math.round(wins.length / closed.length * 100) + '%' : '—'});
+    cards.push({label: 'Avg realized', num: avgRealized == null ? '—' : fmtPct(avgRealized), cls: avgRealized != null ? pctClass(avgRealized) : ''});
+    cards.push({label: 'Avg unrealized (snapshot)', num: avgUnreal == null ? '—' : fmtPct(avgUnreal), cls: avgUnreal != null ? pctClass(avgUnreal) : ''});
+  }
+  el.innerHTML = cards.map(c =>
+    `<div class="stat"><div class="label">${esc(c.label)}</div><div class="num ${c.cls || ''}">${esc(c.num)}</div></div>`).join('');
+}
+
+/* ================= render: main tables ================= */
+function pctCell(v, bar) {
+  const cls = v == null || isNaN(v) ? 'muted' : (v >= 0 ? 'up' : 'down');
+  let inner = `<span class="${cls}">${fmtPct(v)}</span>`;
+  if (bar && v != null && !isNaN(v)) {
+    const w = Math.min(100, Math.abs(v) / 3.5);
+    inner += `<span class="barwrap"><span class="bar" style="width:${w}%;background:var(--${v >= 0 ? 'green' : 'red'})"></span></span>`;
+  }
+  return `<td class="num" data-v="${v == null || isNaN(v) ? '' : v}">${inner}</td>`;
+}
+
+function flagCell(flags) {
+  const list = String(flags || '').split(/\s+/).filter(Boolean);
+  if (!list.length || list[0] === 'none') return `<td class="flag-none" data-v="0">—</td>`;
+  return `<td class="flag-warn" data-v="${list.length}">${list.map(f => esc(f.replace(/_/g, ' '))).join('<br>')}</td>`;
+}
+
+function renderStockTable(market, query) {
+  const rows = SNAPSHOT[market];
+  const live = LIVE[market];
+  const q = (query || '').trim().toLowerCase();
+  const tbody = $(market + '-table').tBodies[0];
+  const parts = [];
+  let shown = 0;
+  for (const r of rows) {
+    if (q && !(r.ticker + ' ' + r.company).toLowerCase().includes(q)) continue;
+    shown++;
+    const L = live[r.ticker];
+    const price = L ? fmtPrice(L.price) : r.price;
+    const priceCls = L ? 'price-live' : 'price-old';
+    const chgDay = L && L.chgDay != null ? L.chgDay : null;
+    const chg52 = L && L.chg52w != null ? L.chg52w : numVal(r.chg52w);
+    parts.push(`<tr>
+<td class="ticker"><a href="https://finance.yahoo.com/quote/${encodeURIComponent(r.ticker)}" target="_blank" rel="noopener">${esc(r.ticker)}</a>${r.isNew ? '<span class="new-badge">NEW</span>' : ''}</td>
+<td class="co">${esc(r.company)}</td>
+<td class="num ${priceCls}" data-v="${L ? L.price : numVal(r.price)}">${price}${L && L.cur === 'THB' ? ' <span class="muted">฿</span>' : L ? ' <span class="muted">$</span>' : ''}</td>
+<td class="num" data-v="${chgDay == null ? '' : chgDay}">${chgDay == null ? '<span class="muted">—</span>' : `<span class="${pctClass(chgDay)}">${fmtPct(chgDay)}</span>`}</td>
+<td class="num" data-v="${chg52 == null || isNaN(chg52) ? '' : chg52}"><span class="${pctClass(chg52)}">${chg52 == null || isNaN(chg52) ? '—' : fmtPct(chg52)}</span></td>
+<td class="num" data-v="${numVal(r.eg)}"><span class="${numVal(r.eg) >= 0 ? 'up' : 'down'}">${esc(r.eg)}</span></td>
+<td class="num" data-v="${numVal(r.rg)}"><span class="${numVal(r.rg) >= 0 ? 'up' : 'down'}">${esc(r.rg)}</span></td>
+<td class="num" data-v="${numVal(r.pe)}">${esc(r.pe)}</td>
+<td class="num" data-v="${numVal(r.analysts)}">${esc(r.analysts)}</td>
+<td class="num" data-v="${numVal(r.upside)}"><span class="${numVal(r.upside) >= 0 ? 'up' : 'muted'}">${esc(r.upside)}</span></td>
+${flagCell(r.flags)}
+</tr>`);
+  }
+  tbody.innerHTML = parts.join('');
+  $(market + '-count').textContent = shown + ' / ' + rows.length + ' รายการ';
+  $(market + '-empty').style.display = shown === 0 ? 'block' : 'none';
+}
+
+function renderCryptoTable(query) {
+  const rows = SNAPSHOT.crypto;
+  const live = LIVE.crypto;
+  const q = (query || '').trim().toLowerCase();
+  const tbody = $('crypto-table').tBodies[0];
+  const parts = [];
+  let shown = 0;
+  for (const r of rows) {
+    if (q && !(r.symbol + ' ' + r.name).toLowerCase().includes(q)) continue;
+    shown++;
+    const L = live[r.symbol];
+    const price = L ? fmtPrice(L.price, '$') : esc(r.price);
+    const c24 = L && L.chg24h != null ? L.chg24h : numVal(r.chg24h);
+    const c7 = L && L.chg7d != null ? L.chg7d : numVal(r.chg7d);
+    const c30 = L && L.chg30d != null ? L.chg30d : numVal(r.chg30d);
+    const vm = L && L.volmcap != null ? L.volmcap : numVal(r.volmcap);
+    const fa = L && L.fromath != null ? L.fromath : numVal(r.fromath);
+    const isNew = r.isNew || /NEW$/.test(r.symbol);
+    const sym = r.symbol.replace(/\s*NEW$/, '');
+    parts.push(`<tr>
+<td class="ticker">${esc(sym)}${isNew ? '<span class="new-badge">NEW</span>' : ''}</td>
+<td class="co">${esc(r.name)}</td>
+<td class="num price-live" data-v="${L ? L.price : numVal(r.price)}">${price}</td>
+${pctCell(c24)}
+${pctCell(c7)}
+${pctCell(c30, true)}
+<td class="num" data-v="${vm == null || isNaN(vm) ? '' : vm}">${vm == null || isNaN(vm) ? '—' : vm.toFixed(1) + '%'}</td>
+<td class="num down" data-v="${isNaN(fa) ? '' : fa}">${isNaN(fa) ? '—' : fa.toFixed(1) + '%'}</td>
+${flagCell(r.flags)}
+</tr>`);
+  }
+  tbody.innerHTML = parts.join('');
+  $('crypto-count').textContent = shown + ' / ' + rows.length + ' รายการ';
+  $('crypto-empty').style.display = shown === 0 ? 'block' : 'none';
+}
+
+/* ================= render: extras (track record / history) ================= */
+function renderExtras(market) {
+  const extras = SNAPSHOT[market + '_extras'] || [];
+  const isThaiStyle = market === 'thai';
+  const [track, history] = extras;
+  // track record
+  if (track) {
+    const t = $(market + '-track');
+    t.tHead.innerHTML = `<tr>${['Ticker','Name','Entry Date','Entry Price','Exit Date','Status','Return'].map(h => `<th>${h}</th>`).join('')}</tr>`;
+    t.tBodies[0].innerHTML = track.rows.slice(0, 60).map(r => {
+      const ret = numVal(r.Return);
+      const retCls = r.Status === 'ACTIVE' ? (ret > 0 ? 'up' : ret < 0 ? 'down' : 'muted') : (ret > 0 ? 'up' : 'down');
+      return `<tr>
+<td class="ticker">${esc(r['Ticker'])}</td>
+<td class="co">${esc(r['Name'])}</td>
+<td class="muted">${esc(r['Entry Date'])}</td>
+<td class="num">${esc(r['Entry Price'])}</td>
+<td class="muted">${esc(r['Exit Date'])}</td>
+<td><span class="pill ${r.Status === 'ACTIVE' ? 'active' : 'closed'}">${esc(r.Status)}</span></td>
+<td class="num ${retCls}" data-v="${isNaN(ret) ? '' : ret}">${esc(r.Return)}</td></tr>`;
+    }).join('');
+  }
+  // history
+  if (history) {
+    const t = $(market + '-history');
+    t.tHead.innerHTML = `<tr>${history.headers.map(h => `<th>${esc(h)}</th>`).join('')}</tr>`;
+    const rowsHtml = history.rows.slice(0, 80).map(r => {
+      const ev = r['Event'] || '';
+      const cells = history.headers.map(hd => {
+        const v = r[hd] || '—';
+        if (hd === 'Event') return `<td><span class="pill ${ev === 'ADDED' ? 'added' : 'removed'}">${esc(v)}</span></td>`;
+        if (hd === 'Reason') return `<td class="co" style="max-width:420px">${esc(v)}</td>`;
+        return `<td>${esc(v)}</td>`;
+      }).join('');
+      return `<tr>${cells}</tr>`;
+    }).join('');
+    t.tBodies[0].innerHTML = rowsHtml;
+    if (history.rows.length > 80) {
+      t.insertAdjacentHTML('afterend', `<p class="muted" style="font-size:12.5px;margin-top:6px">แสดง 80 จาก ${history.rows.length} เหตุการณ์ (snapshot)</p>`);
+    }
+  }
+}
+
+/* ================= tabs ================= */
+const TAB_CFG = {
+  thai: {title: 'Thai Stock Screener', chip: 'SET · THB', meta: () => `ข้อมูลพื้นฐาน snapshot 2026-09-18 · ราคาสดจาก Yahoo Finance`},
+  us: {title: 'US Stock Screener', chip: 'NYSE/NASDAQ · USD', meta: () => `Market cap floor 10B USD · Fundamentals snapshot 2026-09-18 · ราคาสดจาก Yahoo Finance`},
+  crypto: {title: 'Crypto Screener', chip: 'Top 250 by mcap · USD', meta: () => `Universe: top 250 coins by market cap (CoinGecko) · ราคาสดจาก CoinGecko`}
+};
+let activeTab = 'thai';
+
+function switchTab(key) {
+  activeTab = key;
+  if (('#' + key) !== location.hash) {
+    try { history.replaceState(null, '', '#' + key); } catch (e) {}
+  }
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === key));
+  document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== 'view-' + key);
+  const cfg = TAB_CFG[key];
+  $('pageTitle').textContent = cfg.title;
+  $('pageChip').textContent = cfg.chip;
+  $('pageMeta').innerHTML = `<span>${cfg.meta()}</span>` + (FETCH_STATE.lastOk ? `<span><span class="live-dot"></span>อัปเดตราคาล่าสุด ${FETCH_STATE.lastOk}</span>` : '');
+  if (key === 'crypto') renderCryptoTable($('crypto-search').value);
+  else renderStockTable(key, $(key + '-search').value);
+}
+
+/* ================= boot ================= */
+async function refreshAll() {
+  const btn = $('refreshBtn'), icon = $('refreshIcon');
+  btn.disabled = true; icon.classList.add('spin');
+  FETCH_STATE.phase = 'loading'; FETCH_STATE.errors = [];
+  renderStatus();
+  const t0 = performance.now();
+  const thaiSyms = SNAPSHOT.thai.map(r => r.ticker);
+  const usSyms = SNAPSHOT.us.map(r => r.ticker);
+  const [cryptoRes] = await Promise.allSettled([
+    loadCrypto().then(d => { Object.assign(LIVE.crypto, d); return 'ok'; }),
+    loadYahoo(thaiSyms, LIVE.thai, null).then(errs => { if (errs.length) FETCH_STATE.errors.push('Thai: ' + errs.join(', ')); }),
+    loadYahoo(usSyms, LIVE.us, null).then(errs => { if (errs.length) FETCH_STATE.errors.push('US: ' + errs.join(', ')); })
+  ]);
+  if (cryptoRes.status === 'rejected') FETCH_STATE.errors.push('CoinGecko: ' + (cryptoRes.reason?.message || cryptoRes.reason));
+  const secs = ((performance.now() - t0) / 1000).toFixed(1);
+  FETCH_STATE.phase = FETCH_STATE.errors.length ? 'partial' : 'done';
+  FETCH_STATE.lastOk = new Date().toLocaleTimeString('th-TH', {hour: '2-digit', minute: '2-digit'});
+  btn.disabled = false; icon.classList.remove('spin');
+  renderStatus();
+  switchTab(activeTab); // re-render active table with live data
+}
+
+function renderStatus() {
+  const el = $('statusBar');
+  if (FETCH_STATE.phase === 'loading') {
+    el.innerHTML = `<div class="state-msg">กำลังดึงราคาสดจาก Yahoo Finance และ CoinGecko…</div>`;
+  } else if (FETCH_STATE.phase === 'partial') {
+    el.innerHTML = `<div class="state-msg error">ดึงข้อมูลสดบางส่วนไม่สำเร็จ (${esc(FETCH_STATE.errors.join(' · ')).slice(0, 200)}) — แสดง snapshot แทน</div>`;
+  } else if (FETCH_STATE.phase === 'done') {
+    el.innerHTML = '';
+  } else el.innerHTML = '';
+}
+
+function init() {
+  // headers for main tables
+  const stockHeads = ['Ticker','Company','Price','Day','52w','Earnings Growth','Revenue Growth','P/E','Analysts','Upside','Red Flags'];
+  const stockHeadHtml = stockHeads.map((h, i) => `<th class="${i >= 2 ? 'num' : ''}">${h}<span class="arrow">↕</span></th>`).join('');
+  for (const m of ['thai', 'us']) {
+    $(m + '-table').tHead.innerHTML = `<tr>${stockHeadHtml}</tr>`;
+    makeSortable($(m + '-table'));
+  }
+  const cryptoHeads = ['Symbol','Name','Price','24h','7d','30d Mcap','Vol/Mcap','From ATH','Red Flags'];
+  $('crypto-table').tHead.innerHTML = `<tr>${cryptoHeads.map((h, i) => `<th class="${i >= 2 ? 'num' : ''}">${h}<span class="arrow">↕</span></th>`).join('')}</tr>`;
+  makeSortable($('crypto-table'));
+
+  // notes for thai/us
+  $('thai-note').innerHTML = `ราคา <b>สดจาก Yahoo Finance</b> ตอนเปิดหน้า (กระพริบ = อัปเดตแล้ว) · คอลัมน์ growth/P.E./analysts เป็น <b>snapshot 2026-09-18</b> จาก pipeline เดิมของ repo`;
+  $('us-note').innerHTML = `Prices <b>live from Yahoo Finance</b> on page load · growth / P.E. / analyst columns are a <b>2026-09-18 snapshot</b> from the repo's original pipeline`;
+
+  // stats + extras
+  for (const m of ['thai', 'us', 'crypto']) {
+    renderStats(m);
+    renderExtras(m);
+  }
+
+  // search wiring
+  for (const m of ['thai', 'us', 'crypto']) {
+    $(m + '-search').addEventListener('input', e => {
+      if (m === 'crypto') renderCryptoTable(e.target.value);
+      else renderStockTable(m, e.target.value);
+    });
+  }
+
+  // tabs
+  document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+  $('refreshBtn').addEventListener('click', refreshAll);
+
+  // theme toggle
+  $('themeBtn').addEventListener('click', () => {
+    const cur = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('td-theme', next); } catch (e) {}
+  });
+
+  // deep-link: #us / #crypto or ?tab=us
+  const wanted = new URLSearchParams(location.search).get('tab') || (location.hash || '').replace('#', '');
+  switchTab(['thai', 'us', 'crypto'].includes(wanted) ? wanted : 'thai');
+  window.addEventListener('hashchange', () => {
+    const k = (location.hash || '').replace('#', '');
+    if (['thai', 'us', 'crypto'].includes(k) && k !== activeTab) switchTab(k);
+  });
+  refreshAll();
+}
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

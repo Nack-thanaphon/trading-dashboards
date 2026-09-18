@@ -1,0 +1,3496 @@
+{
+ "thai": [
+  {
+   "isNew": false,
+   "ticker": "TKC.BK",
+   "company": "Turnkey Communication Services Public Company Limited",
+   "price": "8.75",
+   "chg52w": "-7.4%",
+   "eg": "+341.5%",
+   "rg": "+153.3%",
+   "pe": "14.11x",
+   "analysts": "0",
+   "upside": "—",
+   "flags": "possible_low_base_effect no_analyst_coverage"
+  },
+  {
+   "isNew": false,
+   "ticker": "LOXLEY.BK",
+   "company": "Loxley Public Company Limited",
+   "price": "1.76",
+   "chg52w": "-1.2%",
+   "eg": "+133.3%",
+   "rg": "+11.9%",
+   "pe": "5.68x",
+   "analysts": "0",
+   "upside": "—",
+   "flags": "no_analyst_coverage"
+  },
+  {
+   "isNew": false,
+   "ticker": "NCAP.BK",
+   "company": "Next Capital Public Company Limited",
+   "price": "3.30",
+   "chg52w": "-1.2%",
+   "eg": "+34.1%",
+   "rg": "+24.2%",
+   "pe": "6.88x",
+   "analysts": "1",
+   "upside": "+81.8%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "RAM.BK",
+   "company": "Ramkhamhaeng Hospital Public Company Limited",
+   "price": "17.50",
+   "chg52w": "-1.1%",
+   "eg": "+28.6%",
+   "rg": "+113.1%",
+   "pe": "7.58x",
+   "analysts": "2",
+   "upside": "-0.9%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "VIBHA.BK",
+   "company": "Vibhavadi Medical Center Public Company Limited",
+   "price": "1.35",
+   "chg52w": "-7.5%",
+   "eg": "+19.1%",
+   "rg": "-4.8%",
+   "pe": "9.00x",
+   "analysts": "0",
+   "upside": "—",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting no_analyst_coverage"
+  },
+  {
+   "isNew": false,
+   "ticker": "MRDIYT.BK",
+   "company": "MR. D.I.Y. Holding (Thailand) Public Company Limited",
+   "price": "8.85",
+   "chg52w": "+1.7%",
+   "eg": "+11.0%",
+   "rg": "+17.8%",
+   "pe": "18.44x",
+   "analysts": "14",
+   "upside": "+24.8%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "BAFS.BK",
+   "company": "Bangkok Aviation Fuel Services Public Company Limited",
+   "price": "10.10",
+   "chg52w": "-2.9%",
+   "eg": "+10.6%",
+   "rg": "-4.2%",
+   "pe": "37.41x",
+   "analysts": "1",
+   "upside": "+38.6%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "CK.BK",
+   "company": "CH. Karnchang Public Company Limited",
+   "price": "17.70",
+   "chg52w": "+1.7%",
+   "eg": "-7.2%",
+   "rg": "+5.6%",
+   "pe": "8.98x",
+   "analysts": "11",
+   "upside": "+34.0%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "FPT.BK",
+   "company": "Frasers Property (Thailand) Public Company Limited",
+   "price": "7.20",
+   "chg52w": "+5.9%",
+   "eg": "-22.2%",
+   "rg": "-12.4%",
+   "pe": "6.99x",
+   "analysts": "0",
+   "upside": "—",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting no_analyst_coverage"
+  },
+  {
+   "isNew": false,
+   "ticker": "AURA.BK",
+   "company": "Aurora Design Public Company Limited",
+   "price": "13.50",
+   "chg52w": "-2.2%",
+   "eg": "-37.0%",
+   "rg": "+57.6%",
+   "pe": "11.16x",
+   "analysts": "4",
+   "upside": "+45.2%",
+   "flags": "none"
+  }
+ ],
+ "us": [
+  {
+   "isNew": false,
+   "ticker": "NLY",
+   "company": "Annaly Capital Management, Inc.",
+   "price": "21.31",
+   "chg52w": "-2.2%",
+   "eg": "+3426.0%",
+   "rg": "+479.4%",
+   "pe": "5.12x",
+   "analysts": "11",
+   "upside": "+13.7%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "HON",
+   "company": "Honeywell International Inc.",
+   "price": "206.49",
+   "chg52w": "+0.3%",
+   "eg": "+263.9%",
+   "rg": "+4.3%",
+   "pe": "7.98x",
+   "analysts": "22",
+   "upside": "+27.5%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "ZM",
+   "company": "Zoom Communications, Inc.",
+   "price": "92.16",
+   "chg52w": "+5.9%",
+   "eg": "+342.3%",
+   "rg": "+4.9%",
+   "pe": "8.54x",
+   "analysts": "25",
+   "upside": "+28.3%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "SKHY",
+   "company": "SK hynix Inc.",
+   "price": "182.99",
+   "chg52w": "+4.1%",
+   "eg": "+1272.4%",
+   "rg": "+256.8%",
+   "pe": "10.37x",
+   "analysts": "14",
+   "upside": "+35.8%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "CINF",
+   "company": "Cincinnati Financial Corporation",
+   "price": "169.90",
+   "chg52w": "+9.4%",
+   "eg": "+85.5%",
+   "rg": "+31.6%",
+   "pe": "8.06x",
+   "analysts": "6",
+   "upside": "+12.8%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "DRD",
+   "company": "DRDGOLD Limited",
+   "price": "26.11",
+   "chg52w": "-0.6%",
+   "eg": "+82.2%",
+   "rg": "+49.8%",
+   "pe": "8.45x",
+   "analysts": "1",
+   "upside": "+34.0%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "EIX",
+   "company": "Edison International",
+   "price": "55.50",
+   "chg52w": "-1.5%",
+   "eg": "+55.1%",
+   "rg": "-4.1%",
+   "pe": "5.66x",
+   "analysts": "14",
+   "upside": "+21.0%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "GFI",
+   "company": "Gold Fields Limited",
+   "price": "43.34",
+   "chg52w": "+1.6%",
+   "eg": "+81.4%",
+   "rg": "+78.9%",
+   "pe": "8.55x",
+   "analysts": "8",
+   "upside": "+14.1%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "BPOPO",
+   "company": "Popular, Inc.",
+   "price": "25.10",
+   "chg52w": "+1.6%",
+   "eg": "+40.9%",
+   "rg": "+7.6%",
+   "pe": "2.28x",
+   "analysts": "0",
+   "upside": "—",
+   "flags": "no_analyst_coverage_unusual_for_us_largecap"
+  },
+  {
+   "isNew": false,
+   "ticker": "AMZN",
+   "company": "Amazon.com, Inc.",
+   "price": "251.19",
+   "chg52w": "+6.3%",
+   "eg": "+242.3%",
+   "rg": "+19.6%",
+   "pe": "19.79x",
+   "analysts": "59",
+   "upside": "+30.7%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "YUM",
+   "company": "Yum! Brands, Inc.",
+   "price": "135.75",
+   "chg52w": "-5.3%",
+   "eg": "+131.6%",
+   "rg": "+12.2%",
+   "pe": "17.36x",
+   "analysts": "23",
+   "upside": "+27.4%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "PEP",
+   "company": "PepsiCo, Inc.",
+   "price": "133.66",
+   "chg52w": "-5.2%",
+   "eg": "+137.0%",
+   "rg": "+6.4%",
+   "pe": "17.61x",
+   "analysts": "22",
+   "upside": "+16.0%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "JLL",
+   "company": "Jones Lang LaSalle Incorporated",
+   "price": "336.84",
+   "chg52w": "+6.8%",
+   "eg": "+97.8%",
+   "rg": "+10.8%",
+   "pe": "16.31x",
+   "analysts": "10",
+   "upside": "+26.3%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "HIG",
+   "company": "The Hartford Insurance Group, Inc.",
+   "price": "133.14",
+   "chg52w": "+3.0%",
+   "eg": "+36.1%",
+   "rg": "+8.1%",
+   "pe": "9.32x",
+   "analysts": "20",
+   "upside": "+12.2%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "PAYP",
+   "company": "PayPay Corporation",
+   "price": "17.91",
+   "chg52w": "-2.8%",
+   "eg": "+62.2%",
+   "rg": "+27.0%",
+   "pe": "15.05x",
+   "analysts": "13",
+   "upside": "+35.2%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "WPC",
+   "company": "W. P. Carey Inc.",
+   "price": "66.52",
+   "chg52w": "-1.3%",
+   "eg": "+256.5%",
+   "rg": "+18.4%",
+   "pe": "22.78x",
+   "analysts": "13",
+   "upside": "+20.7%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "SF",
+   "company": "Stifel Financial Corp.",
+   "price": "75.51",
+   "chg52w": "-1.4%",
+   "eg": "+50.6%",
+   "rg": "+12.7%",
+   "pe": "13.51x",
+   "analysts": "8",
+   "upside": "+17.9%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "AFL",
+   "company": "Aflac Incorporated",
+   "price": "116.60",
+   "chg52w": "+8.1%",
+   "eg": "+46.8%",
+   "rg": "-1.0%",
+   "pe": "12.59x",
+   "analysts": "15",
+   "upside": "+1.7%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "AFG",
+   "company": "American Financial Group, Inc.",
+   "price": "142.87",
+   "chg52w": "+1.2%",
+   "eg": "+44.3%",
+   "rg": "+5.8%",
+   "pe": "12.50x",
+   "analysts": "6",
+   "upside": "+9.1%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "NXPI",
+   "company": "NXP Semiconductors N.V.",
+   "price": "227.95",
+   "chg52w": "-2.3%",
+   "eg": "+72.6%",
+   "rg": "+19.5%",
+   "pe": "18.68x",
+   "analysts": "29",
+   "upside": "+36.5%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "GEN",
+   "company": "Gen Digital Inc.",
+   "price": "30.21",
+   "chg52w": "+5.7%",
+   "eg": "+64.0%",
+   "rg": "+6.3%",
+   "pe": "17.88x",
+   "analysts": "9",
+   "upside": "+9.2%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "UMBF",
+   "company": "UMB Financial Corporation",
+   "price": "134.76",
+   "chg52w": "+9.5%",
+   "eg": "+26.2%",
+   "rg": "+12.2%",
+   "pe": "11.16x",
+   "analysts": "16",
+   "upside": "+25.5%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "UHS",
+   "company": "Universal Health Services, Inc.",
+   "price": "180.75",
+   "chg52w": "-3.9%",
+   "eg": "+10.1%",
+   "rg": "+8.3%",
+   "pe": "7.40x",
+   "analysts": "17",
+   "upside": "+7.3%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "UDR",
+   "company": "UDR, Inc.",
+   "price": "34.21",
+   "chg52w": "-7.8%",
+   "eg": "+90.9%",
+   "rg": "-0.1%",
+   "pe": "21.79x",
+   "analysts": "21",
+   "upside": "+21.9%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "AMT",
+   "company": "American Tower Corporation",
+   "price": "175.58",
+   "chg52w": "-8.6%",
+   "eg": "+138.5%",
+   "rg": "+4.7%",
+   "pe": "24.28x",
+   "analysts": "23",
+   "upside": "+22.9%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "CRM",
+   "company": "Salesforce, Inc.",
+   "price": "242.85",
+   "chg52w": "+1.4%",
+   "eg": "+118.9%",
+   "rg": "+10.8%",
+   "pe": "22.93x",
+   "analysts": "54",
+   "upside": "+14.9%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "BCE",
+   "company": "BCE Inc.",
+   "price": "22.28",
+   "chg52w": "-3.1%",
+   "eg": "-3.8%",
+   "rg": "+1.5%",
+   "pe": "4.64x",
+   "analysts": "3",
+   "upside": "+20.7%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "FHN",
+   "company": "First Horizon Corporation",
+   "price": "24.01",
+   "chg52w": "+3.0%",
+   "eg": "+20.0%",
+   "rg": "+9.0%",
+   "pe": "11.49x",
+   "analysts": "21",
+   "upside": "+16.8%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "KEY",
+   "company": "KeyCorp",
+   "price": "20.95",
+   "chg52w": "+8.6%",
+   "eg": "+25.3%",
+   "rg": "+10.1%",
+   "pe": "12.11x",
+   "analysts": "19",
+   "upside": "+24.2%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "ULS",
+   "company": "UL Solutions Inc.",
+   "price": "64.42",
+   "chg52w": "-5.8%",
+   "eg": "+168.9%",
+   "rg": "+5.2%",
+   "pe": "25.87x",
+   "analysts": "12",
+   "upside": "+51.1%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "ALLY",
+   "company": "Ally Financial Inc.",
+   "price": "40.60",
+   "chg52w": "-8.8%",
+   "eg": "+13.5%",
+   "rg": "+11.0%",
+   "pe": "9.49x",
+   "analysts": "18",
+   "upside": "+32.4%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "HII",
+   "company": "Huntington Ingalls Industries, Inc.",
+   "price": "277.14",
+   "chg52w": "+1.1%",
+   "eg": "+36.5%",
+   "rg": "+10.9%",
+   "pe": "16.56x",
+   "analysts": "12",
+   "upside": "+32.9%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "ACGL",
+   "company": "Arch Capital Group Ltd.",
+   "price": "96.70",
+   "chg52w": "+9.7%",
+   "eg": "-7.1%",
+   "rg": "-10.5%",
+   "pe": "7.59x",
+   "analysts": "19",
+   "upside": "+15.5%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "SSB",
+   "company": "SouthState Bank Corporation",
+   "price": "103.67",
+   "chg52w": "+2.4%",
+   "eg": "+11.4%",
+   "rg": "-0.1%",
+   "pe": "10.90x",
+   "analysts": "14",
+   "upside": "+15.6%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "AVGO",
+   "company": "Broadcom Inc.",
+   "price": "347.30",
+   "chg52w": "-1.6%",
+   "eg": "+215.3%",
+   "rg": "+85.5%",
+   "pe": "43.30x",
+   "analysts": "47",
+   "upside": "+53.1%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "EXE",
+   "company": "Expand Energy Corporation",
+   "price": "88.33",
+   "chg52w": "-9.9%",
+   "eg": "-45.5%",
+   "rg": "-10.6%",
+   "pe": "7.65x",
+   "analysts": "27",
+   "upside": "+42.1%",
+   "flags": "revenue_declining_earnings_may_be_cost_cutting"
+  },
+  {
+   "isNew": false,
+   "ticker": "CI",
+   "company": "The Cigna Group",
+   "price": "276.00",
+   "chg52w": "-3.4%",
+   "eg": "+10.2%",
+   "rg": "+6.7%",
+   "pe": "11.60x",
+   "analysts": "25",
+   "upside": "+23.0%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "CNA",
+   "company": "CNA Financial Corporation",
+   "price": "48.20",
+   "chg52w": "+5.7%",
+   "eg": "+7.3%",
+   "rg": "+3.0%",
+   "pe": "10.59x",
+   "analysts": "1",
+   "upside": "+1.7%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "ticker": "PLTR",
+   "company": "Palantir Technologies Inc.",
+   "price": "176.24",
+   "chg52w": "-4.4%",
+   "eg": "+215.4%",
+   "rg": "+92.8%",
+   "pe": "149.36x",
+   "analysts": "27",
+   "upside": "+11.7%",
+   "flags": "possible_low_base_effect"
+  },
+  {
+   "isNew": false,
+   "ticker": "ALAB",
+   "company": "Astera Labs, Inc.",
+   "price": "293.56",
+   "chg52w": "+9.8%",
+   "eg": "+186.2%",
+   "rg": "+104.5%",
+   "pe": "133.44x",
+   "analysts": "23",
+   "upside": "+32.8%",
+   "flags": "none"
+  }
+ ],
+ "crypto": [
+  {
+   "isNew": false,
+   "symbol": "TRUMP",
+   "name": "Official Trump",
+   "price": "$2.0500",
+   "chg24h": "+4.8%",
+   "chg7d": "+3.0%",
+   "chg30d": "+44.6%",
+   "volmcap": "32.5%",
+   "fromath": "-97.2%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "INJ",
+   "name": "Injective",
+   "price": "$6.1800",
+   "chg24h": "+11.2%",
+   "chg7d": "+3.0%",
+   "chg30d": "+44.9%",
+   "volmcap": "17.1%",
+   "fromath": "-88.3%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "DOT",
+   "name": "Polkadot",
+   "price": "$1.1500",
+   "chg24h": "+13.5%",
+   "chg7d": "-0.4%",
+   "chg30d": "+50.1%",
+   "volmcap": "14.4%",
+   "fromath": "-97.9%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": true,
+   "symbol": "JUP",
+   "name": "Jupiter",
+   "price": "$0.2543",
+   "chg24h": "+13.3%",
+   "chg7d": "+8.0%",
+   "chg30d": "+50.7%",
+   "volmcap": "12.4%",
+   "fromath": "-87.3%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "WLD",
+   "name": "Worldcoin",
+   "price": "$0.4301",
+   "chg24h": "+14.5%",
+   "chg7d": "+7.9%",
+   "chg30d": "+36.6%",
+   "volmcap": "21.2%",
+   "fromath": "-96.3%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "CRV",
+   "name": "Curve DAO",
+   "price": "$0.3362",
+   "chg24h": "+5.1%",
+   "chg7d": "-1.9%",
+   "chg30d": "+43.1%",
+   "volmcap": "14.2%",
+   "fromath": "-97.8%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "APT",
+   "name": "Aptos",
+   "price": "$0.6649",
+   "chg24h": "+15.8%",
+   "chg7d": "+4.9%",
+   "chg30d": "+24.1%",
+   "volmcap": "27.4%",
+   "fromath": "-96.7%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "ETHFI",
+   "name": "Ether.fi",
+   "price": "$0.6702",
+   "chg24h": "+11.3%",
+   "chg7d": "-1.0%",
+   "chg30d": "+37.8%",
+   "volmcap": "8.6%",
+   "fromath": "-92.1%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "STX",
+   "name": "Stacks",
+   "price": "$0.2754",
+   "chg24h": "+15.1%",
+   "chg7d": "+6.2%",
+   "chg30d": "+128.1%",
+   "volmcap": "6.1%",
+   "fromath": "-92.9%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "SOL",
+   "name": "Solana",
+   "price": "$105.8900",
+   "chg24h": "+5.8%",
+   "chg7d": "+5.9%",
+   "chg30d": "+37.2%",
+   "volmcap": "6.9%",
+   "fromath": "-63.9%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "symbol": "SUI",
+   "name": "Sui",
+   "price": "$0.7829",
+   "chg24h": "+8.2%",
+   "chg7d": "+6.1%",
+   "chg30d": "+19.1%",
+   "volmcap": "17.2%",
+   "fromath": "-85.4%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "AVAX",
+   "name": "Avalanche",
+   "price": "$7.9300",
+   "chg24h": "+4.9%",
+   "chg7d": "+5.4%",
+   "chg30d": "+24.6%",
+   "volmcap": "8.8%",
+   "fromath": "-94.5%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "TAO",
+   "name": "Bittensor",
+   "price": "$247.3500",
+   "chg24h": "+8.7%",
+   "chg7d": "+4.1%",
+   "chg30d": "+28.1%",
+   "volmcap": "7.4%",
+   "fromath": "-67.4%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "symbol": "POL",
+   "name": "POL (ex-MATIC)",
+   "price": "$0.0998",
+   "chg24h": "+3.6%",
+   "chg7d": "+7.8%",
+   "chg30d": "+21.7%",
+   "volmcap": "11.1%",
+   "fromath": "-92.2%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "ADA",
+   "name": "Cardano",
+   "price": "$0.2143",
+   "chg24h": "+7.6%",
+   "chg7d": "+2.7%",
+   "chg30d": "+21.8%",
+   "volmcap": "6.8%",
+   "fromath": "-93.1%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "ASTER",
+   "name": "Aster",
+   "price": "$0.7559",
+   "chg24h": "+1.8%",
+   "chg7d": "+5.9%",
+   "chg30d": "+24.7%",
+   "volmcap": "5.2%",
+   "fromath": "-68.6%",
+   "flags": "none"
+  },
+  {
+   "isNew": false,
+   "symbol": "RENDER",
+   "name": "Render",
+   "price": "$1.5200",
+   "chg24h": "+9.5%",
+   "chg7d": "+6.6%",
+   "chg30d": "+18.2%",
+   "volmcap": "7.8%",
+   "fromath": "-88.8%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "LTC",
+   "name": "Litecoin",
+   "price": "$55.4000",
+   "chg24h": "+4.9%",
+   "chg7d": "+4.2%",
+   "chg30d": "+24.0%",
+   "volmcap": "5.8%",
+   "fromath": "-86.5%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "ATOM",
+   "name": "Cosmos Hub",
+   "price": "$1.6400",
+   "chg24h": "+6.4%",
+   "chg7d": "-6.4%",
+   "chg30d": "+16.3%",
+   "volmcap": "6.2%",
+   "fromath": "-96.3%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  },
+  {
+   "isNew": false,
+   "symbol": "DOGE",
+   "name": "Dogecoin",
+   "price": "$0.0846",
+   "chg24h": "+4.1%",
+   "chg7d": "+0.5%",
+   "chg30d": "+20.5%",
+   "volmcap": "5.5%",
+   "fromath": "-88.4%",
+   "flags": "still_80pct_plus_below_ath_may_never_recover"
+  }
+ ],
+ "snapshot_date": "2026-09-18",
+ "thai_extras": [
+  {
+   "title": "Track record — does this blueprint actually have an edge?",
+   "headers": [
+    "Ticker",
+    "Name",
+    "Entry Date",
+    "Entry Price",
+    "Exit Date",
+    "Status",
+    "Return"
+   ],
+   "rows": [
+    {
+     "Ticker": "MRDIYT.BK",
+     "Name": "MR. D.I.Y. Holding (Thailand) Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "8.85",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AURA.BK",
+     "Name": "Aurora Design Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "13.70",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-1.5%"
+    },
+    {
+     "Ticker": "RAM.BK",
+     "Name": "Ramkhamhaeng Hospital Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "17.50",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "FPT.BK",
+     "Name": "Frasers Property (Thailand) Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "7.20",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "VIBHA.BK",
+     "Name": "Vibhavadi Medical Center Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "1.35",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "NCAP.BK",
+     "Name": "Next Capital Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "3.32",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-0.6%"
+    },
+    {
+     "Ticker": "CK.BK",
+     "Name": "CH. Karnchang Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "17.90",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-1.1%"
+    },
+    {
+     "Ticker": "TKC.BK",
+     "Name": "Turnkey Communication Services Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "8.80",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-0.6%"
+    },
+    {
+     "Ticker": "LOXLEY.BK",
+     "Name": "Loxley Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "1.76",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "BAFS.BK",
+     "Name": "Bangkok Aviation Fuel Services Public Company Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "10.00",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.0%"
+    }
+   ]
+  },
+  {
+   "title": "History — additions & removals",
+   "headers": [
+    "Date",
+    "Ticker",
+    "Company",
+    "Event",
+    "Reason"
+   ],
+   "rows": [
+    {
+     "Date": "2026-09-18",
+     "Ticker": "M-CHAI.BK",
+     "Company": "Mahachai Hospital Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "price moved down -13.6% (outside +/-10% band); earnings growth fell to +15.8% (was +15.8%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SCAP.BK",
+     "Company": "Srisawad Capital 1969 Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "price moved up +12.1% (outside +/-10% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TOA.BK",
+     "Company": "TOA Paint (Thailand) Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "price moved up +10.5% (outside +/-10% band); earnings growth fell to +10.3% (was +10.3%, needs >25%)"
+    }
+   ]
+  }
+ ],
+ "us_extras": [
+  {
+   "title": "Track record — does this blueprint actually have an edge?",
+   "headers": [
+    "Ticker",
+    "Name",
+    "Entry Date",
+    "Entry Price",
+    "Exit Date",
+    "Status",
+    "Return"
+   ],
+   "rows": [
+    {
+     "Ticker": "HEI",
+     "Name": "HEICO Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "296.48",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "UMBF",
+     "Name": "UMB Financial Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "134.76",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CDE",
+     "Name": "Coeur Mining, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "19.98",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "TEL",
+     "Name": "TE Connectivity plc",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "206.60",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "WPC",
+     "Name": "W. P. Carey Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "66.52",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "COR",
+     "Name": "Cencora, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "309.41",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "UHS",
+     "Name": "Universal Health Services, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "180.75",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "NDAQ",
+     "Name": "Nasdaq, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "91.31",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "DCI",
+     "Name": "Donaldson Company, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "86.05",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ULS",
+     "Name": "UL Solutions Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "64.42",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "RRX",
+     "Name": "Regal Rexnord Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "147.94",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "BPOPO",
+     "Name": "Popular, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "25.10",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CI",
+     "Name": "The Cigna Group",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "276.00",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AMZN",
+     "Name": "Amazon.com, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "251.19",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "EIX",
+     "Name": "Edison International",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "55.50",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "PAYP",
+     "Name": "PayPay Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "17.91",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "UL",
+     "Name": "Unilever PLC",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "62.22",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "NBIX",
+     "Name": "Neurocrine Biosciences, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "151.83",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AZN",
+     "Name": "AstraZeneca PLC",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "166.14",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "SSB",
+     "Name": "SouthState Bank Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "103.67",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AVGO",
+     "Name": "Broadcom Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "347.30",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "VEEV",
+     "Name": "Veeva Systems Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "263.75",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CRM",
+     "Name": "Salesforce, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "242.85",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ICE",
+     "Name": "Intercontinental Exchange, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "153.30",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "PLTR",
+     "Name": "Palantir Technologies Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "176.24",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "PPG",
+     "Name": "PPG Industries, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "105.45",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "FN",
+     "Name": "Fabrinet",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "380.92",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "HII",
+     "Name": "Huntington Ingalls Industries, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "277.14",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "BTI",
+     "Name": "British American Tobacco p.l.c.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "56.02",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CINF",
+     "Name": "Cincinnati Financial Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "169.90",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "SF",
+     "Name": "Stifel Financial Corp.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "75.51",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "HON",
+     "Name": "Honeywell International Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "206.49",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "PPL",
+     "Name": "PPL Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "33.60",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ZM",
+     "Name": "Zoom Communications, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "92.16",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "GEN",
+     "Name": "Gen Digital Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "30.21",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "SKHY",
+     "Name": "SK hynix Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "182.99",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "YUM",
+     "Name": "Yum! Brands, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "135.75",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "REG",
+     "Name": "Regency Centers Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "73.12",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "UDR",
+     "Name": "UDR, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "34.21",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "MCO",
+     "Name": "Moody's Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "461.88",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "BAX",
+     "Name": "Baxter International Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "23.02",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CASY",
+     "Name": "Casey's General Stores, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "607.45",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AFL",
+     "Name": "Aflac Incorporated",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "116.60",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CHD",
+     "Name": "Church & Dwight Co., Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "95.05",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "RL",
+     "Name": "Ralph Lauren Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "333.08",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AMT",
+     "Name": "American Tower Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "175.58",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ACGL",
+     "Name": "Arch Capital Group Ltd.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "96.70",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "EQT",
+     "Name": "EQT Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "50.35",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "O",
+     "Name": "Realty Income Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "57.32",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "PEP",
+     "Name": "PepsiCo, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "133.66",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CNA",
+     "Name": "CNA Financial Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "48.20",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "TW",
+     "Name": "Tradeweb Markets Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "102.06",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ES",
+     "Name": "Eversource Energy",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "68.99",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ALAB",
+     "Name": "Astera Labs, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "293.56",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "GFI",
+     "Name": "Gold Fields Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "43.34",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "AFG",
+     "Name": "American Financial Group, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "142.87",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "LTM",
+     "Name": "LATAM Airlines Group S.A.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "51.35",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "HIG",
+     "Name": "The Hartford Insurance Group, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "133.14",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "BCE",
+     "Name": "BCE Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "22.28",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "PAYC",
+     "Name": "Paycom Software, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "226.06",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "KEY",
+     "Name": "KeyCorp",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "20.95",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CRDO",
+     "Name": "Credo Technology Group Holding Ltd",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "168.25",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "NLY",
+     "Name": "Annaly Capital Management, Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "21.31",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "DRD",
+     "Name": "DRDGOLD Limited",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "26.11",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "JLL",
+     "Name": "Jones Lang LaSalle Incorporated",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "336.84",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "WTW",
+     "Name": "Willis Towers Watson Public Limited Company",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "310.99",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "FHN",
+     "Name": "First Horizon Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "24.01",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "NXPI",
+     "Name": "NXP Semiconductors N.V.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "227.95",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "ALLY",
+     "Name": "Ally Financial Inc.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "40.60",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "FRHC",
+     "Name": "Freedom Holdings Corp.",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "164.71",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "MSFT",
+     "Name": "Microsoft Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "497.75",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "EXE",
+     "Name": "Expand Energy Corporation",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "88.33",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    },
+    {
+     "Ticker": "CPT",
+     "Name": "Camden Property Trust",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "100.93",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    }
+   ]
+  },
+  {
+   "title": "History — additions & removals",
+   "headers": [
+    "Date",
+    "Ticker",
+    "Company",
+    "Event",
+    "Reason"
+   ],
+   "rows": [
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PTBKF",
+     "Company": "PT Surya Citra Media Tbk",
+     "Event": "ADDED",
+     "Reason": "Earnings growth +36.9%, revenue growth +6.2%, price change +0.0% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "INRHF",
+     "Company": "INFRONEER Holdings Inc.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MMNNF",
+     "Company": "Munters Group AB (publ)",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ZHAOF",
+     "Company": "Zhaojin Mining Industry Company Limited",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -58.9% (was -58.9%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HIRAF",
+     "Company": "Hirata Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "DNGFF",
+     "Company": "Dongfang Electric Corporation Limited",
+     "Event": "REMOVED",
+     "Reason": "revenue growth turned negative (-2.0%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JRFIF",
+     "Company": "Japan Metropolitan Fund Investment Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +23.2% (was +23.2%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "EOVBF",
+     "Company": "AirTrip Corp.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -55.8% (was -55.8%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LNTEF",
+     "Company": "LINTEC Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HUKEF",
+     "Company": "Hokuriku Electrical Construction Co.,Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TOIPF",
+     "Company": "Thai Oil Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AVIFY",
+     "Company": "Advanced Info Service Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +24.9% (was +24.9%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NSEIF",
+     "Company": "Nippon Seiki Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TAKMF",
+     "Company": "Takamatsu Construction Group Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BRK-A",
+     "Company": "Berkshire Hathaway Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AXAHF",
+     "Company": "AXA SA",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +13.2% (was +13.2%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "OTGLF",
+     "Company": "CD Projekt Red S.A.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "FBASF",
+     "Company": "Fibra UNO",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -24.7% (was -24.7%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HOCPF",
+     "Company": "HOYA Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SAOGF",
+     "Company": "Seria Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HYPMY",
+     "Company": "Hypera S.A.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +4.5% (was +4.5%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SIELF",
+     "Company": "Shanghai Electric Group Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +10.7% (was +10.7%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NWWCF",
+     "Company": "New China Life Insurance Company Ltd.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PTMYF",
+     "Company": "PT Mayora Indah Tbk",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TGOSF",
+     "Company": "Toyoda Gosei Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AJNMY",
+     "Company": "Ajinomoto Co., Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +16.8% (was +16.8%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KYDKF",
+     "Company": "Kraftia Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +9.0% (was +9.0%, needs >25%); revenue growth turned negative (-1.9%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SHMXY",
+     "Company": "Shimadzu Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SHHGF",
+     "Company": "Shenwan Hongyuan Group Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MITEF",
+     "Company": "Mitsubishi Estate Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "RZNXF",
+     "Company": "RAIZNEXT Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BRDCY",
+     "Company": "Bridgestone Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SPG-PJ",
+     "Company": "Simon Property Group, Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -12.5% (was -12.5%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SDMHF",
+     "Company": "Sartorius Stedim Biotech S.A.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KYWAF",
+     "Company": "EXEO Group, Inc.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NCKAF",
+     "Company": "Nickel Asia Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ZJGIY",
+     "Company": "nan",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "IVTBF",
+     "Company": "Investment AB Latour (publ)",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ICHIF",
+     "Company": "Ichigo Inc.",
+     "Event": "REMOVED",
+     "Reason": "revenue growth turned negative (-15.9%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PIAIF",
+     "Company": "Ping An Insurance (Group) Company of China, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KNAMF",
+     "Company": "Konami Group Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KTITF",
+     "Company": "KATITAS CO., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CMSYF",
+     "Company": "COMSYS Holdings Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "IZMIF",
+     "Company": "Izumi Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +13.6% (was +13.6%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TMXXF",
+     "Company": "TMX Group Limited",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ZZHGF",
+     "Company": "ZhongAn Online P & C Insurance Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CRPFY",
+     "Company": "Corporación Financiera Colombiana S.A.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ANTOF",
+     "Company": "Iida Group Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GPMXY",
+     "Company": "Grupo México, S.A.B. de C.V.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "YAHOF",
+     "Company": "LY Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +24.1% (was +24.1%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "UCBJF",
+     "Company": "UCB SA",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AVEXF",
+     "Company": "Avex Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -44.3% (was -44.3%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LIOPY",
+     "Company": "Lion Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +18.8% (was +18.8%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SWRHF",
+     "Company": "Shibusawa Logistics Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TSKMF",
+     "Company": "Tsubakimoto Chain Co.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -4.4% (was -4.4%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SEOTF",
+     "Company": "Seino Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CAJFF",
+     "Company": "Canon Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HALMY",
+     "Company": "Halma plc",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +16.0% (was +16.0%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GFSEF",
+     "Company": "GF Securities Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "RUMOF",
+     "Company": "Rumo S.A.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ZSHOF",
+     "Company": "Zensho Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SDCKF",
+     "Company": "Sodick Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MXLLF",
+     "Company": "Maxell, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NDGPF",
+     "Company": "Nine Dragons Paper (Holdings) Limited",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SUGBY",
+     "Company": "Suruga Bank Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "OPMXF",
+     "Company": "Operadora de Sites Mexicanos, S.A.B. de C.V.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BRDLF",
+     "Company": "Broadleaf Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HNSPF",
+     "Company": "Hansoh Pharmaceutical Group Company Limited",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ELCMF",
+     "Company": "Elecom Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "OITAF",
+     "Company": "The Oita Bank, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +21.1% (was +21.1%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TSGMY",
+     "Company": "Tsugami Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JXAMY",
+     "Company": "JX Advanced Metals Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SAXPF",
+     "Company": "Sampo Oyj",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +6.3% (was +6.3%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "VREAF",
+     "Company": "Vår Energi ASA",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SMDPY",
+     "Company": "Sumitomo Pharma Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CSCFF",
+     "Company": "CSC Financial Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GMGSF",
+     "Company": "Goodman Group",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AMCUF",
+     "Company": "Amata Corporation Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HNIKF",
+     "Company": "nan",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "THLEF",
+     "Company": "Thales S.A.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -27.0% (was -27.0%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SGIOF",
+     "Company": "Shionogi & Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LDNXF",
+     "Company": "London Stock Exchange Group plc",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CFG-PI",
+     "Company": "Citizens Financial Group, Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SPIDY",
+     "Company": "Septeni Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LUGDF",
+     "Company": "Lundin Gold Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +12.2% (was +12.2%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NPXYY",
+     "Company": "Nippon Sanso Holdings Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "RYBIF",
+     "Company": "Ryobi Limited",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -50.7% (was -50.7%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PPLFF",
+     "Company": "PT Perusahaan Perkebunan London Sumatra Indonesia Tbk",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SALRY",
+     "Company": "SalMar ASA",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GBRSF",
+     "Company": "Global One Real Estate Investment Corp.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +7.5% (was +7.5%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PTABF",
+     "Company": "PT Astra Agro Lestari Tbk",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KXHCF",
+     "Company": "Kioxia Holdings Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "FSNUF",
+     "Company": "Fresenius SE & Co. KGaA",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +17.2% (was +17.2%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AICXF",
+     "Company": "Aichi Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "C-PR",
+     "Company": "Citigroup Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "EGIEY",
+     "Company": "Engie Brasil Energia S.A.",
+     "Event": "REMOVED",
+     "Reason": "price moved up +10.0% (outside +/-10% band); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NEE-PS",
+     "Company": "NextEra Energy, Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ASGLY",
+     "Company": "AGC Inc.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BDRPF",
+     "Company": "Bombardier Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -2.3% (was -2.3%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JDEPY",
+     "Company": "JDE Peet's N.V.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "FRUYF",
+     "Company": "Furuya Metal Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HROGF",
+     "Company": "Hirogin Holdings, Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +22.1% (was +22.1%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HKTGF",
+     "Company": "Hikari Tsushin, Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HMNKF",
+     "Company": "HMS Networks AB (publ)",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GALDY",
+     "Company": "Galderma Group AG",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ABOIF",
+     "Company": "Aboitiz Equity Ventures, Inc.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HSSKY",
+     "Company": "HASEKO Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "UARWF",
+     "Company": "United Arrows Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TAYIF",
+     "Company": "Taiyo Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NSNHF",
+     "Company": "Nissan Shatai Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BAC-PB",
+     "Company": "Bank of America Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CMPGF",
+     "Company": "Compass Group PLC",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +16.3% (was +16.3%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ASOZY",
+     "Company": "Asseco Poland S.A.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +16.9% (was +16.9%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BRVDF",
+     "Company": "Bravida Holding AB (publ)",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "DCYHY",
+     "Company": "Discovery Limited",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "UNLRY",
+     "Company": "PT Unilever Indonesia Tbk",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -9.3% (was -9.3%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NTTAF",
+     "Company": "Nitta Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MHVYF",
+     "Company": "Mitsubishi Heavy Industries, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "revenue growth turned negative (+0.0%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SHMWF",
+     "Company": "ShinMaywa Industries, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TKUMF",
+     "Company": "Takuma Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "UI",
+     "Company": "Ubiquiti Inc.",
+     "Event": "REMOVED",
+     "Reason": "price moved down -10.3% (outside +/-10% band); earnings growth fell to +6.8% (was +6.8%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ASGLY",
+     "Company": "AGC Inc.",
+     "Event": "REMOVED",
+     "Reason": "price moved up +11.5% (outside +/-10% band); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "VG",
+     "Company": "Venture Global, Inc.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AJNMY",
+     "Company": "Ajinomoto Co., Inc.",
+     "Event": "ADDED",
+     "Reason": "Earnings growth +16.8%, revenue growth +13.2%, price change +9.2% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ASGLY",
+     "Company": "AGC Inc.",
+     "Event": "ADDED",
+     "Reason": "Earnings growth +74.5%, revenue growth +13.5%, price change +7.5% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CDE",
+     "Company": "Coeur Mining, Inc.",
+     "Event": "ADDED",
+     "Reason": "Earnings growth +7.6%, revenue growth +125.9%, price change +9.0% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LUGDF",
+     "Company": "Lundin Gold Inc.",
+     "Event": "ADDED",
+     "Reason": "Earnings growth +12.2%, revenue growth +5.5%, price change +8.1% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "EXE",
+     "Company": "Expand Energy Corporation",
+     "Event": "ADDED",
+     "Reason": "Earnings growth -45.5%, revenue growth -10.6%, price change -9.9% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GFI",
+     "Company": "Gold Fields Limited",
+     "Event": "ADDED",
+     "Reason": "Earnings growth +81.4%, revenue growth +78.9%, price change +1.6% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SZKMF",
+     "Company": "Suzuki Motor Corporation",
+     "Event": "REMOVED",
+     "Reason": "price moved down -13.9% (outside +/-10% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "GFIOF",
+     "Company": "Gold Fields Limited",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NPNVF",
+     "Company": "Valqua, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "FSLR",
+     "Company": "First Solar, Inc.",
+     "Event": "REMOVED",
+     "Reason": "price moved down -10.1% (outside +/-10% band); earnings growth fell to +23.3% (was +23.3%, needs >25%); revenue growth turned negative (-3.7%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "DOC",
+     "Company": "Healthpeak Properties, Inc.",
+     "Event": "REMOVED",
+     "Reason": "price moved up +10.2% (outside +/-10% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BTI",
+     "Company": "British American Tobacco p.l.c.",
+     "Event": "ADDED",
+     "Reason": "Earnings growth -28.6%, revenue growth +1.4%, price change +2.5% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AELIY",
+     "Company": "Anadolu Hayat Emeklilik Anonim Sirketi",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HUPHY",
+     "Company": "Hutchison Port Holdings Trust",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BTAFF",
+     "Company": "British American Tobacco p.l.c.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -28.6% (was -28.6%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HYKUF",
+     "Company": "The Hyakugo Bank, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AAGIY",
+     "Company": "AIA Group Limited",
+     "Event": "REMOVED",
+     "Reason": "revenue growth turned negative (-2.5%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KNFSF",
+     "Company": "Kiatnakin Phatra Bank Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SRIOF",
+     "Company": "A. Soriano Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CKDOF",
+     "Company": "CKD Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PKCOY",
+     "Company": "PARK24 Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "revenue growth turned negative (-0.7%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NLLRF",
+     "Company": "PILLAR Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "RINIF",
+     "Company": "Rinnai Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +3.6% (was +3.6%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "YNOYF",
+     "Company": "Yoshinoya Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ICHHF",
+     "Company": "Ichinen Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NHFOF",
+     "Company": "NH Foods Ltd.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -0.8% (was -0.8%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HEINY",
+     "Company": "Heineken N.V.",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "STAEF",
+     "Company": "Stanley Electric Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -2.7% (was -2.7%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LYSCF",
+     "Company": "Lynas Rare Earths Limited",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NCHNF",
+     "Company": "Nichicon Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AEMRF",
+     "Company": "Agnico Eagle Mines Limited",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TODCF",
+     "Company": "Toda Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KYKOF",
+     "Company": "Kyowa Kirin Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AEOXF",
+     "Company": "Aeroports de Paris SA",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AOZOF",
+     "Company": "Aozora Bank, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "KSRYY",
+     "Company": "KOSE Holdings Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MITCF",
+     "Company": "Mitani Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +15.5% (was +15.5%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MIHDF",
+     "Company": "MISC Berhad",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NPPHY",
+     "Company": "Nippon Paint Holdings Co., Ltd.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +7.6% (was +7.6%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SKKLF",
+     "Company": "Shikoku Kasei Holdings Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BNY-PK",
+     "Company": "The Bank of New York Mellon Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "HACBF",
+     "Company": "Hachijuni Nagano Bank, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "NECPY",
+     "Company": "NEC Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MWTCF",
+     "Company": "Manila Water Company, Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -7.9% (was -7.9%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PPKRF",
+     "Company": "Pepkor Holdings Limited",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +9.4% (was +9.4%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PTBKF",
+     "Company": "PT Surya Citra Media Tbk",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ASCCF",
+     "Company": "ASICS Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TMTMF",
+     "Company": "TechMatrix Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +23.8% (was +23.8%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ANCTF",
+     "Company": "Alimentation Couche-Tard Inc.",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +9.8% (was +9.8%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "DUAVF",
+     "Company": "Dassault Aviation société anonyme",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +9.0% (was +9.0%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "RICOF",
+     "Company": "Ricoh Company, Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MNILY",
+     "Company": "Minor International Public Company Limited",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +11.6% (was +11.6%, needs >25%); market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SAABF",
+     "Company": "Saab AB (publ)",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TLTZF",
+     "Company": "Tele2 AB (publ)",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +1.2% (was +1.2%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SKKAF",
+     "Company": "Sk Kaken Co.,Ltd.",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ORCL-PD",
+     "Company": "Oracle Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PPCCY",
+     "Company": "PICC Property and Casualty Company Limited",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "PSSMF",
+     "Company": "Press Metal Aluminium Holdings Berhad",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ALL-PJ",
+     "Company": "The Allstate Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "BAMKF",
+     "Company": "Brookfield Corporation",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ALMMF",
+     "Company": "Aluminum Corporation of China Limited",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JSPCF",
+     "Company": "JSP Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "IFCZF",
+     "Company": "Intact Financial Corporation",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to -17.0% (was -17.0%, needs >25%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SGSUF",
+     "Company": "Sangetsu Corporation",
+     "Event": "REMOVED",
+     "Reason": "market cap fell below 10B USD floor"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "MS-PE",
+     "Company": "Morgan Stanley",
+     "Event": "REMOVED",
+     "Reason": "no longer matches screener criteria (net income growth or another server-side field slipped below threshold)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CYRBY",
+     "Company": "Cyrela Brazil Realty S.A. Empreendimentos e Participações",
+     "Event": "REMOVED",
+     "Reason": "earnings growth fell to +16.4% (was +16.4%, needs >25%); market cap fell below 10B USD floor"
+    }
+   ]
+  }
+ ],
+ "crypto_extras": [
+  {
+   "title": "Track record — does this blueprint actually have an edge?",
+   "headers": [
+    "Symbol",
+    "Name",
+    "Entry Date",
+    "Entry Price",
+    "Exit Date",
+    "Status",
+    "Return"
+   ],
+   "rows": [
+    {
+     "Symbol": "LTC",
+     "Name": "Litecoin",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$54.5900",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.5%"
+    },
+    {
+     "Symbol": "ASTER",
+     "Name": "Aster",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.7439",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.6%"
+    },
+    {
+     "Symbol": "ALGO",
+     "Name": "Algorand",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.0947",
+     "Exit Date": "2026-09-18",
+     "Status": "CLOSED",
+     "Return": "+0.7%"
+    },
+    {
+     "Symbol": "ATOM",
+     "Name": "Cosmos Hub",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$1.6500",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-0.6%"
+    },
+    {
+     "Symbol": "POL",
+     "Name": "POL (ex-MATIC)",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.0999",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-0.1%"
+    },
+    {
+     "Symbol": "DOGE",
+     "Name": "Dogecoin",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.0843",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.3%"
+    },
+    {
+     "Symbol": "TRUMP",
+     "Name": "Official Trump",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$2.0300",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.0%"
+    },
+    {
+     "Symbol": "CRV",
+     "Name": "Curve DAO",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.3396",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-1.0%"
+    },
+    {
+     "Symbol": "AVAX",
+     "Name": "Avalanche",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$7.8700",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.8%"
+    },
+    {
+     "Symbol": "STX",
+     "Name": "Stacks",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.2702",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.9%"
+    },
+    {
+     "Symbol": "ETHFI",
+     "Name": "Ether.fi",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.6493",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+3.2%"
+    },
+    {
+     "Symbol": "VVV",
+     "Name": "Venice Token",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$24.3100",
+     "Exit Date": "2026-09-18",
+     "Status": "CLOSED",
+     "Return": "+11.0%"
+    },
+    {
+     "Symbol": "ADA",
+     "Name": "Cardano",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.2135",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.4%"
+    },
+    {
+     "Symbol": "TAO",
+     "Name": "Bittensor",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$238.8500",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+3.6%"
+    },
+    {
+     "Symbol": "RENDER",
+     "Name": "Render",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$1.5000",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.3%"
+    },
+    {
+     "Symbol": "APT",
+     "Name": "Aptos",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.6713",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "-0.9%"
+    },
+    {
+     "Symbol": "SOL",
+     "Name": "Solana",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$104.7700",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+1.1%"
+    },
+    {
+     "Symbol": "INJ",
+     "Name": "Injective",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$5.8700",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+5.3%"
+    },
+    {
+     "Symbol": "SUI",
+     "Name": "Sui",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.7772",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.7%"
+    },
+    {
+     "Symbol": "DOT",
+     "Name": "Polkadot",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$1.1200",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+2.7%"
+    },
+    {
+     "Symbol": "WLD",
+     "Name": "Worldcoin",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.4169",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+3.2%"
+    },
+    {
+     "Symbol": "JUP",
+     "Name": "Jupiter",
+     "Entry Date": "2026-09-18",
+     "Entry Price": "$0.2543",
+     "Exit Date": "—",
+     "Status": "ACTIVE",
+     "Return": "+0.0%"
+    }
+   ]
+  },
+  {
+   "title": "History — additions & removals",
+   "headers": [
+    "Date",
+    "Ticker",
+    "Name",
+    "Event",
+    "Reason"
+   ],
+   "rows": [
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SOL",
+     "Name": "Solana",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +33.8%, vol/mcap ratio 5.8%, 7d price change +3.3% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AVAX",
+     "Name": "Avalanche",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +21.7%, vol/mcap ratio 8.1%, 7d price change +3.2% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "VVV",
+     "Name": "Venice Token",
+     "Event": "REMOVED",
+     "Reason": "price broke out up +11.9% over 7d (outside +/-8% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JUP",
+     "Name": "Jupiter",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +50.7%, vol/mcap ratio 12.4%, 7d price change +8.0% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ALGO",
+     "Name": "Algorand",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +20.6%, vol/mcap ratio 5.0%, 7d price change +2.3% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ATOM",
+     "Name": "Cosmos Hub",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +16.3%, vol/mcap ratio 6.1%, 7d price change -6.9% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "POL",
+     "Name": "POL (ex-MATIC)",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +21.7%, vol/mcap ratio 10.7%, 7d price change +7.7% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "DOGE",
+     "Name": "Dogecoin",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +20.4%, vol/mcap ratio 5.4%, 7d price change +0.1% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "STX",
+     "Name": "Stacks",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +123.8%, vol/mcap ratio 5.1%, 7d price change +5.6% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "VVV",
+     "Name": "Venice Token",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +84.2%, vol/mcap ratio 5.3%, 7d price change +7.6% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JUP",
+     "Name": "Jupiter",
+     "Event": "REMOVED",
+     "Reason": "price broke out up +8.3% over 7d (outside +/-8% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AAVE",
+     "Name": "Aave",
+     "Event": "REMOVED",
+     "Reason": "price broke out up +10.8% over 7d (outside +/-8% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "POL",
+     "Name": "POL (ex-MATIC)",
+     "Event": "REMOVED",
+     "Reason": "price broke out up +8.4% over 7d (outside +/-8% band)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "VVV",
+     "Name": "Venice Token",
+     "Event": "REMOVED",
+     "Reason": "volume/market-cap ratio fell to 4.7% (needs >5%)"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ADA",
+     "Name": "Cardano",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +22.6%, vol/mcap ratio 6.2%, 7d price change +3.0% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ASTER",
+     "Name": "Aster",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +24.2%, vol/mcap ratio 5.2%, 7d price change +6.5% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "POL",
+     "Name": "POL (ex-MATIC)",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +19.9%, vol/mcap ratio 10.2%, 7d price change +6.7% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "RENDER",
+     "Name": "Render",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +19.0%, vol/mcap ratio 7.0%, 7d price change +7.4% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ETHFI",
+     "Name": "Ether.fi",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +33.5%, vol/mcap ratio 8.2%, 7d price change -3.8% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "SUI",
+     "Name": "Sui",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +17.1%, vol/mcap ratio 15.5%, 7d price change +4.3% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "WLD",
+     "Name": "Worldcoin",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +28.9%, vol/mcap ratio 16.3%, 7d price change +2.3% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "APT",
+     "Name": "Aptos",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +24.5%, vol/mcap ratio 19.3%, 7d price change +0.9% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "AAVE",
+     "Name": "Aave",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +49.7%, vol/mcap ratio 14.5%, 7d price change +7.0% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "JUP",
+     "Name": "Jupiter",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +44.7%, vol/mcap ratio 10.7%, 7d price change +5.9% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "VVV",
+     "Name": "Venice Token",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +81.0%, vol/mcap ratio 5.3%, 7d price change +5.5% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "INJ",
+     "Name": "Injective",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +38.9%, vol/mcap ratio 14.5%, 7d price change -3.2% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "CRV",
+     "Name": "Curve DAO",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +38.0%, vol/mcap ratio 14.0%, 7d price change -2.1% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "LTC",
+     "Name": "Litecoin",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +22.4%, vol/mcap ratio 5.2%, 7d price change +2.9% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TAO",
+     "Name": "Bittensor",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +24.9%, vol/mcap ratio 6.2%, 7d price change +1.4% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "DOT",
+     "Name": "Polkadot",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +48.6%, vol/mcap ratio 13.5%, 7d price change +0.4% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "TRUMP",
+     "Name": "Official Trump",
+     "Event": "ADDED",
+     "Reason": "30d mcap change +43.9%, vol/mcap ratio 30.8%, 7d price change +2.2% within band"
+    },
+    {
+     "Date": "2026-09-18",
+     "Ticker": "ALGO",
+     "Name": "Algorand",
+     "Event": "REMOVED",
+     "Reason": "volume/market-cap ratio fell to 5.0% (needs >5%)"
+    }
+   ]
+  }
+ ]
+}
