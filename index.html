@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Trading Dashboards — All Markets</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #e6e6e6; margin: 0; }
+  .tabbar { display: flex; gap: 4px; padding: 12px 16px 0; background: #14161f; }
+  .tabbtn { background: #1a1d29; color: #9aa0a6; border: none; padding: 10px 20px;
+             border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; }
+  .tabbtn.active { background: #0f1117; color: #ffffff; font-weight: 600; }
+  .tabframe { width: 100%; height: calc(100vh - 50px); border: none; }
+</style></head>
+<body>
+  <div class="tabbar"><button class="tabbtn" id="btn-thai" onclick="showTab('thai')">🇹🇭 Thai</button><button class="tabbtn" id="btn-us" onclick="showTab('us')">🇺🇸 US</button><button class="tabbtn" id="btn-crypto" onclick="showTab('crypto')">₿ Crypto</button></div>
+  <iframe id="frame-thai" class="tabframe" src="thai_screener_dashboard.html" style="display:none"></iframe><iframe id="frame-us" class="tabframe" src="us_screener_dashboard.html" style="display:none"></iframe><iframe id="frame-crypto" class="tabframe" src="crypto_screener_dashboard.html" style="display:none"></iframe>
+  <script>
+    function showTab(key) {
+      document.querySelectorAll('.tabframe').forEach(f => f.style.display = 'none');
+      document.querySelectorAll('.tabbtn').forEach(b => b.classList.remove('active'));
+      document.getElementById('frame-' + key).style.display = 'block';
+      document.getElementById('btn-' + key).classList.add('active');
+    }
+    showTab('thai');
+  </script>
+</body></html>

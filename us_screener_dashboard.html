@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>US Stock Screener Dashboard</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #e6e6e6; margin: 0; padding: 24px; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
+  .meta { color: #9aa0a6; font-size: 13px; margin-bottom: 20px; }
+  .summary { display: flex; gap: 16px; margin-bottom: 20px; }
+  .card { background: #1a1d29; border-radius: 8px; padding: 14px 20px; }
+  .card .num { font-size: 26px; font-weight: 700; }
+  .card .label { font-size: 12px; color: #9aa0a6; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #1a1d29; border-radius: 8px; overflow: hidden; }
+  th { text-align: left; background: #23273a; padding: 10px 8px; font-size: 12px; color: #9aa0a6; cursor: pointer; user-select: none; }
+  th:hover { color: #ffffff; }
+  td { padding: 8px; border-top: 1px solid #2a2e40; vertical-align: middle; }
+  .new-row { background: #1f3a2a; }
+  .badge { background: #1a9850; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+  .barwrap { display:inline-block; width: 80px; height: 8px; background:#2a2e40; border-radius:4px; vertical-align:middle; margin-left:6px; overflow:hidden; }
+  .bar { height: 8px; }
+  .flag-none { color: #6fbf73; }
+  .flag-warn { color: #e0a030; font-size: 12px; }
+  .event-added { color: #6fbf73; font-weight: 600; }
+  .event-removed { color: #e05a5a; font-weight: 600; }
+</style></head>
+<body>
+  <h1>US Stock Screener Dashboard</h1>
+  <div class="meta">Last run: 2026-09-18 11:42 SE Asia Standard Time &nbsp;|&nbsp; Market cap floor: 10B USD &nbsp;|&nbsp; Separate from the Thai screener (own schedule, own history)</div>
+  <div class="summary">
+    <div class="card"><div class="num">73</div><div class="label">Candidates (showing top 40)</div></div>
+    <div class="card"><div class="num">0</div><div class="label">New since last run</div></div>
+    
+    <div class="card"><div class="num">0</div><div class="label">Closed positions</div></div>
+    <div class="card"><div class="num">—</div><div class="label">Win rate (closed)</div></div>
+    <div class="card"><div class="num">—</div><div class="label">Avg realized return</div></div>
+    <div class="card"><div class="num">+0.0%</div><div class="label">Avg unrealized return</div></div>
+  </div>
+  <table id="candidatesTable">
+    <tr><th onclick="sortTable(0)">Ticker &#8597;</th><th onclick="sortTable(1)">Company &#8597;</th>
+        <th onclick="sortTable(2)">Price &#8597;</th><th onclick="sortTable(3)">52w Change &#8597;</th>
+        <th onclick="sortTable(4)">Earnings Growth &#8597;</th><th onclick="sortTable(5)">Revenue Growth &#8597;</th>
+        <th onclick="sortTable(6)">P/E &#8597;</th><th onclick="sortTable(7)">Analysts &#8597;</th>
+        <th onclick="sortTable(8)">Upside &#8597;</th><th onclick="sortTable(9)">Red Flags &#8597;</th></tr>
+    
+        <tr class="">
+          <td>NLY </td>
+          <td>Annaly Capital Management, Inc.</td>
+          <td>21.31</td>
+          <td>-2.2%</td>
+          <td>+3426.0% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+479.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>5.12x</td>
+          <td>11</td>
+          <td>+13.7%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>HON </td>
+          <td>Honeywell International Inc.</td>
+          <td>206.49</td>
+          <td>+0.3%</td>
+          <td>+263.9% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+4.3% <div class="barwrap"><div class="bar" style="width:2.9%;background:#1a9850;float:left"></div></div></td>
+          <td>7.98x</td>
+          <td>22</td>
+          <td>+27.5%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>ZM </td>
+          <td>Zoom Communications, Inc.</td>
+          <td>92.16</td>
+          <td>+5.9%</td>
+          <td>+342.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+4.9% <div class="barwrap"><div class="bar" style="width:3.3%;background:#1a9850;float:left"></div></div></td>
+          <td>8.54x</td>
+          <td>25</td>
+          <td>+28.3%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>SKHY </td>
+          <td>SK hynix Inc.</td>
+          <td>182.99</td>
+          <td>+4.1%</td>
+          <td>+1272.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+256.8% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>10.85x</td>
+          <td>14</td>
+          <td>+35.8%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>CINF </td>
+          <td>Cincinnati Financial Corporation</td>
+          <td>169.90</td>
+          <td>+9.4%</td>
+          <td>+85.5% <div class="barwrap"><div class="bar" style="width:57.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+31.6% <div class="barwrap"><div class="bar" style="width:21.1%;background:#1a9850;float:left"></div></div></td>
+          <td>8.06x</td>
+          <td>6</td>
+          <td>+12.8%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>DRD </td>
+          <td>DRDGOLD Limited</td>
+          <td>26.11</td>
+          <td>-0.6%</td>
+          <td>+82.2% <div class="barwrap"><div class="bar" style="width:54.8%;background:#1a9850;float:left"></div></div></td>
+          <td>+49.8% <div class="barwrap"><div class="bar" style="width:33.2%;background:#1a9850;float:left"></div></div></td>
+          <td>8.45x</td>
+          <td>1</td>
+          <td>+34.0%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>EIX </td>
+          <td>Edison International</td>
+          <td>55.50</td>
+          <td>-1.5%</td>
+          <td>+55.1% <div class="barwrap"><div class="bar" style="width:36.7%;background:#1a9850;float:left"></div></div></td>
+          <td>-4.1% <div class="barwrap"><div class="bar" style="width:2.7%;background:#d73027;float:right"></div></div></td>
+          <td>5.66x</td>
+          <td>14</td>
+          <td>+21.0%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>GFI </td>
+          <td>Gold Fields Limited</td>
+          <td>43.34</td>
+          <td>+1.6%</td>
+          <td>+81.4% <div class="barwrap"><div class="bar" style="width:54.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+78.9% <div class="barwrap"><div class="bar" style="width:52.6%;background:#1a9850;float:left"></div></div></td>
+          <td>8.55x</td>
+          <td>8</td>
+          <td>+14.1%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>BPOPO </td>
+          <td>Popular, Inc.</td>
+          <td>25.10</td>
+          <td>+1.6%</td>
+          <td>+40.9% <div class="barwrap"><div class="bar" style="width:27.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+7.6% <div class="barwrap"><div class="bar" style="width:5.1%;background:#1a9850;float:left"></div></div></td>
+          <td>2.28x</td>
+          <td>0</td>
+          <td>—</td>
+          <td class="flag-warn">no_analyst_coverage_unusual_for_us_largecap</td>
+        </tr>
+        <tr class="">
+          <td>AMZN </td>
+          <td>Amazon.com, Inc.</td>
+          <td>251.19</td>
+          <td>+6.3%</td>
+          <td>+242.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+19.6% <div class="barwrap"><div class="bar" style="width:13.1%;background:#1a9850;float:left"></div></div></td>
+          <td>19.79x</td>
+          <td>59</td>
+          <td>+30.7%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>YUM </td>
+          <td>Yum! Brands, Inc.</td>
+          <td>135.75</td>
+          <td>-5.3%</td>
+          <td>+131.6% <div class="barwrap"><div class="bar" style="width:87.7%;background:#1a9850;float:left"></div></div></td>
+          <td>+12.2% <div class="barwrap"><div class="bar" style="width:8.1%;background:#1a9850;float:left"></div></div></td>
+          <td>17.08x</td>
+          <td>23</td>
+          <td>+27.4%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>PEP </td>
+          <td>PepsiCo, Inc.</td>
+          <td>133.66</td>
+          <td>-5.2%</td>
+          <td>+137.0% <div class="barwrap"><div class="bar" style="width:91.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+6.4% <div class="barwrap"><div class="bar" style="width:4.3%;background:#1a9850;float:left"></div></div></td>
+          <td>17.61x</td>
+          <td>22</td>
+          <td>+16.0%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>JLL </td>
+          <td>Jones Lang LaSalle Incorporated</td>
+          <td>336.84</td>
+          <td>+6.8%</td>
+          <td>+97.8% <div class="barwrap"><div class="bar" style="width:65.2%;background:#1a9850;float:left"></div></div></td>
+          <td>+10.8% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
+          <td>16.31x</td>
+          <td>10</td>
+          <td>+26.3%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>HIG </td>
+          <td>The Hartford Insurance Group, Inc.</td>
+          <td>133.14</td>
+          <td>+3.0%</td>
+          <td>+36.1% <div class="barwrap"><div class="bar" style="width:24.1%;background:#1a9850;float:left"></div></div></td>
+          <td>+8.1% <div class="barwrap"><div class="bar" style="width:5.4%;background:#1a9850;float:left"></div></div></td>
+          <td>9.32x</td>
+          <td>20</td>
+          <td>+12.2%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>PAYP </td>
+          <td>PayPay Corporation</td>
+          <td>17.91</td>
+          <td>-2.8%</td>
+          <td>+62.2% <div class="barwrap"><div class="bar" style="width:41.5%;background:#1a9850;float:left"></div></div></td>
+          <td>+27.0% <div class="barwrap"><div class="bar" style="width:18.0%;background:#1a9850;float:left"></div></div></td>
+          <td>15.05x</td>
+          <td>13</td>
+          <td>+35.8%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>WPC </td>
+          <td>W. P. Carey Inc.</td>
+          <td>66.52</td>
+          <td>-1.3%</td>
+          <td>+256.5% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+18.4% <div class="barwrap"><div class="bar" style="width:12.3%;background:#1a9850;float:left"></div></div></td>
+          <td>22.78x</td>
+          <td>13</td>
+          <td>+20.7%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>SF </td>
+          <td>Stifel Financial Corp.</td>
+          <td>75.51</td>
+          <td>-1.4%</td>
+          <td>+50.6% <div class="barwrap"><div class="bar" style="width:33.7%;background:#1a9850;float:left"></div></div></td>
+          <td>+12.7% <div class="barwrap"><div class="bar" style="width:8.5%;background:#1a9850;float:left"></div></div></td>
+          <td>13.51x</td>
+          <td>8</td>
+          <td>+17.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>AFL </td>
+          <td>Aflac Incorporated</td>
+          <td>116.60</td>
+          <td>+8.1%</td>
+          <td>+46.8% <div class="barwrap"><div class="bar" style="width:31.2%;background:#1a9850;float:left"></div></div></td>
+          <td>-1.0% <div class="barwrap"><div class="bar" style="width:0.7%;background:#d73027;float:right"></div></div></td>
+          <td>12.59x</td>
+          <td>15</td>
+          <td>+1.7%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>AFG </td>
+          <td>American Financial Group, Inc.</td>
+          <td>142.87</td>
+          <td>+1.2%</td>
+          <td>+44.3% <div class="barwrap"><div class="bar" style="width:29.5%;background:#1a9850;float:left"></div></div></td>
+          <td>+5.8% <div class="barwrap"><div class="bar" style="width:3.9%;background:#1a9850;float:left"></div></div></td>
+          <td>12.50x</td>
+          <td>6</td>
+          <td>+9.1%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>NXPI </td>
+          <td>NXP Semiconductors N.V.</td>
+          <td>227.95</td>
+          <td>-2.3%</td>
+          <td>+72.6% <div class="barwrap"><div class="bar" style="width:48.4%;background:#1a9850;float:left"></div></div></td>
+          <td>+19.5% <div class="barwrap"><div class="bar" style="width:13.0%;background:#1a9850;float:left"></div></div></td>
+          <td>18.68x</td>
+          <td>29</td>
+          <td>+36.5%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>GEN </td>
+          <td>Gen Digital Inc.</td>
+          <td>30.21</td>
+          <td>+5.7%</td>
+          <td>+64.0% <div class="barwrap"><div class="bar" style="width:42.7%;background:#1a9850;float:left"></div></div></td>
+          <td>+6.3% <div class="barwrap"><div class="bar" style="width:4.2%;background:#1a9850;float:left"></div></div></td>
+          <td>17.88x</td>
+          <td>9</td>
+          <td>+9.2%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>UMBF </td>
+          <td>UMB Financial Corporation</td>
+          <td>134.76</td>
+          <td>+9.5%</td>
+          <td>+26.2% <div class="barwrap"><div class="bar" style="width:17.5%;background:#1a9850;float:left"></div></div></td>
+          <td>+12.2% <div class="barwrap"><div class="bar" style="width:8.1%;background:#1a9850;float:left"></div></div></td>
+          <td>11.16x</td>
+          <td>16</td>
+          <td>+25.5%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>UHS </td>
+          <td>Universal Health Services, Inc.</td>
+          <td>180.75</td>
+          <td>-3.9%</td>
+          <td>+10.1% <div class="barwrap"><div class="bar" style="width:6.7%;background:#1a9850;float:left"></div></div></td>
+          <td>+8.3% <div class="barwrap"><div class="bar" style="width:5.5%;background:#1a9850;float:left"></div></div></td>
+          <td>7.40x</td>
+          <td>17</td>
+          <td>+7.3%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>UDR </td>
+          <td>UDR, Inc.</td>
+          <td>34.21</td>
+          <td>-7.8%</td>
+          <td>+90.9% <div class="barwrap"><div class="bar" style="width:60.6%;background:#1a9850;float:left"></div></div></td>
+          <td>-0.1% <div class="barwrap"><div class="bar" style="width:0.1%;background:#d73027;float:right"></div></div></td>
+          <td>21.79x</td>
+          <td>21</td>
+          <td>+21.9%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>AMT </td>
+          <td>American Tower Corporation</td>
+          <td>175.58</td>
+          <td>-8.6%</td>
+          <td>+138.5% <div class="barwrap"><div class="bar" style="width:92.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+4.7% <div class="barwrap"><div class="bar" style="width:3.1%;background:#1a9850;float:left"></div></div></td>
+          <td>24.28x</td>
+          <td>23</td>
+          <td>+22.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>CRM </td>
+          <td>Salesforce, Inc.</td>
+          <td>242.85</td>
+          <td>+1.4%</td>
+          <td>+118.9% <div class="barwrap"><div class="bar" style="width:79.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+10.8% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
+          <td>22.93x</td>
+          <td>54</td>
+          <td>+14.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>BCE </td>
+          <td>BCE Inc.</td>
+          <td>22.28</td>
+          <td>-3.1%</td>
+          <td>-3.8% <div class="barwrap"><div class="bar" style="width:2.5%;background:#d73027;float:right"></div></div></td>
+          <td>+1.5% <div class="barwrap"><div class="bar" style="width:1.0%;background:#1a9850;float:left"></div></div></td>
+          <td>4.64x</td>
+          <td>3</td>
+          <td>+20.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>FHN </td>
+          <td>First Horizon Corporation</td>
+          <td>24.01</td>
+          <td>+3.0%</td>
+          <td>+20.0% <div class="barwrap"><div class="bar" style="width:13.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+9.0% <div class="barwrap"><div class="bar" style="width:6.0%;background:#1a9850;float:left"></div></div></td>
+          <td>11.49x</td>
+          <td>21</td>
+          <td>+16.8%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>KEY </td>
+          <td>KeyCorp</td>
+          <td>20.95</td>
+          <td>+8.6%</td>
+          <td>+25.3% <div class="barwrap"><div class="bar" style="width:16.9%;background:#1a9850;float:left"></div></div></td>
+          <td>+10.1% <div class="barwrap"><div class="bar" style="width:6.7%;background:#1a9850;float:left"></div></div></td>
+          <td>12.11x</td>
+          <td>19</td>
+          <td>+24.2%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>ULS </td>
+          <td>UL Solutions Inc.</td>
+          <td>64.42</td>
+          <td>-5.8%</td>
+          <td>+168.9% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+5.2% <div class="barwrap"><div class="bar" style="width:3.5%;background:#1a9850;float:left"></div></div></td>
+          <td>25.87x</td>
+          <td>12</td>
+          <td>+51.1%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>ALLY </td>
+          <td>Ally Financial Inc.</td>
+          <td>40.60</td>
+          <td>-8.8%</td>
+          <td>+13.5% <div class="barwrap"><div class="bar" style="width:9.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+11.0% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
+          <td>9.49x</td>
+          <td>18</td>
+          <td>+32.4%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>HII </td>
+          <td>Huntington Ingalls Industries, Inc.</td>
+          <td>277.14</td>
+          <td>+1.1%</td>
+          <td>+36.5% <div class="barwrap"><div class="bar" style="width:24.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+10.9% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
+          <td>16.56x</td>
+          <td>12</td>
+          <td>+32.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>ACGL </td>
+          <td>Arch Capital Group Ltd.</td>
+          <td>96.70</td>
+          <td>+9.7%</td>
+          <td>-7.1% <div class="barwrap"><div class="bar" style="width:4.7%;background:#d73027;float:right"></div></div></td>
+          <td>-10.5% <div class="barwrap"><div class="bar" style="width:7.0%;background:#d73027;float:right"></div></div></td>
+          <td>7.59x</td>
+          <td>19</td>
+          <td>+15.5%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>SSB </td>
+          <td>SouthState Bank Corporation</td>
+          <td>103.67</td>
+          <td>+2.4%</td>
+          <td>+11.4% <div class="barwrap"><div class="bar" style="width:7.6%;background:#1a9850;float:left"></div></div></td>
+          <td>-0.1% <div class="barwrap"><div class="bar" style="width:0.1%;background:#d73027;float:right"></div></div></td>
+          <td>10.90x</td>
+          <td>14</td>
+          <td>+15.6%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>AVGO </td>
+          <td>Broadcom Inc.</td>
+          <td>347.30</td>
+          <td>-1.6%</td>
+          <td>+215.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+85.5% <div class="barwrap"><div class="bar" style="width:57.0%;background:#1a9850;float:left"></div></div></td>
+          <td>43.30x</td>
+          <td>47</td>
+          <td>+53.1%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>EXE </td>
+          <td>Expand Energy Corporation</td>
+          <td>88.33</td>
+          <td>-9.9%</td>
+          <td>-45.5% <div class="barwrap"><div class="bar" style="width:30.3%;background:#d73027;float:right"></div></div></td>
+          <td>-10.6% <div class="barwrap"><div class="bar" style="width:7.1%;background:#d73027;float:right"></div></div></td>
+          <td>7.65x</td>
+          <td>27</td>
+          <td>+42.1%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>CI </td>
+          <td>The Cigna Group</td>
+          <td>276.00</td>
+          <td>-3.4%</td>
+          <td>+10.2% <div class="barwrap"><div class="bar" style="width:6.8%;background:#1a9850;float:left"></div></div></td>
+          <td>+6.7% <div class="barwrap"><div class="bar" style="width:4.5%;background:#1a9850;float:left"></div></div></td>
+          <td>11.60x</td>
+          <td>25</td>
+          <td>+23.0%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>CNA </td>
+          <td>CNA Financial Corporation</td>
+          <td>48.20</td>
+          <td>+5.7%</td>
+          <td>+7.3% <div class="barwrap"><div class="bar" style="width:4.9%;background:#1a9850;float:left"></div></div></td>
+          <td>+3.0% <div class="barwrap"><div class="bar" style="width:2.0%;background:#1a9850;float:left"></div></div></td>
+          <td>10.59x</td>
+          <td>1</td>
+          <td>+1.7%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>PLTR </td>
+          <td>Palantir Technologies Inc.</td>
+          <td>176.24</td>
+          <td>-4.4%</td>
+          <td>+215.4% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+92.8% <div class="barwrap"><div class="bar" style="width:61.9%;background:#1a9850;float:left"></div></div></td>
+          <td>149.36x</td>
+          <td>27</td>
+          <td>+11.7%</td>
+          <td class="flag-warn">possible_low_base_effect</td>
+        </tr>
+        <tr class="">
+          <td>ALAB </td>
+          <td>Astera Labs, Inc.</td>
+          <td>293.56</td>
+          <td>+9.8%</td>
+          <td>+186.2% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+104.5% <div class="barwrap"><div class="bar" style="width:69.7%;background:#1a9850;float:left"></div></div></td>
+          <td>133.44x</td>
+          <td>23</td>
+          <td>+32.8%</td>
+          <td class="flag-none">none</td>
+        </tr>
+  </table>
+  
+  <h2>Track record — does this blueprint actually have an edge?</h2>
+  <table>
+    <tr><th>Ticker</th><th>Name</th><th>Entry Date</th><th>Entry Price</th><th>Exit Date</th>
+        <th>Status</th><th>Return</th></tr>
+    
+        <tr>
+          <td>HEI</td><td>HEICO Corporation</td>
+          <td>2026-09-18</td><td>296.48</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>UMBF</td><td>UMB Financial Corporation</td>
+          <td>2026-09-18</td><td>134.76</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CDE</td><td>Coeur Mining, Inc.</td>
+          <td>2026-09-18</td><td>19.98</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>TEL</td><td>TE Connectivity plc</td>
+          <td>2026-09-18</td><td>206.60</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>WPC</td><td>W. P. Carey Inc.</td>
+          <td>2026-09-18</td><td>66.52</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>COR</td><td>Cencora, Inc.</td>
+          <td>2026-09-18</td><td>309.41</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>UHS</td><td>Universal Health Services, Inc.</td>
+          <td>2026-09-18</td><td>180.75</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>NDAQ</td><td>Nasdaq, Inc.</td>
+          <td>2026-09-18</td><td>91.31</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>DCI</td><td>Donaldson Company, Inc.</td>
+          <td>2026-09-18</td><td>86.05</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ULS</td><td>UL Solutions Inc.</td>
+          <td>2026-09-18</td><td>64.42</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>RRX</td><td>Regal Rexnord Corporation</td>
+          <td>2026-09-18</td><td>147.94</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>BPOPO</td><td>Popular, Inc.</td>
+          <td>2026-09-18</td><td>25.10</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CI</td><td>The Cigna Group</td>
+          <td>2026-09-18</td><td>276.00</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AMZN</td><td>Amazon.com, Inc.</td>
+          <td>2026-09-18</td><td>251.19</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>EIX</td><td>Edison International</td>
+          <td>2026-09-18</td><td>55.50</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>PAYP</td><td>PayPay Corporation</td>
+          <td>2026-09-18</td><td>17.91</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>UL</td><td>Unilever PLC</td>
+          <td>2026-09-18</td><td>62.22</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>NBIX</td><td>Neurocrine Biosciences, Inc.</td>
+          <td>2026-09-18</td><td>151.83</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AZN</td><td>AstraZeneca PLC</td>
+          <td>2026-09-18</td><td>166.14</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>SSB</td><td>SouthState Bank Corporation</td>
+          <td>2026-09-18</td><td>103.67</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AVGO</td><td>Broadcom Inc.</td>
+          <td>2026-09-18</td><td>347.30</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>VEEV</td><td>Veeva Systems Inc.</td>
+          <td>2026-09-18</td><td>263.75</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CRM</td><td>Salesforce, Inc.</td>
+          <td>2026-09-18</td><td>242.85</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ICE</td><td>Intercontinental Exchange, Inc.</td>
+          <td>2026-09-18</td><td>153.30</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>PLTR</td><td>Palantir Technologies Inc.</td>
+          <td>2026-09-18</td><td>176.24</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>PPG</td><td>PPG Industries, Inc.</td>
+          <td>2026-09-18</td><td>105.45</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>FN</td><td>Fabrinet</td>
+          <td>2026-09-18</td><td>380.92</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>HII</td><td>Huntington Ingalls Industries, Inc.</td>
+          <td>2026-09-18</td><td>277.14</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>BTI</td><td>British American Tobacco p.l.c.</td>
+          <td>2026-09-18</td><td>56.02</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CINF</td><td>Cincinnati Financial Corporation</td>
+          <td>2026-09-18</td><td>169.90</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>SF</td><td>Stifel Financial Corp.</td>
+          <td>2026-09-18</td><td>75.51</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>HON</td><td>Honeywell International Inc.</td>
+          <td>2026-09-18</td><td>206.49</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>PPL</td><td>PPL Corporation</td>
+          <td>2026-09-18</td><td>33.60</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ZM</td><td>Zoom Communications, Inc.</td>
+          <td>2026-09-18</td><td>92.16</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>GEN</td><td>Gen Digital Inc.</td>
+          <td>2026-09-18</td><td>30.21</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>SKHY</td><td>SK hynix Inc.</td>
+          <td>2026-09-18</td><td>182.99</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>YUM</td><td>Yum! Brands, Inc.</td>
+          <td>2026-09-18</td><td>135.75</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>REG</td><td>Regency Centers Corporation</td>
+          <td>2026-09-18</td><td>73.12</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>UDR</td><td>UDR, Inc.</td>
+          <td>2026-09-18</td><td>34.21</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>MCO</td><td>Moody&#x27;s Corporation</td>
+          <td>2026-09-18</td><td>461.88</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>BAX</td><td>Baxter International Inc.</td>
+          <td>2026-09-18</td><td>23.02</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CASY</td><td>Casey&#x27;s General Stores, Inc.</td>
+          <td>2026-09-18</td><td>607.45</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AFL</td><td>Aflac Incorporated</td>
+          <td>2026-09-18</td><td>116.60</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CHD</td><td>Church &amp; Dwight Co., Inc.</td>
+          <td>2026-09-18</td><td>95.05</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>RL</td><td>Ralph Lauren Corporation</td>
+          <td>2026-09-18</td><td>333.08</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AMT</td><td>American Tower Corporation</td>
+          <td>2026-09-18</td><td>175.58</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ACGL</td><td>Arch Capital Group Ltd.</td>
+          <td>2026-09-18</td><td>96.70</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>EQT</td><td>EQT Corporation</td>
+          <td>2026-09-18</td><td>50.35</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>O</td><td>Realty Income Corporation</td>
+          <td>2026-09-18</td><td>57.32</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>PEP</td><td>PepsiCo, Inc.</td>
+          <td>2026-09-18</td><td>133.66</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CNA</td><td>CNA Financial Corporation</td>
+          <td>2026-09-18</td><td>48.20</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>TW</td><td>Tradeweb Markets Inc.</td>
+          <td>2026-09-18</td><td>102.06</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ES</td><td>Eversource Energy</td>
+          <td>2026-09-18</td><td>68.99</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ALAB</td><td>Astera Labs, Inc.</td>
+          <td>2026-09-18</td><td>293.56</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>GFI</td><td>Gold Fields Limited</td>
+          <td>2026-09-18</td><td>43.34</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AFG</td><td>American Financial Group, Inc.</td>
+          <td>2026-09-18</td><td>142.87</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>LTM</td><td>LATAM Airlines Group S.A.</td>
+          <td>2026-09-18</td><td>51.35</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>HIG</td><td>The Hartford Insurance Group, Inc.</td>
+          <td>2026-09-18</td><td>133.14</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>BCE</td><td>BCE Inc.</td>
+          <td>2026-09-18</td><td>22.28</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>PAYC</td><td>Paycom Software, Inc.</td>
+          <td>2026-09-18</td><td>226.06</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>KEY</td><td>KeyCorp</td>
+          <td>2026-09-18</td><td>20.95</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CRDO</td><td>Credo Technology Group Holding Ltd</td>
+          <td>2026-09-18</td><td>168.25</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>NLY</td><td>Annaly Capital Management, Inc.</td>
+          <td>2026-09-18</td><td>21.31</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>DRD</td><td>DRDGOLD Limited</td>
+          <td>2026-09-18</td><td>26.11</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>JLL</td><td>Jones Lang LaSalle Incorporated</td>
+          <td>2026-09-18</td><td>336.84</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>WTW</td><td>Willis Towers Watson Public Limited Company</td>
+          <td>2026-09-18</td><td>310.99</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>FHN</td><td>First Horizon Corporation</td>
+          <td>2026-09-18</td><td>24.01</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>NXPI</td><td>NXP Semiconductors N.V.</td>
+          <td>2026-09-18</td><td>227.95</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>ALLY</td><td>Ally Financial Inc.</td>
+          <td>2026-09-18</td><td>40.60</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>FRHC</td><td>Freedom Holdings Corp.</td>
+          <td>2026-09-18</td><td>164.71</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>MSFT</td><td>Microsoft Corporation</td>
+          <td>2026-09-18</td><td>497.75</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>EXE</td><td>Expand Energy Corporation</td>
+          <td>2026-09-18</td><td>88.33</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CPT</td><td>Camden Property Trust</td>
+          <td>2026-09-18</td><td>100.93</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+  </table>
+  
+  <h2>History — additions &amp; removals</h2>
+  <table>
+    <tr><th>Date</th><th>Ticker</th><th>Company</th><th>Event</th><th>Reason</th></tr>
+    
+        <tr>
+          <td>2026-09-18</td>
+          <td>PTBKF</td>
+          <td>PT Surya Citra Media Tbk</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth +36.9%, revenue growth +6.2%, price change +0.0% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>INRHF</td>
+          <td>INFRONEER Holdings Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MMNNF</td>
+          <td>Munters Group AB (publ)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ZHAOF</td>
+          <td>Zhaojin Mining Industry Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -58.9% (was -58.9%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HIRAF</td>
+          <td>Hirata Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>DNGFF</td>
+          <td>Dongfang Electric Corporation Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>revenue growth turned negative (-2.0%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>JRFIF</td>
+          <td>Japan Metropolitan Fund Investment Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +23.2% (was +23.2%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>EOVBF</td>
+          <td>AirTrip Corp.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -55.8% (was -55.8%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LNTEF</td>
+          <td>LINTEC Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HUKEF</td>
+          <td>Hokuriku Electrical Construction Co.,Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TOIPF</td>
+          <td>Thai Oil Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AVIFY</td>
+          <td>Advanced Info Service Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +24.9% (was +24.9%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NSEIF</td>
+          <td>Nippon Seiki Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TAKMF</td>
+          <td>Takamatsu Construction Group Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BRK-A</td>
+          <td>Berkshire Hathaway Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AXAHF</td>
+          <td>AXA SA</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +13.2% (was +13.2%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>OTGLF</td>
+          <td>CD Projekt Red S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>FBASF</td>
+          <td>Fibra UNO</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -24.7% (was -24.7%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HOCPF</td>
+          <td>HOYA Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SAOGF</td>
+          <td>Seria Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HYPMY</td>
+          <td>Hypera S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +4.5% (was +4.5%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SIELF</td>
+          <td>Shanghai Electric Group Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +10.7% (was +10.7%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NWWCF</td>
+          <td>New China Life Insurance Company Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PTMYF</td>
+          <td>PT Mayora Indah Tbk</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TGOSF</td>
+          <td>Toyoda Gosei Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AJNMY</td>
+          <td>Ajinomoto Co., Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +16.8% (was +16.8%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KYDKF</td>
+          <td>Kraftia Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +9.0% (was +9.0%, needs &gt;25%); revenue growth turned negative (-1.9%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SHMXY</td>
+          <td>Shimadzu Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SHHGF</td>
+          <td>Shenwan Hongyuan Group Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MITEF</td>
+          <td>Mitsubishi Estate Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>RZNXF</td>
+          <td>RAIZNEXT Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BRDCY</td>
+          <td>Bridgestone Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SPG-PJ</td>
+          <td>Simon Property Group, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -12.5% (was -12.5%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SDMHF</td>
+          <td>Sartorius Stedim Biotech S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KYWAF</td>
+          <td>EXEO Group, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NCKAF</td>
+          <td>Nickel Asia Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ZJGIY</td>
+          <td>nan</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>IVTBF</td>
+          <td>Investment AB Latour (publ)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ICHIF</td>
+          <td>Ichigo Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>revenue growth turned negative (-15.9%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PIAIF</td>
+          <td>Ping An Insurance (Group) Company of China, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KNAMF</td>
+          <td>Konami Group Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KTITF</td>
+          <td>KATITAS CO., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CMSYF</td>
+          <td>COMSYS Holdings Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>IZMIF</td>
+          <td>Izumi Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +13.6% (was +13.6%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TMXXF</td>
+          <td>TMX Group Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ZZHGF</td>
+          <td>ZhongAn Online P &amp; C Insurance Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CRPFY</td>
+          <td>Corporación Financiera Colombiana S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ANTOF</td>
+          <td>Iida Group Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GPMXY</td>
+          <td>Grupo México, S.A.B. de C.V.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>YAHOF</td>
+          <td>LY Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +24.1% (was +24.1%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>UCBJF</td>
+          <td>UCB SA</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AVEXF</td>
+          <td>Avex Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -44.3% (was -44.3%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LIOPY</td>
+          <td>Lion Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +18.8% (was +18.8%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SWRHF</td>
+          <td>Shibusawa Logistics Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TSKMF</td>
+          <td>Tsubakimoto Chain Co.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -4.4% (was -4.4%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SEOTF</td>
+          <td>Seino Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CAJFF</td>
+          <td>Canon Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HALMY</td>
+          <td>Halma plc</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +16.0% (was +16.0%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GFSEF</td>
+          <td>GF Securities Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>RUMOF</td>
+          <td>Rumo S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ZSHOF</td>
+          <td>Zensho Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SDCKF</td>
+          <td>Sodick Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MXLLF</td>
+          <td>Maxell, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NDGPF</td>
+          <td>Nine Dragons Paper (Holdings) Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SUGBY</td>
+          <td>Suruga Bank Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>OPMXF</td>
+          <td>Operadora de Sites Mexicanos, S.A.B. de C.V.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BRDLF</td>
+          <td>Broadleaf Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HNSPF</td>
+          <td>Hansoh Pharmaceutical Group Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ELCMF</td>
+          <td>Elecom Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>OITAF</td>
+          <td>The Oita Bank, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +21.1% (was +21.1%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TSGMY</td>
+          <td>Tsugami Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>JXAMY</td>
+          <td>JX Advanced Metals Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SAXPF</td>
+          <td>Sampo Oyj</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +6.3% (was +6.3%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>VREAF</td>
+          <td>Vår Energi ASA</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SMDPY</td>
+          <td>Sumitomo Pharma Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CSCFF</td>
+          <td>CSC Financial Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GMGSF</td>
+          <td>Goodman Group</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AMCUF</td>
+          <td>Amata Corporation Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HNIKF</td>
+          <td>nan</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>THLEF</td>
+          <td>Thales S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -27.0% (was -27.0%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SGIOF</td>
+          <td>Shionogi &amp; Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LDNXF</td>
+          <td>London Stock Exchange Group plc</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CFG-PI</td>
+          <td>Citizens Financial Group, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SPIDY</td>
+          <td>Septeni Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LUGDF</td>
+          <td>Lundin Gold Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +12.2% (was +12.2%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NPXYY</td>
+          <td>Nippon Sanso Holdings Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>RYBIF</td>
+          <td>Ryobi Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -50.7% (was -50.7%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PPLFF</td>
+          <td>PT Perusahaan Perkebunan London Sumatra Indonesia Tbk</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SALRY</td>
+          <td>SalMar ASA</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GBRSF</td>
+          <td>Global One Real Estate Investment Corp.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +7.5% (was +7.5%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PTABF</td>
+          <td>PT Astra Agro Lestari Tbk</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KXHCF</td>
+          <td>Kioxia Holdings Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>FSNUF</td>
+          <td>Fresenius SE &amp; Co. KGaA</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +17.2% (was +17.2%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AICXF</td>
+          <td>Aichi Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>C-PR</td>
+          <td>Citigroup Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>EGIEY</td>
+          <td>Engie Brasil Energia S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved up +10.0% (outside +/-10% band); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NEE-PS</td>
+          <td>NextEra Energy, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ASGLY</td>
+          <td>AGC Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BDRPF</td>
+          <td>Bombardier Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -2.3% (was -2.3%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>JDEPY</td>
+          <td>JDE Peet&#x27;s N.V.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>FRUYF</td>
+          <td>Furuya Metal Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HROGF</td>
+          <td>Hirogin Holdings, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +22.1% (was +22.1%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HKTGF</td>
+          <td>Hikari Tsushin, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HMNKF</td>
+          <td>HMS Networks AB (publ)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GALDY</td>
+          <td>Galderma Group AG</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ABOIF</td>
+          <td>Aboitiz Equity Ventures, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HSSKY</td>
+          <td>HASEKO Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>UARWF</td>
+          <td>United Arrows Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TAYIF</td>
+          <td>Taiyo Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NSNHF</td>
+          <td>Nissan Shatai Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BAC-PB</td>
+          <td>Bank of America Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CMPGF</td>
+          <td>Compass Group PLC</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +16.3% (was +16.3%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ASOZY</td>
+          <td>Asseco Poland S.A.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +16.9% (was +16.9%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BRVDF</td>
+          <td>Bravida Holding AB (publ)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>DCYHY</td>
+          <td>Discovery Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>UNLRY</td>
+          <td>PT Unilever Indonesia Tbk</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -9.3% (was -9.3%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NTTAF</td>
+          <td>Nitta Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MHVYF</td>
+          <td>Mitsubishi Heavy Industries, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>revenue growth turned negative (+0.0%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SHMWF</td>
+          <td>ShinMaywa Industries, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TKUMF</td>
+          <td>Takuma Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>UI</td>
+          <td>Ubiquiti Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved down -10.3% (outside +/-10% band); earnings growth fell to +6.8% (was +6.8%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ASGLY</td>
+          <td>AGC Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved up +11.5% (outside +/-10% band); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>VG</td>
+          <td>Venture Global, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AJNMY</td>
+          <td>Ajinomoto Co., Inc.</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth +16.8%, revenue growth +13.2%, price change +9.2% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ASGLY</td>
+          <td>AGC Inc.</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth +74.5%, revenue growth +13.5%, price change +7.5% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CDE</td>
+          <td>Coeur Mining, Inc.</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth +7.6%, revenue growth +125.9%, price change +9.0% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LUGDF</td>
+          <td>Lundin Gold Inc.</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth +12.2%, revenue growth +5.5%, price change +8.1% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>EXE</td>
+          <td>Expand Energy Corporation</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth -45.5%, revenue growth -10.6%, price change -9.9% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GFI</td>
+          <td>Gold Fields Limited</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth +81.4%, revenue growth +78.9%, price change +1.6% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SZKMF</td>
+          <td>Suzuki Motor Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved down -13.9% (outside +/-10% band)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>GFIOF</td>
+          <td>Gold Fields Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NPNVF</td>
+          <td>Valqua, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>FSLR</td>
+          <td>First Solar, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved down -10.1% (outside +/-10% band); earnings growth fell to +23.3% (was +23.3%, needs &gt;25%); revenue growth turned negative (-3.7%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>DOC</td>
+          <td>Healthpeak Properties, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved up +10.2% (outside +/-10% band)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BTI</td>
+          <td>British American Tobacco p.l.c.</td>
+          <td class="event-added">ADDED</td>
+          <td>Earnings growth -28.6%, revenue growth +1.4%, price change +2.5% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AELIY</td>
+          <td>Anadolu Hayat Emeklilik Anonim Sirketi</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HUPHY</td>
+          <td>Hutchison Port Holdings Trust</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BTAFF</td>
+          <td>British American Tobacco p.l.c.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -28.6% (was -28.6%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HYKUF</td>
+          <td>The Hyakugo Bank, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AAGIY</td>
+          <td>AIA Group Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>revenue growth turned negative (-2.5%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KNFSF</td>
+          <td>Kiatnakin Phatra Bank Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SRIOF</td>
+          <td>A. Soriano Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CKDOF</td>
+          <td>CKD Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PKCOY</td>
+          <td>PARK24 Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>revenue growth turned negative (-0.7%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NLLRF</td>
+          <td>PILLAR Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>RINIF</td>
+          <td>Rinnai Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +3.6% (was +3.6%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>YNOYF</td>
+          <td>Yoshinoya Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ICHHF</td>
+          <td>Ichinen Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NHFOF</td>
+          <td>NH Foods Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -0.8% (was -0.8%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HEINY</td>
+          <td>Heineken N.V.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>STAEF</td>
+          <td>Stanley Electric Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -2.7% (was -2.7%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LYSCF</td>
+          <td>Lynas Rare Earths Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NCHNF</td>
+          <td>Nichicon Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AEMRF</td>
+          <td>Agnico Eagle Mines Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TODCF</td>
+          <td>Toda Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KYKOF</td>
+          <td>Kyowa Kirin Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AEOXF</td>
+          <td>Aeroports de Paris SA</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AOZOF</td>
+          <td>Aozora Bank, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>KSRYY</td>
+          <td>KOSE Holdings Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MITCF</td>
+          <td>Mitani Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +15.5% (was +15.5%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MIHDF</td>
+          <td>MISC Berhad</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NPPHY</td>
+          <td>Nippon Paint Holdings Co., Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +7.6% (was +7.6%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SKKLF</td>
+          <td>Shikoku Kasei Holdings Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BNY-PK</td>
+          <td>The Bank of New York Mellon Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>HACBF</td>
+          <td>Hachijuni Nagano Bank, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>NECPY</td>
+          <td>NEC Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MWTCF</td>
+          <td>Manila Water Company, Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -7.9% (was -7.9%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PPKRF</td>
+          <td>Pepkor Holdings Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +9.4% (was +9.4%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PTBKF</td>
+          <td>PT Surya Citra Media Tbk</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ASCCF</td>
+          <td>ASICS Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TMTMF</td>
+          <td>TechMatrix Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +23.8% (was +23.8%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ANCTF</td>
+          <td>Alimentation Couche-Tard Inc.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +9.8% (was +9.8%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>DUAVF</td>
+          <td>Dassault Aviation société anonyme</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +9.0% (was +9.0%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>RICOF</td>
+          <td>Ricoh Company, Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MNILY</td>
+          <td>Minor International Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +11.6% (was +11.6%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SAABF</td>
+          <td>Saab AB (publ)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TLTZF</td>
+          <td>Tele2 AB (publ)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +1.2% (was +1.2%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SKKAF</td>
+          <td>Sk Kaken Co.,Ltd.</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ORCL-PD</td>
+          <td>Oracle Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PPCCY</td>
+          <td>PICC Property and Casualty Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>PSSMF</td>
+          <td>Press Metal Aluminium Holdings Berhad</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ALL-PJ</td>
+          <td>The Allstate Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>BAMKF</td>
+          <td>Brookfield Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ALMMF</td>
+          <td>Aluminum Corporation of China Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>JSPCF</td>
+          <td>JSP Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>IFCZF</td>
+          <td>Intact Financial Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to -17.0% (was -17.0%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SGSUF</td>
+          <td>Sangetsu Corporation</td>
+          <td class="event-removed">REMOVED</td>
+          <td>market cap fell below 10B USD floor</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>MS-PE</td>
+          <td>Morgan Stanley</td>
+          <td class="event-removed">REMOVED</td>
+          <td>no longer matches screener criteria (net income growth or another server-side field slipped below threshold)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CYRBY</td>
+          <td>Cyrela Brazil Realty S.A. Empreendimentos e Participações</td>
+          <td class="event-removed">REMOVED</td>
+          <td>earnings growth fell to +16.4% (was +16.4%, needs &gt;25%); market cap fell below 10B USD floor</td>
+        </tr>
+  </table>
+  <script>
+    var sortDir = {};
+    function sortTable(col) {
+      var table = document.getElementById("candidatesTable");
+      var rows = Array.prototype.slice.call(table.rows).slice(1);
+      var dir = sortDir[col] = !sortDir[col];
+      rows.sort(function(a, b) {
+        var x = a.cells[col].innerText.replace(/[%x,]/g, "").split(" ")[0];
+        var y = b.cells[col].innerText.replace(/[%x,]/g, "").split(" ")[0];
+        var nx = parseFloat(x), ny = parseFloat(y);
+        var cmp;
+        if (!isNaN(nx) && !isNaN(ny)) { cmp = nx - ny; }
+        else { cmp = x.localeCompare(y); }
+        return dir ? cmp : -cmp;
+      });
+      rows.forEach(function(row) { table.appendChild(row); });
+    }
+  </script>
+</body></html>

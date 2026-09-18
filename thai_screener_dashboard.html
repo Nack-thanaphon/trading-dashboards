@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="th"><head><meta charset="utf-8">
+<title>Thai Stock Screener Dashboard</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #e6e6e6; margin: 0; padding: 24px; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .meta { color: #9aa0a6; font-size: 13px; margin-bottom: 20px; }
+  .summary { display: flex; gap: 16px; margin-bottom: 20px; }
+  .card { background: #1a1d29; border-radius: 8px; padding: 14px 20px; }
+  .card .num { font-size: 26px; font-weight: 700; }
+  .card .label { font-size: 12px; color: #9aa0a6; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #1a1d29; border-radius: 8px; overflow: hidden; }
+  th { text-align: left; background: #23273a; padding: 10px 8px; font-size: 12px; color: #9aa0a6; cursor: pointer; user-select: none; }
+  th:hover { color: #ffffff; }
+  td { padding: 8px; border-top: 1px solid #2a2e40; vertical-align: middle; }
+  .new-row { background: #1f3a2a; }
+  .badge { background: #1a9850; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+  .barwrap { display:inline-block; width: 80px; height: 8px; background:#2a2e40; border-radius:4px; vertical-align:middle; margin-left:6px; overflow:hidden; }
+  .bar { height: 8px; }
+  .flag-none { color: #6fbf73; }
+  .flag-warn { color: #e0a030; font-size: 12px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
+  .event-added { color: #6fbf73; font-weight: 600; }
+  .event-removed { color: #e05a5a; font-weight: 600; }
+</style></head>
+<body>
+  <h1>Thai Stock Screener Dashboard</h1>
+  <div class="meta">Last run: 2026-09-18 11:41 SE Asia Standard Time &nbsp;|&nbsp; Auto-refresh: reopen this file after each scheduled run (Task Scheduler: ThaiStockScreener, daily 08:00 Mon–Sat)</div>
+  <div class="summary">
+    <div class="card"><div class="num">10</div><div class="label">Candidates</div></div>
+    <div class="card"><div class="num">0</div><div class="label">New since last run</div></div>
+    
+    <div class="card"><div class="num">0</div><div class="label">Closed positions</div></div>
+    <div class="card"><div class="num">—</div><div class="label">Win rate (closed)</div></div>
+    <div class="card"><div class="num">—</div><div class="label">Avg realized return</div></div>
+    <div class="card"><div class="num">+0.0%</div><div class="label">Avg unrealized return</div></div>
+  </div>
+  <table id="candidatesTable">
+    <tr><th onclick="sortTable(0)">Ticker &#8597;</th><th onclick="sortTable(1)">Company &#8597;</th>
+        <th onclick="sortTable(2)">Price &#8597;</th><th onclick="sortTable(3)">52w Change &#8597;</th>
+        <th onclick="sortTable(4)">Earnings Growth &#8597;</th><th onclick="sortTable(5)">Revenue Growth &#8597;</th>
+        <th onclick="sortTable(6)">P/E &#8597;</th><th onclick="sortTable(7)">Analysts &#8597;</th>
+        <th onclick="sortTable(8)">Upside &#8597;</th><th onclick="sortTable(9)">Red Flags &#8597;</th></tr>
+    
+        <tr class="">
+          <td>TKC.BK </td>
+          <td>Turnkey Communication Services Public Company Limited</td>
+          <td>8.80</td>
+          <td>-7.4%</td>
+          <td>+341.5% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>+153.3% <div class="barwrap"><div class="bar" style="width:100.0%;background:#1a9850;float:left"></div></div></td>
+          <td>14.19x</td>
+          <td>0</td>
+          <td>—</td>
+          <td class="flag-warn">possible_low_base_effect<br>no_analyst_coverage</td>
+        </tr>
+        <tr class="">
+          <td>LOXLEY.BK </td>
+          <td>Loxley Public Company Limited</td>
+          <td>1.76</td>
+          <td>-1.2%</td>
+          <td>+133.3% <div class="barwrap"><div class="bar" style="width:88.9%;background:#1a9850;float:left"></div></div></td>
+          <td>+11.9% <div class="barwrap"><div class="bar" style="width:7.9%;background:#1a9850;float:left"></div></div></td>
+          <td>5.68x</td>
+          <td>0</td>
+          <td>—</td>
+          <td class="flag-warn">no_analyst_coverage</td>
+        </tr>
+        <tr class="">
+          <td>NCAP.BK </td>
+          <td>Next Capital Public Company Limited</td>
+          <td>3.32</td>
+          <td>-1.2%</td>
+          <td>+34.1% <div class="barwrap"><div class="bar" style="width:22.7%;background:#1a9850;float:left"></div></div></td>
+          <td>+24.2% <div class="barwrap"><div class="bar" style="width:16.1%;background:#1a9850;float:left"></div></div></td>
+          <td>6.92x</td>
+          <td>1</td>
+          <td>+80.7%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>RAM.BK </td>
+          <td>Ramkhamhaeng Hospital Public Company Limited</td>
+          <td>17.50</td>
+          <td>-1.1%</td>
+          <td>+28.6% <div class="barwrap"><div class="bar" style="width:19.1%;background:#1a9850;float:left"></div></div></td>
+          <td>+113.1% <div class="barwrap"><div class="bar" style="width:75.4%;background:#1a9850;float:left"></div></div></td>
+          <td>7.58x</td>
+          <td>2</td>
+          <td>-0.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>VIBHA.BK </td>
+          <td>Vibhavadi Medical Center Public Company Limited</td>
+          <td>1.35</td>
+          <td>-7.5%</td>
+          <td>+19.1% <div class="barwrap"><div class="bar" style="width:12.7%;background:#1a9850;float:left"></div></div></td>
+          <td>-4.8% <div class="barwrap"><div class="bar" style="width:3.2%;background:#d73027;float:right"></div></div></td>
+          <td>9.00x</td>
+          <td>0</td>
+          <td>—</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting<br>no_analyst_coverage</td>
+        </tr>
+        <tr class="">
+          <td>MRDIYT.BK </td>
+          <td>MR. D.I.Y. Holding (Thailand) Public Company Limited</td>
+          <td>8.85</td>
+          <td>+1.7%</td>
+          <td>+11.0% <div class="barwrap"><div class="bar" style="width:7.3%;background:#1a9850;float:left"></div></div></td>
+          <td>+17.8% <div class="barwrap"><div class="bar" style="width:11.9%;background:#1a9850;float:left"></div></div></td>
+          <td>18.44x</td>
+          <td>14</td>
+          <td>+24.8%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>BAFS.BK </td>
+          <td>Bangkok Aviation Fuel Services Public Company Limited</td>
+          <td>10.00</td>
+          <td>-2.9%</td>
+          <td>+10.6% <div class="barwrap"><div class="bar" style="width:7.1%;background:#1a9850;float:left"></div></div></td>
+          <td>-4.2% <div class="barwrap"><div class="bar" style="width:2.8%;background:#d73027;float:right"></div></div></td>
+          <td>37.04x</td>
+          <td>1</td>
+          <td>+40.0%</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting</td>
+        </tr>
+        <tr class="">
+          <td>CK.BK </td>
+          <td>CH. Karnchang Public Company Limited</td>
+          <td>17.90</td>
+          <td>+1.7%</td>
+          <td>-7.2% <div class="barwrap"><div class="bar" style="width:4.8%;background:#d73027;float:right"></div></div></td>
+          <td>+5.6% <div class="barwrap"><div class="bar" style="width:3.7%;background:#1a9850;float:left"></div></div></td>
+          <td>9.09x</td>
+          <td>11</td>
+          <td>+32.5%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>FPT.BK </td>
+          <td>Frasers Property (Thailand) Public Company Limited</td>
+          <td>7.20</td>
+          <td>+5.9%</td>
+          <td>-22.2% <div class="barwrap"><div class="bar" style="width:14.8%;background:#d73027;float:right"></div></div></td>
+          <td>-12.4% <div class="barwrap"><div class="bar" style="width:8.3%;background:#d73027;float:right"></div></div></td>
+          <td>6.99x</td>
+          <td>0</td>
+          <td>—</td>
+          <td class="flag-warn">revenue_declining_earnings_may_be_cost_cutting<br>no_analyst_coverage</td>
+        </tr>
+        <tr class="">
+          <td>AURA.BK </td>
+          <td>Aurora Design Public Company Limited</td>
+          <td>13.70</td>
+          <td>-2.2%</td>
+          <td>-37.0% <div class="barwrap"><div class="bar" style="width:24.7%;background:#d73027;float:right"></div></div></td>
+          <td>+57.6% <div class="barwrap"><div class="bar" style="width:38.4%;background:#1a9850;float:left"></div></div></td>
+          <td>11.32x</td>
+          <td>4</td>
+          <td>+43.1%</td>
+          <td class="flag-none">none</td>
+        </tr>
+  </table>
+  
+  <h2>Track record — does this blueprint actually have an edge?</h2>
+  <table>
+    <tr><th>Ticker</th><th>Name</th><th>Entry Date</th><th>Entry Price</th><th>Exit Date</th>
+        <th>Status</th><th>Return</th></tr>
+    
+        <tr>
+          <td>MRDIYT.BK</td><td>MR. D.I.Y. Holding (Thailand) Public Company Limited</td>
+          <td>2026-09-18</td><td>8.85</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>AURA.BK</td><td>Aurora Design Public Company Limited</td>
+          <td>2026-09-18</td><td>13.70</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>RAM.BK</td><td>Ramkhamhaeng Hospital Public Company Limited</td>
+          <td>2026-09-18</td><td>17.50</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>FPT.BK</td><td>Frasers Property (Thailand) Public Company Limited</td>
+          <td>2026-09-18</td><td>7.20</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>VIBHA.BK</td><td>Vibhavadi Medical Center Public Company Limited</td>
+          <td>2026-09-18</td><td>1.35</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>NCAP.BK</td><td>Next Capital Public Company Limited</td>
+          <td>2026-09-18</td><td>3.32</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>CK.BK</td><td>CH. Karnchang Public Company Limited</td>
+          <td>2026-09-18</td><td>17.90</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>TKC.BK</td><td>Turnkey Communication Services Public Company Limited</td>
+          <td>2026-09-18</td><td>8.80</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>LOXLEY.BK</td><td>Loxley Public Company Limited</td>
+          <td>2026-09-18</td><td>1.76</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>BAFS.BK</td><td>Bangkok Aviation Fuel Services Public Company Limited</td>
+          <td>2026-09-18</td><td>10.00</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+  </table>
+  
+  <h2>History — additions &amp; removals</h2>
+  <table>
+    <tr><th>Date</th><th>Ticker</th><th>Company</th><th>Event</th><th>Reason</th></tr>
+    
+        <tr>
+          <td>2026-09-18</td>
+          <td>M-CHAI.BK</td>
+          <td>Mahachai Hospital Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved down -13.6% (outside +/-10% band); earnings growth fell to +15.8% (was +15.8%, needs &gt;25%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SCAP.BK</td>
+          <td>Srisawad Capital 1969 Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved up +12.1% (outside +/-10% band)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TOA.BK</td>
+          <td>TOA Paint (Thailand) Public Company Limited</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price moved up +10.5% (outside +/-10% band); earnings growth fell to +10.3% (was +10.3%, needs &gt;25%)</td>
+        </tr>
+  </table>
+  <script>
+    var sortDir = {};
+    function sortTable(col) {
+      var table = document.getElementById("candidatesTable");
+      var rows = Array.prototype.slice.call(table.rows).slice(1);
+      var dir = sortDir[col] = !sortDir[col];
+      rows.sort(function(a, b) {
+        var x = a.cells[col].innerText.replace(/[%x,]/g, "").split(" ")[0];
+        var y = b.cells[col].innerText.replace(/[%x,]/g, "").split(" ")[0];
+        var nx = parseFloat(x), ny = parseFloat(y);
+        var cmp;
+        if (!isNaN(nx) && !isNaN(ny)) { cmp = nx - ny; }
+        else { cmp = x.localeCompare(y); }
+        return dir ? cmp : -cmp;
+      });
+      rows.forEach(function(row) { table.appendChild(row); });
+    }
+  </script>
+</body></html>

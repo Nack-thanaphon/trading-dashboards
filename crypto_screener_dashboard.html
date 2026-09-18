@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Crypto Screener Dashboard</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #e6e6e6; margin: 0; padding: 24px; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
+  .meta { color: #9aa0a6; font-size: 13px; margin-bottom: 20px; }
+  .summary { display: flex; gap: 16px; margin-bottom: 20px; }
+  .card { background: #1a1d29; border-radius: 8px; padding: 14px 20px; }
+  .card .num { font-size: 26px; font-weight: 700; }
+  .card .label { font-size: 12px; color: #9aa0a6; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #1a1d29; border-radius: 8px; overflow: hidden; }
+  th { text-align: left; background: #23273a; padding: 10px 8px; font-size: 12px; color: #9aa0a6; cursor: pointer; user-select: none; }
+  th:hover { color: #ffffff; }
+  td { padding: 8px; border-top: 1px solid #2a2e40; vertical-align: middle; }
+  .new-row { background: #1f3a2a; }
+  .badge { background: #1a9850; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+  .barwrap { display:inline-block; width: 80px; height: 8px; background:#2a2e40; border-radius:4px; vertical-align:middle; margin-left:6px; overflow:hidden; }
+  .bar { height: 8px; }
+  .flag-none { color: #6fbf73; }
+  .flag-warn { color: #e0a030; font-size: 12px; }
+  .event-added { color: #6fbf73; font-weight: 600; }
+  .event-removed { color: #e05a5a; font-weight: 600; }
+  .note { background: #23273a; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #9aa0a6; margin-bottom: 20px; }
+</style></head>
+<body>
+  <h1>Crypto Screener Dashboard</h1>
+  <div class="meta">Last run: 2026-09-18 14:35 SE Asia Standard Time &nbsp;|&nbsp; Universe: top 250 coins by market cap (CoinGecko)</div>
+  <div class="note">Crypto has no earnings/P/E/analyst targets, so this uses different proxies than the Thai/US screeners:
+  <b>30d market cap change</b> stands in for earnings growth, <b>volume/market-cap ratio</b> stands in for revenue growth
+  (real trading activity vs. a dead coin), and <b>distance from all-time high</b> is shown as context only — it is
+  NOT a prediction that a coin will revisit its ATH.</div>
+  <div class="summary">
+    <div class="card"><div class="num">21</div><div class="label">Candidates</div></div>
+    <div class="card"><div class="num">6</div><div class="label">New since last run</div></div>
+    
+    <div class="card"><div class="num">0</div><div class="label">Closed positions</div></div>
+    <div class="card"><div class="num">—</div><div class="label">Win rate (closed)</div></div>
+    <div class="card"><div class="num">—</div><div class="label">Avg realized return</div></div>
+    <div class="card"><div class="num">+1.2%</div><div class="label">Avg unrealized return</div></div>
+  </div>
+  <table id="candidatesTable">
+    <tr><th onclick="sortTable(0)">Symbol &#8597;</th><th onclick="sortTable(1)">Name &#8597;</th>
+        <th onclick="sortTable(2)">Price &#8597;</th><th onclick="sortTable(3)">24h Change &#8597;</th>
+        <th onclick="sortTable(4)">7d Change &#8597;</th><th onclick="sortTable(5)">30d Mcap Change &#8597;</th>
+        <th onclick="sortTable(6)">Vol/Mcap &#8597;</th><th onclick="sortTable(7)">From ATH &#8597;</th>
+        <th onclick="sortTable(8)">Red Flags &#8597;</th></tr>
+    
+        <tr class="">
+          <td>TRUMP </td>
+          <td>Official Trump</td>
+          <td>$2.0400</td>
+          <td>+4.0%</td>
+          <td>+2.2%</td>
+          <td>+44.8% <div class="barwrap"><div class="bar" style="width:14.9%;background:#1a9850;float:left"></div></div></td>
+          <td>30.1%</td>
+          <td>-97.2%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>DOT </td>
+          <td>Polkadot</td>
+          <td>$1.1400</td>
+          <td>+12.9%</td>
+          <td>-0.5%</td>
+          <td>+51.2% <div class="barwrap"><div class="bar" style="width:17.1%;background:#1a9850;float:left"></div></div></td>
+          <td>14.4%</td>
+          <td>-97.9%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>INJ </td>
+          <td>Injective</td>
+          <td>$6.0300</td>
+          <td>+8.8%</td>
+          <td>+0.0%</td>
+          <td>+44.0% <div class="barwrap"><div class="bar" style="width:14.7%;background:#1a9850;float:left"></div></div></td>
+          <td>17.7%</td>
+          <td>-88.5%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>WLD </td>
+          <td>Worldcoin</td>
+          <td>$0.4316</td>
+          <td>+14.3%</td>
+          <td>+6.2%</td>
+          <td>+35.1% <div class="barwrap"><div class="bar" style="width:11.7%;background:#1a9850;float:left"></div></div></td>
+          <td>20.1%</td>
+          <td>-96.3%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>CRV </td>
+          <td>Curve DAO</td>
+          <td>$0.3401</td>
+          <td>+6.6%</td>
+          <td>-2.6%</td>
+          <td>+42.3% <div class="barwrap"><div class="bar" style="width:14.1%;background:#1a9850;float:left"></div></div></td>
+          <td>13.8%</td>
+          <td>-97.8%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>APT </td>
+          <td>Aptos</td>
+          <td>$0.6638</td>
+          <td>+16.1%</td>
+          <td>+4.3%</td>
+          <td>+26.1% <div class="barwrap"><div class="bar" style="width:8.7%;background:#1a9850;float:left"></div></div></td>
+          <td>26.8%</td>
+          <td>-96.7%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="new-row">
+          <td>STX <span class="badge">NEW</span></td>
+          <td>Stacks</td>
+          <td>$0.2722</td>
+          <td>+13.4%</td>
+          <td>+5.4%</td>
+          <td>+127.6% <div class="barwrap"><div class="bar" style="width:42.5%;background:#1a9850;float:left"></div></div></td>
+          <td>5.8%</td>
+          <td>-93.0%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>ETHFI </td>
+          <td>Ether.fi</td>
+          <td>$0.6648</td>
+          <td>+10.2%</td>
+          <td>-3.2%</td>
+          <td>+34.8% <div class="barwrap"><div class="bar" style="width:11.6%;background:#1a9850;float:left"></div></div></td>
+          <td>8.4%</td>
+          <td>-92.2%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="new-row">
+          <td>VVV <span class="badge">NEW</span></td>
+          <td>Venice Token</td>
+          <td>$26.5600</td>
+          <td>+5.9%</td>
+          <td>+4.6%</td>
+          <td>+87.3% <div class="barwrap"><div class="bar" style="width:29.1%;background:#1a9850;float:left"></div></div></td>
+          <td>5.4%</td>
+          <td>-9.0%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>SOL </td>
+          <td>Solana</td>
+          <td>$105.7700</td>
+          <td>+5.7%</td>
+          <td>+5.6%</td>
+          <td>+37.3% <div class="barwrap"><div class="bar" style="width:12.4%;background:#1a9850;float:left"></div></div></td>
+          <td>6.8%</td>
+          <td>-63.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>TAO </td>
+          <td>Bittensor</td>
+          <td>$245.1500</td>
+          <td>+8.5%</td>
+          <td>+2.6%</td>
+          <td>+28.2% <div class="barwrap"><div class="bar" style="width:9.4%;background:#1a9850;float:left"></div></div></td>
+          <td>7.2%</td>
+          <td>-67.6%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="">
+          <td>AVAX </td>
+          <td>Avalanche</td>
+          <td>$7.9000</td>
+          <td>+4.7%</td>
+          <td>+5.1%</td>
+          <td>+24.6% <div class="barwrap"><div class="bar" style="width:8.2%;background:#1a9850;float:left"></div></div></td>
+          <td>9.0%</td>
+          <td>-94.6%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="new-row">
+          <td>POL <span class="badge">NEW</span></td>
+          <td>POL (ex-MATIC)</td>
+          <td>$0.0999</td>
+          <td>+3.5%</td>
+          <td>+7.7%</td>
+          <td>+21.7% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
+          <td>10.7%</td>
+          <td>-92.2%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>SUI </td>
+          <td>Sui</td>
+          <td>$0.7802</td>
+          <td>+7.8%</td>
+          <td>+5.1%</td>
+          <td>+18.8% <div class="barwrap"><div class="bar" style="width:6.3%;background:#1a9850;float:left"></div></div></td>
+          <td>17.0%</td>
+          <td>-85.4%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>ADA </td>
+          <td>Cardano</td>
+          <td>$0.2142</td>
+          <td>+7.9%</td>
+          <td>+1.7%</td>
+          <td>+21.6% <div class="barwrap"><div class="bar" style="width:7.2%;background:#1a9850;float:left"></div></div></td>
+          <td>6.8%</td>
+          <td>-93.1%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>RENDER </td>
+          <td>Render</td>
+          <td>$1.4900</td>
+          <td>+7.9%</td>
+          <td>+5.8%</td>
+          <td>+18.8% <div class="barwrap"><div class="bar" style="width:6.3%;background:#1a9850;float:left"></div></div></td>
+          <td>7.6%</td>
+          <td>-89.0%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>LTC </td>
+          <td>Litecoin</td>
+          <td>$55.1300</td>
+          <td>+4.7%</td>
+          <td>+3.9%</td>
+          <td>+23.8% <div class="barwrap"><div class="bar" style="width:7.9%;background:#1a9850;float:left"></div></div></td>
+          <td>5.6%</td>
+          <td>-86.6%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="">
+          <td>ASTER </td>
+          <td>Aster</td>
+          <td>$0.7499</td>
+          <td>+1.6%</td>
+          <td>+5.9%</td>
+          <td>+25.3% <div class="barwrap"><div class="bar" style="width:8.4%;background:#1a9850;float:left"></div></div></td>
+          <td>5.2%</td>
+          <td>-68.9%</td>
+          <td class="flag-none">none</td>
+        </tr>
+        <tr class="new-row">
+          <td>ATOM <span class="badge">NEW</span></td>
+          <td>Cosmos Hub</td>
+          <td>$1.6500</td>
+          <td>+7.1%</td>
+          <td>-6.9%</td>
+          <td>+16.3% <div class="barwrap"><div class="bar" style="width:5.4%;background:#1a9850;float:left"></div></div></td>
+          <td>6.1%</td>
+          <td>-96.2%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="new-row">
+          <td>DOGE <span class="badge">NEW</span></td>
+          <td>Dogecoin</td>
+          <td>$0.0843</td>
+          <td>+3.9%</td>
+          <td>+0.1%</td>
+          <td>+20.4% <div class="barwrap"><div class="bar" style="width:6.8%;background:#1a9850;float:left"></div></div></td>
+          <td>5.4%</td>
+          <td>-88.5%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+        <tr class="new-row">
+          <td>ALGO <span class="badge">NEW</span></td>
+          <td>Algorand</td>
+          <td>$0.0947</td>
+          <td>+5.4%</td>
+          <td>+2.3%</td>
+          <td>+20.6% <div class="barwrap"><div class="bar" style="width:6.9%;background:#1a9850;float:left"></div></div></td>
+          <td>5.0%</td>
+          <td>-97.3%</td>
+          <td class="flag-warn">still_80pct_plus_below_ath_may_never_recover</td>
+        </tr>
+  </table>
+  
+  <h2>Track record — does this blueprint actually have an edge?</h2>
+  <table>
+    <tr><th>Symbol</th><th>Name</th><th>Entry Date</th><th>Entry Price</th><th>Exit Date</th>
+        <th>Status</th><th>Return</th></tr>
+    
+        <tr>
+          <td>LTC</td><td>Litecoin</td>
+          <td>2026-09-18</td><td>$54.5900</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+1.0%</td>
+        </tr>
+        <tr>
+          <td>VVV</td><td>Venice Token</td>
+          <td>2026-09-18</td><td>$24.3100</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+9.3%</td>
+        </tr>
+        <tr>
+          <td>ATOM</td><td>Cosmos Hub</td>
+          <td>2026-09-18</td><td>$1.6500</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>POL</td><td>POL (ex-MATIC)</td>
+          <td>2026-09-18</td><td>$0.0999</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>DOGE</td><td>Dogecoin</td>
+          <td>2026-09-18</td><td>$0.0843</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+        <tr>
+          <td>TRUMP</td><td>Official Trump</td>
+          <td>2026-09-18</td><td>$2.0300</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.5%</td>
+        </tr>
+        <tr>
+          <td>CRV</td><td>Curve DAO</td>
+          <td>2026-09-18</td><td>$0.3396</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.1%</td>
+        </tr>
+        <tr>
+          <td>AVAX</td><td>Avalanche</td>
+          <td>2026-09-18</td><td>$7.8700</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.4%</td>
+        </tr>
+        <tr>
+          <td>STX</td><td>Stacks</td>
+          <td>2026-09-18</td><td>$0.2702</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.8%</td>
+        </tr>
+        <tr>
+          <td>ETHFI</td><td>Ether.fi</td>
+          <td>2026-09-18</td><td>$0.6493</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+2.4%</td>
+        </tr>
+        <tr>
+          <td>ADA</td><td>Cardano</td>
+          <td>2026-09-18</td><td>$0.2135</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.3%</td>
+        </tr>
+        <tr>
+          <td>ASTER</td><td>Aster</td>
+          <td>2026-09-18</td><td>$0.7439</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.8%</td>
+        </tr>
+        <tr>
+          <td>TAO</td><td>Bittensor</td>
+          <td>2026-09-18</td><td>$238.8500</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+2.6%</td>
+        </tr>
+        <tr>
+          <td>RENDER</td><td>Render</td>
+          <td>2026-09-18</td><td>$1.5000</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>-0.7%</td>
+        </tr>
+        <tr>
+          <td>APT</td><td>Aptos</td>
+          <td>2026-09-18</td><td>$0.6713</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>-1.1%</td>
+        </tr>
+        <tr>
+          <td>SOL</td><td>Solana</td>
+          <td>2026-09-18</td><td>$104.7700</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.9%</td>
+        </tr>
+        <tr>
+          <td>INJ</td><td>Injective</td>
+          <td>2026-09-18</td><td>$5.8700</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+2.7%</td>
+        </tr>
+        <tr>
+          <td>SUI</td><td>Sui</td>
+          <td>2026-09-18</td><td>$0.7772</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.4%</td>
+        </tr>
+        <tr>
+          <td>DOT</td><td>Polkadot</td>
+          <td>2026-09-18</td><td>$1.1200</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+1.8%</td>
+        </tr>
+        <tr>
+          <td>WLD</td><td>Worldcoin</td>
+          <td>2026-09-18</td><td>$0.4169</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+3.5%</td>
+        </tr>
+        <tr>
+          <td>ALGO</td><td>Algorand</td>
+          <td>2026-09-18</td><td>$0.0947</td><td>—</td>
+          <td class="event-added">ACTIVE</td>
+          <td>+0.0%</td>
+        </tr>
+  </table>
+  
+  <h2>History — additions &amp; removals</h2>
+  <table>
+    <tr><th>Date</th><th>Ticker</th><th>Name</th><th>Event</th><th>Reason</th></tr>
+    
+        <tr>
+          <td>2026-09-18</td>
+          <td>SOL</td>
+          <td>Solana</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +33.8%, vol/mcap ratio 5.8%, 7d price change +3.3% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>RENDER</td>
+          <td>Render</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +19.0%, vol/mcap ratio 7.0%, 7d price change +7.4% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ATOM</td>
+          <td>Cosmos Hub</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +16.3%, vol/mcap ratio 6.1%, 7d price change -6.9% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>POL</td>
+          <td>POL (ex-MATIC)</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +21.7%, vol/mcap ratio 10.7%, 7d price change +7.7% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>DOGE</td>
+          <td>Dogecoin</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +20.4%, vol/mcap ratio 5.4%, 7d price change +0.1% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>STX</td>
+          <td>Stacks</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +123.8%, vol/mcap ratio 5.1%, 7d price change +5.6% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>VVV</td>
+          <td>Venice Token</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +84.2%, vol/mcap ratio 5.3%, 7d price change +7.6% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>JUP</td>
+          <td>Jupiter</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price broke out up +8.3% over 7d (outside +/-8% band)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AAVE</td>
+          <td>Aave</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price broke out up +10.8% over 7d (outside +/-8% band)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>POL</td>
+          <td>POL (ex-MATIC)</td>
+          <td class="event-removed">REMOVED</td>
+          <td>price broke out up +8.4% over 7d (outside +/-8% band)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>VVV</td>
+          <td>Venice Token</td>
+          <td class="event-removed">REMOVED</td>
+          <td>volume/market-cap ratio fell to 4.7% (needs &gt;5%)</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ADA</td>
+          <td>Cardano</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +22.6%, vol/mcap ratio 6.2%, 7d price change +3.0% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ASTER</td>
+          <td>Aster</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +24.2%, vol/mcap ratio 5.2%, 7d price change +6.5% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>POL</td>
+          <td>POL (ex-MATIC)</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +19.9%, vol/mcap ratio 10.2%, 7d price change +6.7% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ETHFI</td>
+          <td>Ether.fi</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +33.5%, vol/mcap ratio 8.2%, 7d price change -3.8% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AVAX</td>
+          <td>Avalanche</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +21.7%, vol/mcap ratio 8.1%, 7d price change +3.2% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>SUI</td>
+          <td>Sui</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +17.1%, vol/mcap ratio 15.5%, 7d price change +4.3% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>WLD</td>
+          <td>Worldcoin</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +28.9%, vol/mcap ratio 16.3%, 7d price change +2.3% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>APT</td>
+          <td>Aptos</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +24.5%, vol/mcap ratio 19.3%, 7d price change +0.9% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>AAVE</td>
+          <td>Aave</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +49.7%, vol/mcap ratio 14.5%, 7d price change +7.0% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>JUP</td>
+          <td>Jupiter</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +44.7%, vol/mcap ratio 10.7%, 7d price change +5.9% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>VVV</td>
+          <td>Venice Token</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +81.0%, vol/mcap ratio 5.3%, 7d price change +5.5% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>INJ</td>
+          <td>Injective</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +38.9%, vol/mcap ratio 14.5%, 7d price change -3.2% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>CRV</td>
+          <td>Curve DAO</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +38.0%, vol/mcap ratio 14.0%, 7d price change -2.1% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>LTC</td>
+          <td>Litecoin</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +22.4%, vol/mcap ratio 5.2%, 7d price change +2.9% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TAO</td>
+          <td>Bittensor</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +24.9%, vol/mcap ratio 6.2%, 7d price change +1.4% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>DOT</td>
+          <td>Polkadot</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +48.6%, vol/mcap ratio 13.5%, 7d price change +0.4% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>TRUMP</td>
+          <td>Official Trump</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +43.9%, vol/mcap ratio 30.8%, 7d price change +2.2% within band</td>
+        </tr>
+        <tr>
+          <td>2026-09-18</td>
+          <td>ALGO</td>
+          <td>Algorand</td>
+          <td class="event-added">ADDED</td>
+          <td>30d mcap change +20.6%, vol/mcap ratio 5.0%, 7d price change +2.3% within band</td>
+        </tr>
+  </table>
+  <script>
+    var sortDir = {};
+    function sortTable(col) {
+      var table = document.getElementById("candidatesTable");
+      var rows = Array.prototype.slice.call(table.rows).slice(1);
+      var dir = sortDir[col] = !sortDir[col];
+      rows.sort(function(a, b) {
+        var x = a.cells[col].innerText.replace(/[%$,]/g, "").split(" ")[0];
+        var y = b.cells[col].innerText.replace(/[%$,]/g, "").split(" ")[0];
+        var nx = parseFloat(x), ny = parseFloat(y);
+        var cmp;
+        if (!isNaN(nx) && !isNaN(ny)) { cmp = nx - ny; }
+        else { cmp = x.localeCompare(y); }
+        return dir ? cmp : -cmp;
+      });
+      rows.forEach(function(row) { table.appendChild(row); });
+    }
+  </script>
+</body></html>
